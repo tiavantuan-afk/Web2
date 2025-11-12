@@ -1,11 +1,5 @@
-package DoAn.DS_Class;
-
 import java.util.Scanner;
 import java.util.Arrays;
-
-import DoAn.Classchinh.MonAn;
-import DoAn.Classchinh.NuocUong;
-import DoAn.Classchinh.ThucAn;
 
 public class List_MonAn {
     private MonAn[] ds;
@@ -49,7 +43,7 @@ public class List_MonAn {
     }
 
     public void xuat() {
-        if(ds.length == 0){
+        if (ds.length == 0) {
             System.out.println("Danh sach rong");
             return;
         }
@@ -64,8 +58,11 @@ public class List_MonAn {
     }
 
     public boolean OneIDFood(String maSP) {
-        for (int i = 0; i < ds.length - 1; i++) {
-            if (maSP.toUpperCase().contains(ds[i].maSP.toUpperCase()) && ds[i].maSP != null) {
+        if (maSP == null)
+            return true;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].maSP != null &&
+                    ds[i].maSP.equalsIgnoreCase(maSP)) {
                 return false;
             }
         }
@@ -73,8 +70,11 @@ public class List_MonAn {
     }
 
     public boolean TonTai(String maSP) {
-        for (int i = 0; i < ds.length - 1; i++) {
-            if (maSP.toUpperCase().contains(ds[i].maSP.toUpperCase()) && ds[i].maSP != null) {
+        if (maSP == null)
+            return false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].maSP != null &&
+                    ds[i].maSP.equalsIgnoreCase(maSP)) {
                 return true;
             }
         }
@@ -281,6 +281,37 @@ public class List_MonAn {
         }
     }
 
+    //Thống kê danh sách món ăn
+    public void thongKe(){
+        if(ds.length == 0){
+            System.out.println("Danh sach empty");
+            return;
+        }
+
+        int tongSoMon = ds.length;
+        int soThucAn = 0;
+        int soNuocUong = 0;
+        double tongGiaTri = 0;
+
+
+        //ThucAn
+        int thucAnCoThit = 0;
+        int thucAnCoTinhBot = 0;
+        int thucAnCoBotNgot = 0;
+
+
+        //NuocUong
+        int nuocUongCoDa = 0;
+        int nuocUongCoGas = 0;
+        int nuocUongLoaiChai = 0;
+        int nuocUongLoaiLon = 0;
+
+        for(int i = 0 ; i < ds.length; i++){
+            if(ds[i] !=null){}
+                tongGiaTri += ds[i].getGiaBan();
+        }
+    }
+
     public void menu() {
         int luaChon = -1;
         do {
@@ -345,6 +376,7 @@ public class List_MonAn {
                         String tenCanTim = sc.nextLine();
                         timKiemTen(tenCanTim);
                     }
+                    break;
                 case 0:
                     System.out.println("Xong");
                     break;

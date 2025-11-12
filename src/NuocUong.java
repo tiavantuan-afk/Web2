@@ -1,4 +1,3 @@
-package DoAn.Classchinh;
 
 import java.util.Scanner;
 

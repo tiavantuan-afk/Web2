@@ -1,8 +1,4 @@
-package DoAn.Classchinh;
-
 import java.util.Scanner;
-
-import DoAn.DS_Class.List_MonAn;
 
 public class ThucAn extends MonAn {
 
@@ -64,6 +60,14 @@ public class ThucAn extends MonAn {
 
     public void setCoTinhBot(boolean coTinhBot) {
         this.coTinhBot = coTinhBot;
+    }
+
+    public boolean isCoBotNgot() {
+        return coBotNgot;
+    }
+
+    public void setCoBotNgot(boolean coBotNgot) {
+        this.coBotNgot = coBotNgot;
     }
 
     // @Override
