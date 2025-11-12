@@ -89,4 +89,6 @@ public abstract class MonAn {
     // public abstract double tinhGiaSauKhuyenMai();
 
     // public abstract String getLoaiSanPham();
+    // chó kiệt đần vcl 
+    
 }
