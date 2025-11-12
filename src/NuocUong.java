@@ -5,6 +5,7 @@ public class NuocUong extends MonAn {
     // Thuộc tính
     private boolean coGas;
     private boolean loaiChai;
+    private boolean loaiLon;
     private boolean coDa;
 
     public NuocUong() {
@@ -12,11 +13,12 @@ public class NuocUong extends MonAn {
     }
 
     public NuocUong(String maSP, String tenSP, double giaBan, String soLuong, boolean coGas, boolean loaiChai,
-            boolean coDa) {
+            boolean coDa, boolean loaiLon) {
         super(maSP, tenSP, giaBan, soLuong);
         this.coGas = coGas;
         this.loaiChai = loaiChai;
         this.coDa = coDa;
+        this.loaiLon = loaiLon;
     }
 
     public NuocUong(NuocUong t) {
@@ -24,6 +26,7 @@ public class NuocUong extends MonAn {
         this.coDa = t.coDa;
         this.coGas = t.coGas;
         this.loaiChai = t.loaiChai;
+        this.loaiLon = t.loaiLon;
     }
 
     // Nhập xuất
@@ -35,10 +38,17 @@ public class NuocUong extends MonAn {
         coDa = sc.nextBoolean();
         System.out.print("Nhap co gas ? (true/false): ");
         coGas = sc.nextBoolean();
-        System.out.print("Nhap loai chai ? (lon/chai): ");
-        String loaiChaiStr = sc.nextLine();
-        loaiChai = loaiChaiStr.equalsIgnoreCase("Lon");
-        loaiChai = loaiChaiStr.equalsIgnoreCase("Chai");
+        System.out.print("Nhap loai bao bi ? (lon/chai): ");
+        String loaiBaoBi = sc.nextLine().trim();
+
+        if (loaiBaoBi.equalsIgnoreCase("lon")) {
+            loaiLon = true;
+            loaiChai = false;
+        } else if (loaiBaoBi.equalsIgnoreCase("chai")) {
+            loaiLon = false;
+            loaiChai = true;
+        }
+
     }
 
     @Override
@@ -72,6 +82,14 @@ public class NuocUong extends MonAn {
 
     public void setCoDa(boolean coDa) {
         this.coDa = coDa;
+    }
+
+    public boolean isLoaiLon() {
+        return loaiLon;
+    }
+
+    public void setLoaiLon(boolean LoaiLon) {
+        this.loaiLon = loaiLon;
     }
 
     // @Override

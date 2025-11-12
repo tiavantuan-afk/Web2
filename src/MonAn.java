@@ -39,6 +39,7 @@ public abstract class MonAn {
         tenSP = sc.nextLine();
         System.out.print("Nhap gia ban SP: ");
         giaBan = sc.nextDouble();
+        sc.nextLine();
         System.out.print("Nhập so luong: ");
         soLuong = sc.nextLine();
     }
@@ -89,6 +90,5 @@ public abstract class MonAn {
     // public abstract double tinhGiaSauKhuyenMai();
 
     // public abstract String getLoaiSanPham();
-    // chó kiệt đần vcl 
-    
+
 }

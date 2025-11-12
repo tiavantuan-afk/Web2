@@ -281,9 +281,9 @@ public class List_MonAn {
         }
     }
 
-    //Thống kê danh sách món ăn
-    public void thongKe(){
-        if(ds.length == 0){
+    // Thống kê danh sách món ăn
+    public void thongKe() {
+        if (ds.length == 0) {
             System.out.println("Danh sach empty");
             return;
         }
@@ -293,23 +293,64 @@ public class List_MonAn {
         int soNuocUong = 0;
         double tongGiaTri = 0;
 
-
-        //ThucAn
+        // ThucAn
         int thucAnCoThit = 0;
         int thucAnCoTinhBot = 0;
         int thucAnCoBotNgot = 0;
 
-
-        //NuocUong
+        // NuocUong
         int nuocUongCoDa = 0;
         int nuocUongCoGas = 0;
         int nuocUongLoaiChai = 0;
         int nuocUongLoaiLon = 0;
 
-        for(int i = 0 ; i < ds.length; i++){
-            if(ds[i] !=null){}
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null) {
                 tongGiaTri += ds[i].getGiaBan();
+                if (ds[i] instanceof ThucAn) {
+                    soThucAn++;
+                    ThucAn ta = (ThucAn) ds[i];
+                    if (ta.isCoThit())
+                        thucAnCoThit++;
+                    if (ta.isCoBotNgot())
+                        thucAnCoBotNgot++;
+                    if (ta.isCoTinhBot())
+                        thucAnCoTinhBot++;
+                } else if (ds[i] instanceof NuocUong) {
+                    soNuocUong++;
+                    NuocUong nu = (NuocUong) ds[i];
+                    if (nu.isCoDa())
+                        nuocUongCoDa++;
+                    if (nu.isCoGas())
+                        nuocUongCoGas++;
+                    if (nu.isLoaiChai())
+                        nuocUongLoaiChai++;
+                    if (nu.isLoaiLon())
+                        nuocUongLoaiLon++;
+                    else
+                        nuocUongLoaiChai++;
+                }
+            }
         }
+        System.out.println("\n========== THONG KE DANH SACH MON AN ==========");
+        System.out.println("Tong so mon: " + tongSoMon);
+        System.out.println("So luong Thuc An: " + soThucAn);
+        System.out.println("So luong Nuoc Uong: " + soNuocUong);
+        System.out.printf("Tong gia tri: %.2f VND\n", tongGiaTri);
+        System.out.printf("Gia tri trung binh: %.2f VND\n", (tongSoMon > 0 ? tongGiaTri / tongSoMon : 0));
+
+        System.out.println("\n---THONG KE THUC AN--- ");
+        System.out.println("Thuc an co thit: " + thucAnCoThit + "/" + soThucAn);
+        System.out.println("Thuc an co bot ngot: " + thucAnCoBotNgot + "/" + soThucAn);
+        System.out.println("Thuc an co tinh bot: " + thucAnCoTinhBot + "/" + soThucAn);
+
+        System.out.println("\n---THONG KE NUOC UONG");
+        System.out.println("Nuoc uong co da: " + nuocUongCoDa + "/" + soNuocUong);
+        System.out.println("Nuoc uong co gas: " + nuocUongCoGas + "/" + soNuocUong);
+        System.out.println("Chon loai lon: " + nuocUongLoaiLon + "/" + soNuocUong);
+        System.out.println("Chon loai chai: " + nuocUongLoaiChai + "/" + soNuocUong);
+        System.out.println("-----------------------------------------------------");
+
     }
 
     public void menu() {
@@ -324,7 +365,8 @@ public class List_MonAn {
             System.out.println("6.Xoa mot mon an(Theo ten)");
             System.out.println("7.Tim mot mon an(Theo Ma)");
             System.out.println("8.Tim mot mon an(Theo ten)");
-            System.out.println("Thoat");
+            System.out.println("9.Thong ke danh sach mon an");
+            System.out.println("0.Thoat");
             System.out.println("Vui long chon: ");
             luaChon = sc.nextInt();
             sc.nextLine();
@@ -376,6 +418,9 @@ public class List_MonAn {
                         String tenCanTim = sc.nextLine();
                         timKiemTen(tenCanTim);
                     }
+                    break;
+                case 9:
+                    thongKe();
                     break;
                 case 0:
                     System.out.println("Xong");
