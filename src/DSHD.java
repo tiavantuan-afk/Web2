@@ -126,7 +126,17 @@ class DSHD {
         }
     }
 
-    public void thongk(int doanhthuhoadon) {
+    public void thongkenhanvien(int doanhthunhanvien) {
         int d = 0;
+        System.out.print("Nhap ma nhan vien can thong ke: ");
+        doanhthunhanvien = sc.nextInt();
+        for (int i=0; i<n; i++){
+            if(dshd[i].getManv() == doanhthunhanvien){
+                d++;
+            }
+        }
+        if(d>=5){
+            System.out.println("Nhan vien uu tu");
+        }
     }
 }
