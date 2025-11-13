@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class HOADON {
-    private int Mahd;
+    private int Mahd;g
     private int Manv;
     private int Makh;
     private String Ngay;
