@@ -5,22 +5,32 @@ public class CHITIETHOADON {
     private int Makh;
     private int SL;
     private int DG;
-    private int Thanhtien;
+    private double Thanhtien;
     public CHITIETHOADON(){
         Mahd = 0;
         Masp = 0;
         Makh = 0;
         SL = 0;
         DG = 0;
-        Thanhtien = 0;
+        Thanhtien = 0.0;
     }
-    public CHITIETHOADON(int Mahd, int Masp, int Makh, int SL, int DG, int Thanhtien){
+    public CHITIETHOADON(int Mahd, int Masp, int Makh, int SL, int DG, double Thanhtien){
         this.Mahd = Mahd;
         this.Masp = Masp;
         this.Makh = Makh;
         this.SL = SL;
         this.DG = DG;
         this.Thanhtien = Thanhtien;
+    }
+    public CHITIETHOADON(CHITIETHOADON t){
+        if (t != null){
+        this.Mahd = t.Mahd;
+        this.Masp = t.Masp;
+        this.Makh = t.Makh;
+        this.SL = t.SL;
+        this.DG = t.DG;
+        this.Thanhtien = t.Thanhtien;
+        }
     }
     public void nhap(){
         Scanner sc = new Scanner(System.in);
@@ -35,7 +45,8 @@ public class CHITIETHOADON {
         System.out.print("Nhap don gia: ");
         DG = sc.nextInt();
         System.out.print("Nhap so thanh tien: ");
-        Thanhtien = sc.nextInt();
+        Thanhtien = sc.nextDouble();
+        sc.close();
     }
     public void xuat(){
         System.out.println("Chi tiet hoa don: ");
@@ -61,7 +72,7 @@ public class CHITIETHOADON {
     public int getDG(){
         return DG;
     }
-    public int getThanhtien(){
+    public double getThanhtien(){
         return Thanhtien;
     }
     public void setMahd(int Mahd){
@@ -79,7 +90,7 @@ public class CHITIETHOADON {
     public void setDG(int DG){
         this.DG = DG;
     }
-    public void setThanhtien(int Thanhtien){
+    public void setThanhtien(double Thanhtien){
         this.Thanhtien = Thanhtien;
     }
     

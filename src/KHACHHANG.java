@@ -16,6 +16,14 @@ public class KHACHHANG {
         this.Makh = Makh;
         this.SDT = SDT;
     }
+    public KHACHHANG(KHACHHANG t){
+        if (t != null){
+        this.ho = t.ho;
+        this.ten = t.ten;
+        this.Makh = t.Makh;
+        this.SDT = t.SDT;
+        }
+    }
     public void nhap (){
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ho: ");

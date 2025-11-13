@@ -42,6 +42,7 @@ public abstract class MonAn {
         sc.nextLine();
         System.out.print("Nhập so luong: ");
         soLuong = sc.nextLine();
+        sc.close();
 
     }
 

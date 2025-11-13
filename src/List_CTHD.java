@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class DSCTHD {
+class List_CTHD {
     Scanner sc = new Scanner(System.in);
     private int n;
     private CHITIETHOADON[] dscthd = new CHITIETHOADON[100];   

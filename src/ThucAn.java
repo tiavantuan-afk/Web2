@@ -35,6 +35,7 @@ public class ThucAn extends MonAn {
         coTinhBot = sc.nextBoolean();
         System.out.print("Nhap co bot ngot (true/false): ");
         coBotNgot = sc.nextBoolean();
+        sc.close();
     }
 
     @Override

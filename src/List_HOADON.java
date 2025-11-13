@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class DSHD {
+class List_HOADON {
     Scanner sc = new Scanner(System.in);
     private int n;
     private HOADON[] dshd = new HOADON[100];
