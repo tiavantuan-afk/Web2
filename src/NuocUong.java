@@ -38,6 +38,7 @@ public class NuocUong extends MonAn {
         coDa = sc.nextBoolean();
         System.out.print("Nhap co gas ? (true/false): ");
         coGas = sc.nextBoolean();
+        sc.nextLine();
         System.out.print("Nhap loai bao bi ? (lon/chai): ");
         String loaiBaoBi = sc.nextLine().trim();
 

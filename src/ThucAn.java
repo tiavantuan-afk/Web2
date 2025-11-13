@@ -91,8 +91,4 @@ public class ThucAn extends MonAn {
     // return "Thuc An";
     // }
 
-    public static void main(String[] args) {
-        ThucAn quanly = new ThucAn();
-        quanly.nhap();
-    }
 }
