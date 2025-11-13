@@ -4,20 +4,29 @@ public class HOADON {
     private int Manv;
     private int Makh;
     private String Ngay;
-    private int Tongtien;  
+    private double Tongtien;  
     public HOADON(){
         Mahd = 0;
         Manv = 0;
         Makh = 0;
         Ngay = "";
-        Tongtien = 0;
+        Tongtien = 0.0;
     }
-    public HOADON(int Mahd, int Manv, int Makh, String Ngay, int Tongtien){
+    public HOADON(int Mahd, int Manv, int Makh, String Ngay, double Tongtien){
         this.Mahd = Mahd;
         this.Manv = Manv;
         this.Makh = Makh;
         this.Ngay = Ngay;
         this.Tongtien = Tongtien;
+    }
+    public HOADON(HOADON t){
+        if (t != null){
+        this.Mahd = t.Mahd;
+        this.Manv = t.Manv;
+        this.Makh = t.Makh;
+        this.Ngay = t.Ngay;
+        this.Tongtien = t.Tongtien;
+        }
     }
     public void nhap(){
         Scanner sc = new Scanner(System.in);
@@ -30,7 +39,7 @@ public class HOADON {
         System.out.print("Nhap ngay xuat hoa don: ");
         Ngay = sc.nextLine();
         System.out.print("Nhap tong tien: ");
-        Tongtien = sc.nextInt();
+        Tongtien = sc.nextDouble();
         sc.close();
     }
     public void xuat(){
@@ -53,7 +62,7 @@ public class HOADON {
     public String getNgay(){
         return Ngay;
     }    
-    public int getTongtien(){
+    public double getTongtien(){
         return Tongtien;
     }
     public void setMahd(int Mahd){
@@ -68,7 +77,7 @@ public class HOADON {
     public void setNgay(String Ngay){
         this.Ngay = Ngay;
     }
-    public void setTongTien(int Tongtien){
+    public void setTongTien(double Tongtien){
         this.Tongtien = Tongtien;
     }
 }

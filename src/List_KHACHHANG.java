@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class DSKH {
+class List_KHACHHANG {
     Scanner sc = new Scanner (System.in);
     private int n;
     private KHACHHANG[] dskh = new KHACHHANG[100];
