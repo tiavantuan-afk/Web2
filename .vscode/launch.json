@@ -1,0 +1,91 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "List_NhanVien",
+            "request": "launch",
+            "mainClass": "List_NhanVien",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+            "name": "DSSV_Test",
+            "request": "launch",
+            "mainClass": "chuong2.DSSV_Test",
+            "projectName": "OOP_759c94b8"
+        },
+        {
+            "type": "java",
+            "name": "bai1",
+            "request": "launch",
+            "mainClass": "chuong3.bai1",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "DSSV_Test",
+            "request": "launch",
+            "mainClass": "chuong2.DSSV_Test",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "HCN",
+            "request": "launch",
+            "mainClass": "chuong2.HCN",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "CSHOCVIEN",
+            "request": "launch",
+            "mainClass": "chuong2.CSHOCVIEN",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "HOCVIEN",
+            "request": "launch",
+            "mainClass": "chuong2.HOCVIEN",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "bai7",
+            "request": "launch",
+            "mainClass": "chuong0.bai7",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "bai1",
+            "request": "launch",
+            "mainClass": "bai1",
+            "projectName": "C++_759c632b"
+        },
+        {
+            "type": "java",
+            "name": "bai6",
+            "request": "launch",
+            "mainClass": "chuong0.bai6",
+            "projectName": "C++_759c632b"
+        }
+    ]
+}
