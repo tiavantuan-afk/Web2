@@ -126,12 +126,12 @@ class List_HOADON {
         }
     }
 
-    public void thongkenhanvien(int doanhthunhanvien) {
+    public void thongkenhanvien() {
         int d = 0;
         System.out.print("Nhap ma nhan vien can thong ke: ");
-        doanhthunhanvien = sc.nextInt();
+        int manhanvien = sc.nextInt();
         for (int i=0; i<n; i++){
-            if(dshd[i].getManv() == doanhthunhanvien){
+            if(dshd[i].getManv() == manhanvien){
                 d++;
             }
         }
