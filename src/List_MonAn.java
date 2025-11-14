@@ -250,8 +250,8 @@ public class List_MonAn {
     public void timKiemMa(String maSP) {
         boolean found = false;
         for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].maSP != null &&
-                    ds[i].maSP.equalsIgnoreCase(maSP)) {
+            if (ds[i] != null && ds[i].getMaSP() != null &&
+                    ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 System.out.println("Da tim thay san pham: ");
                 ds[i].xuat();
                 System.out.println();
@@ -267,8 +267,8 @@ public class List_MonAn {
     public void timKiemTen(String tenSP) {
         boolean found = false;
         for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].tenSP != null &&
-                    ds[i].tenSP.equalsIgnoreCase(tenSP)) {
+            if (ds[i] != null && ds[i].getTenSP() != null &&
+                    ds[i].getTenSP().equalsIgnoreCase(tenSP)) {
                 System.out.println("Da tim thay san pham: ");
                 ds[i].xuat();
                 System.out.println();

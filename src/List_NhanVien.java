@@ -79,9 +79,255 @@ public class List_NhanVien {
         return ds;
     }
 
-    public static void main(String[] args) {
-        List_NhanVien dsNV = new List_NhanVien();
-        dsNV.nhapds();
-        dsNV.xuatds();
+    public void timNVMa(String maNV) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaNV() != null &&
+                    ds[i].getMaNV().equalsIgnoreCase(maNV)) {
+                System.out.println("Da tim thay san pham ");
+                ds[i].xuat();
+                System.out.println();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay ma nhan vien ");
+        }
     }
+
+    public void timNVHo(String hoNV) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getHoNV() != null &&
+                    ds[i].getHoNV().equalsIgnoreCase(hoNV)) {
+                System.out.println("Da tim thay ho nhan vien ");
+                ds[i].xuat();
+                System.out.println();
+                found = true;
+
+            }
+
+        }
+        if (!found) {
+            System.out.println("Khong tim thay ho nhan vien");
+        }
+    }
+
+    public void timNVTen(String tenNV) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getTenNV() != null &&
+                    ds[i].getTenNV().equalsIgnoreCase(tenNV)) {
+                System.out.println("Da tim thay ten nhan vien ");
+                ds[i].xuat();
+                System.out.println();
+                found = true;
+
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay ten nhan vien ");
+        }
+    }
+
+    public void xoaMaNV(String maNV) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaNV() != null &&
+                    ds[i].getMaNV().equalsIgnoreCase(maNV)) {
+                System.out.println("Da tim thay ma nhan vien can xoa");
+                ds[i].xuat();
+
+                for (int j = i; j < ds.length - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+
+                ds = Arrays.copyOf(ds, ds.length - 1);
+                System.out.println("Da xoa ma thanh cong ");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay ma can xoa");
+        }
+    }
+
+    public void xoaHoNV(String hoNV) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getHoNV() != null &&
+                    ds[i].getHoNV().equalsIgnoreCase(hoNV)) {
+                System.out.println("Da tim thay ten can xoa ");
+                ds[i].xuat();
+
+                for (int j = i; j < ds.length - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+
+                ds = Arrays.copyOf(ds, ds.length - 1);
+                System.out.println("Da xoa ho thanh cong ");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay ho nhan vien");
+        }
+    }
+
+    public void suaNV() {
+        if (ds.length == 0) {
+            System.out.println("Danh sach empty ");
+            return;
+        }
+        System.out.print("Nhap ma nhan vien can sua ");
+        String maNV = sc.nextLine();
+
+        // Tìm theo mã
+        int v = -1;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaNV() != null &&
+                    ds[i].getMaNV().equalsIgnoreCase(maNV)) {
+                v = i;
+                break;
+            }
+        }
+
+        if (v == -1) {
+            System.out.println("Khong tim thay nhan vien nao co ma: " + maNV);
+            return;
+        }
+
+        System.out.println("Thong tin hien tai cua nhan vien: ");
+        System.out.printf("%-8s %-15s %-10s %-15s\n", "Ma NV", "Ho NV", "Ten NV", "Luong Co Ban");
+        System.out.println("----------------------------------------------------");
+        ds[v].xuat();
+
+        System.out.println("\n---- SUA THONG TIN NHAN VIEN ----");
+        System.out.println("1. Sua ho nhan vien ");
+        System.out.println("2. Sua ten nhan vien ");
+        System.out.println("3. Sua luong nhan vien ");
+        System.out.println("4. Sua tat ca thong tin ");
+        System.out.println("0.Huy");
+        System.out.print("Chon thong tin can sua: ");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Nhap ho moi: ");
+                String hoMoi = sc.nextLine();
+                ds[v].setHoNV(hoMoi);
+                System.out.println("Da cap nhat thong tin nhan vien ");
+                break;
+
+            case 2:
+                System.out.print("Nhap ten moi: ");
+                String tenMoi = sc.nextLine();
+                ds[v].setTenNV(tenMoi);
+                System.out.println("Da cap nhat thong tin nhan vien ");
+                break;
+
+            case 3:
+                System.out.print("Nhap luong co ban moi: ");
+                Double luongMoi = sc.nextDouble();
+                sc.nextLine();
+                ds[v].setLuongCoBan(luongMoi);
+                System.out.println("Da cap nhat thong tin nhan vien ");
+                break;
+
+            case 4:
+                System.out.print("Nhap ho moi: ");
+                ds[v].setHoNV(sc.nextLine());
+                System.out.print("Nhap ten moi: ");
+                ds[v].setTenNV(sc.nextLine());
+                System.out.print("Nhap luong moi: ");
+                ds[v].setLuongCoBan(sc.nextDouble());
+                sc.nextLine();
+                System.out.println("Da cap nhat tat ca thong tin ");
+                break;
+
+            case 0:
+                System.out.println("Huy sua thong tin ");
+                return;
+
+            default:
+                System.out.println("Lua chon khong hop le ");
+                return;
+        }
+        System.out.println("\nThong tin sau khi sua:");
+        System.out.printf("%-8s %-15s %-10s %-15s\n", "Ma NV", "Ho NV", "Ten NV", "Luong Co Ban");
+        System.out.println("----------------------------------------------------");
+        ds[v].xuat();
+    }
+
+    public void ThongKeLuongCoBan() {
+        if (ds.length == 0) {
+            System.out.println("Danh sach empty");
+            return;
+        }
+
+        System.out.println("=== THONG KE LUONG CO BAN ===");
+        System.out.println("Tong so nhan vien" + ds.length);
+
+        // Các biến
+        double tongLuong = 0;
+        double luongCaoNhat = ds[0].getLuongCoBan();
+        double luongThapNhat = ds[0].getLuongCoBan();
+        String nvLuongCao = ds[0].getMaNV() + " " + ds[0].getHoNV() + " " + ds[0].getTenNV();
+        String nvLuongThap = ds[0].getMaNV() + " " + ds[0].getHoNV() + " " + ds[0].getTenNV();
+
+        // Phân loại
+        int luongThap = 0;
+        int luongCao = 0;
+        int luongTrungBinh = 0;
+
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null) {
+                double luong = ds[i].getLuongCoBan();
+                tongLuong += luong;
+
+                // Tìm lương cao thap
+                if (luong > luongCaoNhat) {
+                    luongCaoNhat = luong;
+                    nvLuongCao = ds[i].getMaNV() + " " + ds[i].getHoNV() + " " + ds[i].getTenNV();
+                }
+
+                if (luong < luongThapNhat) {
+                    luongThapNhat = luong;
+                    nvLuongThap = ds[i].getMaNV() + " " + ds[i].getHoNV() + " " + ds[i].getHoNV();
+                }
+
+                // Muc luong
+                if (luong < 5000000) {
+                    luongThap++;
+                } else if (luong <= 5000000) {
+                    luongTrungBinh++;
+                } else if (luong > 5000000) {
+                    luongCao++;
+                }
+            }
+        }
+
+        System.out.printf("Tong quy luong: %.2f VND\n", tongLuong);
+        System.out.printf("Luong trung binh: %.2f VND\n", tongLuong / ds.length);
+
+        System.out.println("\n--- PHAN LOAI THEO MUC LUONG ---");
+        System.out.println("Luong thap (< 5 trieu): " + luongThap + " nguoi");
+        System.out.println("Luong trung binh (5-10 trieu): " + luongTrungBinh + " nguoi");
+        System.out.println("Luong cao (> 10 trieu): " + luongCao + " nguoi");
+
+        System.out.println("\n--- MIN/MAX ---");
+        System.out.printf("Luong cao nhat: %.2f VND (%s)\n", luongCaoNhat, nvLuongCao);
+        System.out.printf("Luong thap nhat: %.2f VND (%s)\n", luongThapNhat, nvLuongThap);
+
+        // Tỷ lệ phần trăm
+        System.out.println("\n--- TY LE PHAN TRAM ---");
+        System.out.printf("Luong thap: %.1f%%\n", (double) luongThap / ds.length * 100);
+        System.out.printf("Luong trung binh: %.1f%%\n", (double) luongTrungBinh / ds.length * 100);
+        System.out.printf("Luong cao: %.1f%%\n", (double) luongCao / ds.length * 100);
+    }
+
 }
