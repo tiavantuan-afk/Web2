@@ -125,7 +125,10 @@ class List_HOADON {
             System.out.println("Khong tim thay hoa don co ma: " + MAHD);
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e88cd85937c5c472b57ab3a65ac17ef6d01887ac
     public void thongkenhanvien() {
         int d = 0;
         System.out.print("Nhap ma nhan vien can thong ke: ");
