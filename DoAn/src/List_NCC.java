@@ -1,4 +1,9 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 public class List_NCC {
     Scanner sc = new Scanner(System.in);
     private int n;
@@ -166,6 +171,41 @@ public class List_NCC {
             System.out.println("Không tìm thấy nhà cung cấp có mã "+ macansua);
         }
     }
+
+    public void docFileTXT(String tenFile) {
+        try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
+            String line;
+            n = 0;
+            while ((line = br.readLine()) != null && n < 100) {
+                String[] parts = line.split(",");
+                if (parts.length >= 5) {
+                    dsncc[n] = new Nhacungcap();
+                    dsncc[n].setmaNCC(parts[0].trim());
+                    dsncc[n].sethoNCC(parts[1].trim());
+                    dsncc[n].settenNCC(parts[2].trim());
+                    dsncc[n].setdiachi(parts[3].trim());
+                    dsncc[n].setsdt(parts[4].trim());
+                    n++;
+                }
+            }
+            System.out.println("Đọc file thành công, tổng số nhà cung cấp: " + n);
+        } catch (IOException e) {
+            System.out.println("Lỗi khi đọc file: " + e.getMessage());
+        }
+    }
+
+    public void ghiFileTXT(String tenFile) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(tenFile))) {
+            for (int i = 0; i < n; i++) {
+                String line = dsncc[i].getmaNCC() + "," + dsncc[i].gethoNCC() + "," + dsncc[i].gettenNCC() + "," + dsncc[i].getdiachi() + "," + dsncc[i].getsdt();
+                bw.write(line);
+                bw.newLine();
+            }
+            System.out.println("Ghi file thành công!");
+        }catch(IOException e){
+            System.out.println("Lỗi khi ghi file: " + e.getMessage());
+        }
+    }
     public void menu() {
         int chon = -1;
         do {
@@ -179,6 +219,8 @@ public class List_NCC {
             System.out.println("8.Xoá nhà cung cấp theo mã");
             System.out.println("9.Xoá nhà cung cấp theo số điện thoại");
             System.out.println("10.Sửa nhà cung cấp theo mã");
+            System.out.println("11.Đọc danh sách nhà cung cấp từ file");
+            System.out.println("12.Ghi danh sách nhà cung cấp ra file ");
             System.out.println("0.Thoát");
             System.out.print("Chọn chức năng: ");
             chon = sc.nextInt();
@@ -213,6 +255,16 @@ public class List_NCC {
                     break;
                 case 10:
                     suatheoma();
+                    break;
+                case 11:
+                    System.out.print("Nhập tên file TXT cần đọc: ");
+                    String fileDoc = sc.nextLine();
+                    docFileTXT(fileDoc);
+                    break;
+                case 12:
+                    System.out.print("Nhập tên file TXT cần ghi: ");
+                    String fileGhi = sc.nextLine();
+                    ghiFileTXT(fileGhi);
                     break;
                 case 0:
                     System.out.println("Thoát");

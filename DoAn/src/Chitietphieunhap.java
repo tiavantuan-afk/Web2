@@ -1,5 +1,10 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Chitietphieunhap{
     Scanner sc= new Scanner(System.in);
     private String maNH;
@@ -119,7 +124,23 @@ public class Chitietphieunhap{
         }
         System.out.println("Không tìm thấy mã trong danh sách!");
     }
-
+    public void ghiFile(BufferedWriter bw) throws IOException {
+        bw.write(maNH); 
+        bw.newLine();
+        bw.write(maSP); 
+        bw.newLine();
+        bw.write(String.valueOf(soluong)); 
+        bw.newLine();
+        bw.write(String.valueOf(dongia)); 
+        bw.newLine();
+    }
+    
+    public void docFile(BufferedReader br) throws IOException {
+        maNH = br.readLine();
+        maSP = br.readLine();
+        soluong = Integer.parseInt(br.readLine());
+        dongia = Double.parseDouble(br.readLine());
+    }
     public void menuchitietphieunhap(){
         int chon = -1;
         do {

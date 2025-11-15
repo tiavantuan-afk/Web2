@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "List_NCC",
+            "request": "launch",
+            "mainClass": "List_NCC",
+            "projectName": "đồ án oop_dae54c87"
+        },
+        {
+            "type": "java",
             "name": "Menu_KH",
             "request": "launch",
             "mainClass": "Menu_KH",

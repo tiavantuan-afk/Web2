@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Phieunhaphang {
     Scanner sc = new Scanner(System.in);
     private String maNH;
@@ -79,7 +83,44 @@ public class Phieunhaphang {
         s+="\nTổng tiền: " + tien() + "VND\n";
         return s;
     }
-    public class MenuPhieuNhap {
+    public void docFile(String filename){
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            maNH = br.readLine();
+            maNV = br.readLine();
+            ngay = br.readLine();
+            maNCC = br.readLine();
+            
+            int n = Integer.parseInt(br.readLine());
+            Danhsachchitiet = new ArrayList<>();
+
+            for (int i = 0; i < n; i++) {
+                Chitietphieunhap ct = new Chitietphieunhap();
+                ct.docFile(br);
+                Danhsachchitiet.add(ct);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file: " + e.getMessage());
+        }
+    }
+    public void ghiFile(String filename) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+            bw.write(maNH); bw.newLine();
+            bw.write(maNV); bw.newLine();
+            bw.write(ngay); bw.newLine();
+            bw.write(maNCC); bw.newLine();
+            bw.write(String.valueOf(Danhsachchitiet.size())); bw.newLine();
+            for (Chitietphieunhap ct : Danhsachchitiet) {
+                ct.ghiFile(bw);
+            }
+
+            System.out.println("Ghi file thành công!");
+
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file: " + e.getMessage());
+        }
+    }
+    public class MenuPhieuNhap{
         Phieunhaphang phieu = new Phieunhaphang();
         int chon = -1;
         do{
@@ -110,9 +151,9 @@ public class Phieunhaphang {
                     break;
 
                 default:
-                    System.out.println("Chon sai");
+                    System.out.println("Chon lai");
             }
 
-        }while (chon != 0);
+        }while(chon != 0);
     }
 }
