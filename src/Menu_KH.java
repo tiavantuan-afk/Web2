@@ -5,12 +5,11 @@ public class Menu_KH {
     public Menu_KH(){
         quanly = new List_KHACHHANG();
         sc = new Scanner(System.in);
-        sc.close();
     }
     public void menu(){
         int chon = -1;
         do{
-            System.out.println("MENU QUAN LY KHACH HANG");
+            System.out.println("\nMENU QUAN LY KHACH HANG");
             System.out.println("3. Nhap danh sach khach hang: ");
             System.out.println("4. Xuat danh sach khach hang: ");
             System.out.println("5. Them khach hang: ");
@@ -22,7 +21,7 @@ public class Menu_KH {
             System.out.println("11. Tim mot khach hang (theo so dien thoai): ");
             System.out.println("12. Thong ke khach hang: ");
             System.out.println("0. Thoat.");
-            System.out.println("Vui long chon: ");
+            System.out.print("Vui long chon: ");
             chon = sc.nextInt();
             sc.nextLine();
             switch (chon) {
@@ -39,27 +38,27 @@ public class Menu_KH {
                     quanly.suakhachhang();
                     break;
                 case 7:
-                    System.out.println("Nhap ma khach hang can xoa: ");
+                    System.out.print("\nNhap ma khach hang can xoa: ");
                     int khcanxoa = sc.nextInt();
                     quanly.xoakhachhang(khcanxoa);
                     break;
                 case 8:
-                    System.out.println("Nhap ma khach hang can tim: ");
+                    System.out.print("Nhap ma khach hang can tim: ");
                     int makhcantim = sc.nextInt();
                     quanly.timkiemtheoma(makhcantim);
                     break;
                 case 9:
-                    System.out.println("Nhap ho khach hang can tim: ");
+                    System.out.print("Nhap ho khach hang can tim: ");
                     String hokhcantim = sc.nextLine();
                     quanly.timkiemtheoten(hokhcantim);
                     break;
                 case 10:
-                    System.out.println("Nhap ten khach hang can tim: ");
+                    System.out.print("Nhap ten khach hang can tim: ");
                     String tenkhcantim = sc.nextLine();
                     quanly.timkiemtheoho(tenkhcantim);
                     break;
                 case 11:
-                    System.out.println("Nhap sdt khach hang can tim: ");
+                    System.out.print("Nhap sdt khach hang can tim: ");
                     int sdtkhcantim = sc.nextInt();
                     quanly.timkiemtheosdt(sdtkhcantim);
                     break;

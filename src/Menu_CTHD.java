@@ -4,13 +4,12 @@ public class Menu_CTHD {
     private Scanner sc;
     public Menu_CTHD(){
         quanly = new List_CTHD();
-        Scanner sc = new Scanner(System.in);
-        sc.close();
+        sc = new Scanner(System.in);
     }
     public void menu(){
         int chon = -1;
         do{
-            System.out.println("MENU QUAN LY CHI TIET HOA DON");
+            System.out.println("\nMENU QUAN LY CHI TIET HOA DON");
             System.out.println("3. Nhap danh sach chi tiet hoa don: ");
             System.out.println("4. Xuat danh sach chi tiet hoa don: ");
             System.out.println("5. Tim kiem theo ma hoa don: ");
@@ -24,8 +23,9 @@ public class Menu_CTHD {
             System.out.println("13. Xoa chi tiet theo ma hoa don: ");
             System.out.println("14. Thong ke san pham: ");
             System.out.println("0. Thoat.");
-            System.out.println("Vui long chon: ");
+            System.out.print("Vui long chon: ");
             chon = sc.nextInt();
+            sc.nextLine();
             switch (chon) {
                 case 3:
                     quanly.nhap();
@@ -34,32 +34,32 @@ public class Menu_CTHD {
                     quanly.xuat();
                     break;
                 case 5:
-                    System.out.println("Nhap ma hoa don can tim: ");
+                    System.out.print("Nhap ma hoa don can tim: ");
                     int hdcantim = sc.nextInt();
                     quanly.timkiemtheomahoadon(hdcantim);
                     break;
                 case 6:
-                    System.out.println("Nhap ma san pham can tim: ");
+                    System.out.print("Nhap ma san pham can tim: ");
                     int spcantim = sc.nextInt();
                     quanly.timkiemtheomasanpham(spcantim);
                     break;
                 case 7:
-                    System.out.println("Nhap ma khach hang can tim: ");
+                    System.out.print("Nhap ma khach hang can tim: ");
                     int khcantim = sc.nextInt();
                     quanly.timkiemtheomakhachhang(khcantim);
                     break;
                 case 8:
-                    System.out.println("Nhap so luong can tim: ");
+                    System.out.print("Nhap so luong can tim: ");
                     int slcantim = sc.nextInt();
                     quanly.timkiemtheosoluong(slcantim);
                     break;
                 case 9:
-                    System.out.println("Nhap so don gia can tim:  ");
+                    System.out.print("Nhap so don gia can tim:  ");
                     double dgcantim = sc.nextDouble();
                     quanly.timkiemtheodongia(dgcantim);
                     break;
                 case 10:
-                    System.out.println("Nhap so thanh tien can tim: ");
+                    System.out.print("Nhap so thanh tien can tim: ");
                     double ttcantim = sc.nextDouble();
                     quanly.timkiemtheothanhtien(ttcantim);
                     break;
@@ -70,7 +70,7 @@ public class Menu_CTHD {
                     quanly.themchitiet();
                     break;
                 case 13:
-                    System.out.println("Nhap ma hoa don can xoa: ");
+                    System.out.print("Nhap ma hoa don can xoa: ");
                     int hdcanxoa = sc.nextInt();
                     quanly.xoachitietmahd(hdcanxoa);
                     break;
@@ -84,6 +84,7 @@ public class Menu_CTHD {
                     break;
             }
         } while (chon != 0);
+        sc.close();
     }
     public static void main (String[] args){
         Menu_CTHD menu = new Menu_CTHD();
