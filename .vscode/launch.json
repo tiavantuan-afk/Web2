@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Menu_KH",
+            "request": "launch",
+            "mainClass": "Menu_KH",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+            "name": "List_MonAn",
+            "request": "launch",
+            "mainClass": "List_MonAn",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+            "name": "Menu_MonAn",
+            "request": "launch",
+            "mainClass": "Menu_MonAn",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+            "name": "Menu_NV",
+            "request": "launch",
+            "mainClass": "Menu_NV",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+            "name": "List_NhanVien",
+            "request": "launch",
+            "mainClass": "List_NhanVien",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
             "name": "DSSV_Test",
             "request": "launch",
             "mainClass": "chuong2.DSSV_Test",

@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 class List_HOADON {
@@ -22,7 +23,7 @@ class List_HOADON {
         }
     }
 
-    public void timkiemtheomahd(int hdcantim) {
+    public void timkiemtheomahd(int hdcantim ) {
         System.out.print("Nhap ma hoa don can tim: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
@@ -50,7 +51,7 @@ class List_HOADON {
         }
     }
 
-    public void timkiemtheomakh(int khcantim) {
+    public void timkiemtheomakh(int khcantim ) {
         System.out.print("Nhap ma khach hang ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
@@ -78,7 +79,7 @@ class List_HOADON {
         }
     }
 
-    public void timkiemtheotongtien(int tongcantim) {
+    public void timkiemtheotongtien(double tongcantim) {
         System.out.print("Tong tien can tim: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
@@ -92,11 +93,12 @@ class List_HOADON {
         }
     }
 
-    public void suahoadon(int MA, HOADON hdon) {
+    public void suahoadon() {
+        System.out.println("Nhap ma hoa don can sua: ");
+        int MA = sc.nextInt();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dshd[i].getMahd() == MA) {
-                dshd[i] = hdon;
                 System.out.println("Da cap nhat thong tin hoa don.");
                 timkiem = true;
                 break;
@@ -106,8 +108,31 @@ class List_HOADON {
             System.out.println("Khong ti thay hoa don de sua. ");
         }
     }
-
+    public boolean IDHD(int mahdon){
+        if (mahdon == 0){
+            return true;
+        }
+        for(int i=0; i<n; i++){
+            if (dshd[i] != null && dshd[i].getMahd() != 0 && dshd[i].getMahd() == mahdon){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void themhoadon(){
+        System.out.println("Nhap hoa don can them");
+        HOADON hdmoi = new HOADON();
+        hdmoi.nhap();
+        if (!IDHD(hdmoi.getMahd())){
+            System.out.println("Ma hao don da ton tai");
+            return;
+        }
+        dshd = Arrays.copyOf(dshd, n+1);
+        dshd[n-1] = hdmoi;
+        System.out.println("Da them hoa don moi");
+    }
     public void xoahoadon(int MAHD) {
+        System.out.println("Nhap ma hoa don can xoa: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dshd[i].getMahd() == MAHD) {
@@ -125,17 +150,16 @@ class List_HOADON {
             System.out.println("Khong tim thay hoa don co ma: " + MAHD);
         }
     }
-
-    public void thongkenhanvien(int doanhthunhanvien) {
+    public void thongkenhanvien() {
         int d = 0;
         System.out.print("Nhap ma nhan vien can thong ke: ");
-        doanhthunhanvien = sc.nextInt();
-        for (int i=0; i<n; i++){
-            if(dshd[i].getManv() == doanhthunhanvien){
+        int manhanvien = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            if (dshd[i].getManv() == manhanvien) {
                 d++;
             }
         }
-        if(d>=5){
+        if (d >= 5) {
             System.out.println("Nhan vien uu tu");
         }
     }
