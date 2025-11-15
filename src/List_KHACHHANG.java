@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 class List_KHACHHANG {
@@ -22,8 +23,9 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheoma(int macantim) {
+    public void timkiemtheoma() {
         System.out.print("Nhap ma khach hang can tim: ");
+        int macantim = sc.nextInt();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getMaKH() == macantim) {
@@ -36,8 +38,9 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheoten(String tencantim) {
+    public void timkiemtheoten() {
         System.out.print("Nhap ten khach hang: ");
+        String tencantim = sc.nextLine();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getTen().toLowerCase().equalsIgnoreCase(tencantim.toLowerCase())) {
@@ -50,8 +53,9 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheoho(String hocantim) {
+    public void timkiemtheoho() {
         System.out.print("Nhap ho can tim: ");
+        String hocantim = sc.nextLine();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getHo().toLowerCase().equalsIgnoreCase(hocantim.toLowerCase())) {
@@ -64,8 +68,9 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheosdt(int socantim) {
+    public void timkiemtheosdt() {
         System.out.print("Nhap sdt can tim: ");
+        int socantim = sc.nextInt();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getSDT() == socantim) {
@@ -78,7 +83,9 @@ class List_KHACHHANG {
         }
     }
 
-    public void xoakhachhang(int MAKH) {
+    public void xoakhachhang() {
+        System.out.println("Nhap ma khach hang can xoa: ");
+        int MAKH = sc.nextInt();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getMaKH() == MAKH) {
@@ -97,11 +104,12 @@ class List_KHACHHANG {
         }
     }
 
-    public void suakhachhang(int MA, KHACHHANG khang) {
+    public void suakhachhang() {
         boolean timkiem = false;
+        System.out.println("Nhap ma khach hang can sua: ");
+        int MA = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == MA) {
-                dskh[i] = khang;
+            if (dskh[i].getMaKH() == MA) {  
                 System.out.println("Da cap nhat thong tin khach hang: " + MA);
                 timkiem = true;
                 break;
@@ -110,9 +118,30 @@ class List_KHACHHANG {
         if (!timkiem) {
             System.out.println("Khong tim thay khach hang de sua: ");
         }
-
     }
-
+    public boolean IDKH(int makh){
+        if (makh == 0){
+            return true;
+        }
+        for (int i=0; i<n; i++){
+            if(dskh[i] != null && dskh[i].getMaKH() != 0 && dskh[i].getMaKH() == makh){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void themkhachhang(){
+        System.out.println("Nhap khach hang can them");
+        KHACHHANG khmoi = new KHACHHANG();
+        khmoi.nhap();
+        if (!IDKH(khmoi.getMaKH())){
+            System.out.println("Ma khach hang da ton tai");
+            return;
+        }
+        dskh = Arrays.copyOf(dskh, n + 1);
+        dskh[n-1] = khmoi;
+        System.out.println("Da them khach hang moi");
+    }
     public void thongkekhachhang() {
         int d = 0;
         System.out.print("Nhap ma khach hang can thong ke: ");

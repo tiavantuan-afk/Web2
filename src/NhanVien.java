@@ -40,6 +40,7 @@ public class NhanVien {
         System.out.print("Nhap luong co ban: ");
         luongCoBan = sc.nextDouble();
         sc.nextLine();
+        sc.close();
     }
 
     public void xuat() {
