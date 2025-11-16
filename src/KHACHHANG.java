@@ -3,14 +3,14 @@ public class KHACHHANG {
     private String ho;
     private String ten;
     private int Makh;
-    private int SDT;
+    private String SDT;
     public KHACHHANG(){
         ho = "";
         ten = "";
         Makh = 0;
-        SDT = 0;
+        SDT = "";
     }
-    public KHACHHANG(String ho, String ten, int Makh, int SDT){
+    public KHACHHANG(String ho, String ten, int Makh, String SDT){
         this.ho = ho;
         this.ten = ten;
         this.Makh = Makh;
@@ -33,7 +33,7 @@ public class KHACHHANG {
         System.out.print("Nhap ma khach hang: ");
         Makh = sc.nextInt();
         System.out.print("Nhap so dien thoai: ");
-        SDT = sc.nextInt();
+        SDT = sc.nextLine();
         sc.close();
     }
     public void xuat(){
@@ -52,7 +52,7 @@ public class KHACHHANG {
     public int getMaKH(){
         return Makh;
     }
-    public int getSDT(){
+    public String getSDT(){
         return SDT;
     }
     public void setHo(String ho){
@@ -64,7 +64,7 @@ public class KHACHHANG {
     public void setMakh(int Makh){
         this.Makh = Makh;
     }
-    public void setSDT(int SDT){
+    public void setSDT(String SDT){
         this.SDT = SDT;
     }
 }

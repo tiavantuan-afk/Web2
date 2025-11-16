@@ -35,12 +35,12 @@ public class Menu_CTHD {
                     break;
                 case 5:
                     System.out.print("Nhap ma hoa don can tim: ");
-                    int hdcantim = sc.nextInt();
+                    String hdcantim = sc.nextLine();
                     quanly.timkiemtheomahoadon(hdcantim);
                     break;
                 case 6:
                     System.out.print("Nhap ma san pham can tim: ");
-                    int spcantim = sc.nextInt();
+                    String spcantim = sc.nextLine();
                     quanly.timkiemtheomasanpham(spcantim);
                     break;
                 case 7:
@@ -60,8 +60,8 @@ public class Menu_CTHD {
                     break;
                 case 10:
                     System.out.print("Nhap so thanh tien can tim: ");
-                    double ttcantim = sc.nextDouble();
-                    quanly.timkiemtheothanhtien(ttcantim);
+                    double ttiencantim = sc.nextDouble();
+                    quanly.timkiemtheothanhtien(ttiencantim);
                     break;
                 case 11:
                     quanly.suachitietmahd();
@@ -71,7 +71,7 @@ public class Menu_CTHD {
                     break;
                 case 13:
                     System.out.print("Nhap ma hoa don can xoa: ");
-                    int hdcanxoa = sc.nextInt();
+                    String hdcanxoa = sc.nextLine();
                     quanly.xoachitietmahd(hdcanxoa);
                     break;
                 case 14:

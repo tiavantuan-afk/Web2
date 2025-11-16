@@ -59,7 +59,7 @@ public class Menu_KH {
                     break;
                 case 11:
                     System.out.print("Nhap sdt khach hang can tim: ");
-                    int sdtkhcantim = sc.nextInt();
+                    String sdtkhcantim = sc.nextLine();
                     quanly.timkiemtheosdt(sdtkhcantim);
                     break;
                 case 12:

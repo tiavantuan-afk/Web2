@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.io.*;
 
 class List_KHACHHANG {
     Scanner sc = new Scanner(System.in);
@@ -62,7 +63,7 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheosdt( int socantim) {
+    public void timkiemtheosdt( String socantim) {
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getSDT() == socantim) {
@@ -146,5 +147,60 @@ class List_KHACHHANG {
         } else {
             System.out.println("Khach hang moi");
         }
+    }
+    public void docfile(){
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\data\\List_KHACHHANG.txt"))){
+            String line;
+            KHACHHANG x = null;
+            dskh = new KHACHHANG[0];
+            while ((line = br.readLine()) != null){
+                String[] t = line.split("-");
+                if (t.length >= 8){
+                    String type = t[0].toUpperCase();
+                    if (type.contains("KH")){
+                        if (t.length >= 9){
+                            x = new KHACHHANG();
+                            x.setMakh(Integer.parseInt(t[1]));
+                            x.setHo(t[2]); 
+                            x.setTen(t[3]);
+                            x.setSDT((t[4]));
+                        }else{
+                            continue;
+                        }
+                    }else{
+                        continue;
+                    }
+                    if (x != null) {
+                        dskh = Arrays.copyOf(dskh, n+1);
+                        dskh[n-1] = x;
+                        System.out.println("Doc: "+x.getMaKH()+"-"+x.getTen());
+                    }
+                }
+            }
+            System.out.println("Doc file thanh cong");
+            System.out.println("So khach hang da doc: "+ n);
+        }catch (IOException e){
+            System.out.println("Loi doc file: "+e.getMessage());
+        }catch (NumberFormatException e){
+            System.out.println("Loi format so: "+e.getMessage());
+        }
+    }
+    public void ghiFile(){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\data\\List_KHACHHANG.txt"))){
+            bw.write("====DANH SACH KHACH HANG====\n");
+            bw.write("So luong khach hang: "+n+"\n");
+            for (int i=0; i<n; i++){
+                if (dskh[i] != null){
+                    if (dskh[i] instanceof KHACHHANG){
+                        KHACHHANG kh = (KHACHHANG) dskh[i];
+                        bw.write("KH-"+kh.getMaKH()+"-"+kh.getHo()+"-"+kh.getTen()+"-"+kh.getSDT()+"\n");
+                    }
+                }
+            } 
+            System.out.println("Ghi file thanh cong");
+        }
+        catch (IOException e){
+            System.out.println("Loi ghi file: "+e.getMessage());
+        } 
     }
 }

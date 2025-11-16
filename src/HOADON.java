@@ -1,39 +1,39 @@
 import java.util.Scanner;
 public class HOADON {
-    private int Mahd;
-    private int Manv;
+    private String Mahd;
+    private String Manv;
     private int Makh;
     private String Ngay;
     private double Tongtien;  
     public HOADON(){
-        Mahd = 0;
-        Manv = 0;
+        Mahd = "";
+        Manv = "";
         Makh = 0;
         Ngay = "";
         Tongtien = 0.0;
     }
-    public HOADON(int Mahd, int Manv, int Makh, String Ngay, double Tongtien){
+    public HOADON(String Mahd, String Manv, int Makh, String Ngay, double Tongtien){
         this.Mahd = Mahd;
         this.Manv = Manv;
         this.Makh = Makh;
         this.Ngay = Ngay;
         this.Tongtien = Tongtien;
     }
-    public HOADON(HOADON t){
-        if (t != null){
-        this.Mahd = t.Mahd;
-        this.Manv = t.Manv;
-        this.Makh = t.Makh;
-        this.Ngay = t.Ngay;
-        this.Tongtien = t.Tongtien;
+    public HOADON(HOADON h){
+        if (h != null){
+        this.Mahd = h.Mahd;
+        this.Manv = h.Manv;
+        this.Makh = h.Makh;
+        this.Ngay = h.Ngay;
+        this.Tongtien = h.Tongtien;
         }
     }
     public void nhap(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma hoa don: ");
-        Mahd = sc.nextInt();
+        Mahd = sc.nextLine();
         System.out.print("Nhap ma nhan vien: ");
-        Manv = sc.nextInt();
+        Manv = sc.nextLine();
         System.out.print("Nhap ma khach hang: ");
         Makh = sc.nextInt();
         System.out.print("Nhap ngay xuat hoa don: ");
@@ -50,10 +50,10 @@ public class HOADON {
         System.out.println("Ngay xuat: "+Ngay);
         System.out.println("Tong tien: "+Tongtien);
     }
-    public int getMahd(){
+    public String getMahd(){
         return Mahd;
     }
-    public int getManv(){
+    public String getManv(){
         return Manv;
     }
     public int getMakh(){
@@ -65,10 +65,10 @@ public class HOADON {
     public double getTongtien(){
         return Tongtien;
     }
-    public void setMahd(int Mahd){
+    public void setMahd(String Mahd){
         this.Mahd = Mahd;
     }
-    public void setManv(int Manv){
+    public void setManv(String Manv){
         this.Manv = Manv;
     }
     public void setMakh(int Makh){

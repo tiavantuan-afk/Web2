@@ -34,12 +34,12 @@ public class Menu_HD {
                     break;
                 case 5:
                     System.out.print("Nhap ma hoa don can tim: ");
-                    int hoadoncantim = sc.nextInt();
+                    String hoadoncantim = sc.nextLine();
                     quanly.timkiemtheomahd(hoadoncantim);
                     break;
                 case 6:
                     System.out.print("Nhap ma nhan vien can tim: ");
-                    int nhanviencantim = sc.nextInt();
+                    String nhanviencantim = sc.nextLine();
                     quanly.timkiemtheomanv(nhanviencantim);
                     break;
                 case 7:
@@ -64,7 +64,7 @@ public class Menu_HD {
                     quanly.themhoadon();
                 case 12:
                     System.out.print("Nhap ma hoa don can xoa: ");
-                    int hdcanxoa = sc.nextInt();
+                    String hdcanxoa = sc.nextLine();
                     quanly.xoahoadon(hdcanxoa);
                     break;
                 case 13:
