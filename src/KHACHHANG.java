@@ -34,7 +34,6 @@ public class KHACHHANG {
         Makh = sc.nextInt();
         System.out.print("Nhap so dien thoai: ");
         SDT = sc.nextInt();
-        sc.close();
     }
     public void xuat(){
         System.out.println("Thong tin khach hang: ");

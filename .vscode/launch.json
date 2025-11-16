@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Menu_MonAn",
+            "request": "launch",
+            "mainClass": "Menu_MonAn",
+            "projectName": "DoAn_75d2812f"
+        },
+        {
+            "type": "java",
+            "name": "Menu_KHO",
+            "request": "launch",
+            "mainClass": "Menu_KHO",
+            "projectName": "DoAn_75d2812f"
+        },
+        {
+            "type": "java",
             "name": "DSSV_Test",
             "request": "launch",
             "mainClass": "chuong2.DSSV_Test",
