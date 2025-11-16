@@ -44,7 +44,7 @@ public class Menu_HD {
                     break;
                 case 7:
                     System.out.print("Nhap ma khach hang can tim: ");
-                    int khachhangcantim = sc.nextInt();
+                    String khachhangcantim = sc.nextLine();
                     quanly.timkiemtheomakh(khachhangcantim);
                     break;
                 case 8:

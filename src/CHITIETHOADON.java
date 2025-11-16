@@ -2,19 +2,19 @@ import java.util.Scanner;
 public class CHITIETHOADON {
     private String Mahd;
     private String Masp;
-    private int Makh;
+    private String Makh;
     private int SL;
-    private int DG;
+    private double DG;
     private double Thanhtien;
     public CHITIETHOADON(){
         Mahd = "";
         Masp = "";
-        Makh = 0;
+        Makh = "";
         SL = 0;
         DG = 0;
         Thanhtien = 0.0;
     }
-    public CHITIETHOADON(String Mahd, String Masp, int Makh, int SL, int DG, double Thanhtien){
+    public CHITIETHOADON(String Mahd, String Masp, String Makh, int SL, double DG, double Thanhtien){
         this.Mahd = Mahd;
         this.Masp = Masp;
         this.Makh = Makh;
@@ -39,7 +39,7 @@ public class CHITIETHOADON {
         System.out.print("Nhap ma san pham:");
         Masp = sc.nextLine();
         System.out.print("Nhap ma khach hang: ");
-        Makh = sc.nextInt();
+        Makh = sc.nextLine();
         System.out.print("Nhap so luong: ");
         SL = sc.nextInt();
         System.out.print("Nhap don gia: ");
@@ -63,13 +63,13 @@ public class CHITIETHOADON {
     public String getMasp(){
         return Masp;
     }
-    public int getMakh(){
+    public String getMakh(){
         return Makh;
     }
     public int getSL(){
         return SL;
     }
-    public int getDG(){
+    public double getDG(){
         return DG;
     }
     public double getThanhtien(){
@@ -81,13 +81,13 @@ public class CHITIETHOADON {
     public void setMasp(String Masp){
         this.Masp = Masp;
     }
-    public void setMakh(int Makh){
+    public void setMakh(String Makh){
         this.Makh = Makh;
     }
     public void setSL(int SL){
         this.SL = SL;
     }
-    public void setDG(int DG){
+    public void setDG(double DG){
         this.DG = DG;
     }
     public void setThanhtien(double Thanhtien){

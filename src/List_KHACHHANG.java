@@ -24,10 +24,10 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheoma(int macantim) {
+    public void timkiemtheoma(String macantim) {
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == macantim) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(macantim)) {
                 timkiem = true;
                 dskh[i].xuat();
             }
@@ -76,10 +76,10 @@ class List_KHACHHANG {
         }
     }
 
-    public void xoakhachhang(int MAKH) { 
+    public void xoakhachhang(String MAKH) { 
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == MAKH) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(MAKH)) {
                 for (int j = i; j < n; j++) {
                     dskh[i] = dskh[j + 1];
                 }
@@ -98,9 +98,9 @@ class List_KHACHHANG {
     public void suakhachhang() {
         boolean timkiem = false;
         System.out.println("Nhap ma khach hang can sua: ");
-        int MA = sc.nextInt();
+        String MA = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == MA) {  
+            if (dskh[i].getMaKH().equalsIgnoreCase(MA)) {  
                 System.out.println("Da cap nhat thong tin khach hang: " + MA);
                 timkiem = true;
                 break;
@@ -110,12 +110,12 @@ class List_KHACHHANG {
             System.out.println("Khong tim thay khach hang de sua: ");
         }
     }
-    public boolean IDKH(int makh){
-        if (makh == 0){
+    public boolean IDKH(String makh){
+        if (makh == null){
             return true;
         }
         for (int i=0; i<n; i++){
-            if(dskh[i] != null && dskh[i].getMaKH() != 0 && dskh[i].getMaKH() == makh){
+            if(dskh[i] != null && dskh[i].getMaKH() != null && dskh[i].getMaKH().equalsIgnoreCase(makh)){
                 return false;
             }
         }
@@ -136,9 +136,9 @@ class List_KHACHHANG {
     public void thongkekhachhang() {
         int d = 0;
         System.out.print("Nhap ma khach hang can thong ke: ");
-        int makhachhang = sc.nextInt();
+        String makhachhang = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == makhachhang) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(makhachhang)) {
                 d++;
             }
         }
@@ -160,7 +160,7 @@ class List_KHACHHANG {
                     if (type.contains("KH")){
                         if (t.length >= 9){
                             x = new KHACHHANG();
-                            x.setMakh(Integer.parseInt(t[1]));
+                            x.setMakh(t[1]);
                             x.setHo(t[2]); 
                             x.setTen(t[3]);
                             x.setSDT((t[4]));
@@ -202,5 +202,12 @@ class List_KHACHHANG {
         catch (IOException e){
             System.out.println("Loi ghi file: "+e.getMessage());
         } 
+    }
+    public static void main (String[] args){
+        List_KHACHHANG dskh = new List_KHACHHANG();
+        System.out.println("Bat dau doc file.........");
+        dskh.docfile();
+        System.out.println("Hien thi ket qua: ");
+        dskh.xuat();
     }
 }

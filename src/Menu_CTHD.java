@@ -45,7 +45,7 @@ public class Menu_CTHD {
                     break;
                 case 7:
                     System.out.print("Nhap ma khach hang can tim: ");
-                    int khcantim = sc.nextInt();
+                    String khcantim = sc.nextLine();
                     quanly.timkiemtheomakhachhang(khcantim);
                     break;
                 case 8:

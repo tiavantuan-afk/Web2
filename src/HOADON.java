@@ -2,17 +2,17 @@ import java.util.Scanner;
 public class HOADON {
     private String Mahd;
     private String Manv;
-    private int Makh;
+    private String Makh;
     private String Ngay;
     private double Tongtien;  
     public HOADON(){
         Mahd = "";
         Manv = "";
-        Makh = 0;
+        Makh = "";
         Ngay = "";
         Tongtien = 0.0;
     }
-    public HOADON(String Mahd, String Manv, int Makh, String Ngay, double Tongtien){
+    public HOADON(String Mahd, String Manv, String Makh, String Ngay, double Tongtien){
         this.Mahd = Mahd;
         this.Manv = Manv;
         this.Makh = Makh;
@@ -35,7 +35,7 @@ public class HOADON {
         System.out.print("Nhap ma nhan vien: ");
         Manv = sc.nextLine();
         System.out.print("Nhap ma khach hang: ");
-        Makh = sc.nextInt();
+        Makh = sc.nextLine();
         System.out.print("Nhap ngay xuat hoa don: ");
         Ngay = sc.nextLine();
         System.out.print("Nhap tong tien: ");
@@ -56,7 +56,7 @@ public class HOADON {
     public String getManv(){
         return Manv;
     }
-    public int getMakh(){
+    public String getMakh(){
         return Makh;
     }
     public String getNgay(){
@@ -71,7 +71,7 @@ public class HOADON {
     public void setManv(String Manv){
         this.Manv = Manv;
     }
-    public void setMakh(int Makh){
+    public void setMakh(String Makh){
         this.Makh = Makh;
     }
     public void setNgay(String Ngay){

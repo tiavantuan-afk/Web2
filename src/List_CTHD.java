@@ -30,7 +30,7 @@ class List_CTHD {
         System.out.print("Nhap ma hoa don can tim: ");
         boolean timkiem = false;
         for (int i=0; i<n; i++){
-            if (dscthd[i].getMahd() == mahdcantim){
+            if (dscthd[i].getMahd().equalsIgnoreCase(mahdcantim)){
             timkiem = true;
             dscthd[i].xuat();
             }
@@ -43,7 +43,7 @@ class List_CTHD {
         System.out.print("Nhap ma san pham can tim: ");
         boolean timkiem = false;
         for (int i=0; i<n; i++){
-            if (dscthd[i].getMasp() == maspcantim){
+            if (dscthd[i].getMasp().equalsIgnoreCase(maspcantim)){
                 timkiem = true;
                 dscthd[i].xuat();
             }
@@ -52,11 +52,11 @@ class List_CTHD {
             System.out.println("Khong co trong danh sach.");
         }
     }
-    public void timkiemtheomakhachhang(int makhcantim){
+    public void timkiemtheomakhachhang(String makhcantim){
         System.out.print("Nhap ma khach hang can tim: ");
         boolean timkiem = false;
         for (int i=0; i<n; i++){
-            if (dscthd[i].getMakh() == makhcantim){
+            if (dscthd[i].getMakh().equalsIgnoreCase(makhcantim)){
                 timkiem = true;
                 dscthd[i].xuat();
             }
@@ -109,7 +109,7 @@ class List_CTHD {
         String HD = sc.nextLine();
         boolean timkiem = false;
         for (int i=0; i<n; i++){
-            if (dscthd[i].getMahd() == HD){
+            if (dscthd[i].getMahd().equalsIgnoreCase(HD)){
                 System.out.println("Da cap nhat chi tiet hoa don.");
                 timkiem = true;
                 break;
@@ -124,7 +124,7 @@ class List_CTHD {
             return true;
         }
         for (int i=0; i<n; i++){
-            if(dscthd[i] != null && dscthd[i].getMasp()!= null && dscthd[i].getMasp() == maspham){
+            if(dscthd[i] != null && dscthd[i].getMasp()!= null && dscthd[i].getMasp().equalsIgnoreCase(maspham)){
                 return false;
             }
         }
@@ -147,7 +147,7 @@ class List_CTHD {
         System.out.println("Nhap ma hoa don can sua chi tiet: ");
         boolean timkiem = false;
         for(int i=0; i<n; i++){
-            if (dscthd[i].getMahd() == mahd){
+            if (dscthd[i].getMahd().equalsIgnoreCase(mahd)){
                 for (int j=i; j<n; j++){
                     dscthd[i] = dscthd[i+1];
                 }
@@ -167,7 +167,7 @@ class List_CTHD {
         System.out.print("Nhap ma san pham can thong ke: ");
         String masanpham = sc.nextLine();
         for (int i=0; i<n; i++){
-            if (dscthd[i].getMasp() == masanpham){
+            if (dscthd[i].getMasp().equalsIgnoreCase(masanpham)){
                 d++;
             }
         }
@@ -193,7 +193,7 @@ class List_CTHD {
                             x = new CHITIETHOADON();
                             ((CHITIETHOADON) x).setMahd(t[1]);
                             ((CHITIETHOADON) x).setMasp(t[2]);
-                            ((CHITIETHOADON) x).setMakh(Integer.parseInt(t[3]));
+                            ((CHITIETHOADON) x).setMakh(t[3]);
                             x.setSL(Integer.parseInt(t[4]));
                             x.setDG(Integer.parseInt(t[5]));
                             x.setThanhtien(Double.parseDouble(t[6]));
@@ -235,5 +235,12 @@ class List_CTHD {
         catch (IOException e){
             System.out.println("Loi ghi file: "+e.getMessage());
         }
+    }
+     public static void main (String[] args){
+        List_CTHD dscthd = new List_CTHD();
+        System.out.println("Bat dau doc file.........");
+        dscthd.docfile();
+        System.out.println("Hien thi ket qua: ");
+        dscthd.xuat();
     }
 }

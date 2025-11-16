@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import javax.swing.JSpinner.NumberEditor;
-
 class List_HOADON {
     Scanner sc = new Scanner(System.in);
     private int n;
@@ -34,7 +32,7 @@ class List_HOADON {
         System.out.print("Nhap ma hoa don can tim: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getMahd() == hdcantim) {
+            if (dshd[i].getMahd().equalsIgnoreCase(hdcantim)) {
                 timkiem = true;
                 dshd[i].xuat();
             }
@@ -48,7 +46,7 @@ class List_HOADON {
         System.out.print("Nhap ma nhan vien can tim: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getManv() == nvcantim) {
+            if (dshd[i].getManv().equalsIgnoreCase(nvcantim)) {
                 timkiem = true;
                 dshd[i].xuat();
             }
@@ -58,11 +56,11 @@ class List_HOADON {
         }
     }
 
-    public void timkiemtheomakh(int khcantim ) {
+    public void timkiemtheomakh(String khcantim ) {
         System.out.print("Nhap ma khach hang ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getMakh() == khcantim) {
+            if (dshd[i].getMakh().equalsIgnoreCase(khcantim)) {
                 timkiem = true;
                 dshd[i].xuat();
             }
@@ -105,7 +103,7 @@ class List_HOADON {
         String MA = sc.nextLine();
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getMahd() == MA) {
+            if (dshd[i].getMahd().equalsIgnoreCase(MA)) {
                 System.out.println("Da cap nhat thong tin hoa don.");
                 timkiem = true;
                 break;
@@ -120,7 +118,7 @@ class List_HOADON {
             return true;
         }
         for(int i=0; i<n; i++){
-            if (dshd[i] != null && dshd[i].getMahd() != null && dshd[i].getMahd() == mahdon){
+            if (dshd[i] != null && dshd[i].getMahd() != null && dshd[i].getMahd().equalsIgnoreCase(mahdon)){
                 return false;
             }
         }
@@ -142,7 +140,7 @@ class List_HOADON {
         System.out.println("Nhap ma hoa don can xoa: ");
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getMahd() == MAHD) {
+            if (dshd[i].getMahd().equalsIgnoreCase(MAHD)) {
                 for (int j = i; j < n; j++) {
                     dshd[i] = dshd[i + 1];
                 }
@@ -162,7 +160,7 @@ class List_HOADON {
         System.out.print("Nhap ma nhan vien can thong ke: ");
         String manhanvien = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (dshd[i].getManv() == manhanvien) {
+            if (dshd[i].getManv().equalsIgnoreCase(manhanvien)) {
                 d++;
             }
         }
@@ -184,7 +182,7 @@ class List_HOADON {
                             x = new HOADON();
                             x.setMahd(t[1]);
                             ((HOADON) x).setManv((t[2]));
-                            ((HOADON) x).setMakh(Integer.parseInt(t[3]));
+                            ((HOADON) x).setMakh(t[3]);
                             x.setNgay(t[4]);
                             x.setTongTien(Double.parseDouble(t[5]));
                         }else{
@@ -225,5 +223,12 @@ class List_HOADON {
         catch (IOException e){
             System.out.println("Loi ghi file: "+e.getMessage());
         }
+    }
+     public static void main (String[] args){
+        List_HOADON dshd = new List_HOADON();
+        System.out.println("Bat dau doc file.........");
+        dshd.docfile();
+        System.out.println("Hien thi ket qua: ");
+        dshd.xuat();
     }
 }
