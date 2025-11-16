@@ -39,12 +39,12 @@ public class Menu_KH {
                     break;
                 case 7:
                     System.out.print("\nNhap ma khach hang can xoa: ");
-                    int khcanxoa = sc.nextInt();
+                    String khcanxoa = sc.nextLine();
                     quanly.xoakhachhang(khcanxoa);
                     break;
                 case 8:
                     System.out.print("Nhap ma khach hang can tim: ");
-                    int makhcantim = sc.nextInt();
+                    String makhcantim = sc.nextLine();
                     quanly.timkiemtheoma(makhcantim);
                     break;
                 case 9:
@@ -59,7 +59,7 @@ public class Menu_KH {
                     break;
                 case 11:
                     System.out.print("Nhap sdt khach hang can tim: ");
-                    int sdtkhcantim = sc.nextInt();
+                    String sdtkhcantim = sc.nextLine();
                     quanly.timkiemtheosdt(sdtkhcantim);
                     break;
                 case 12:

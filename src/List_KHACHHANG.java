@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.io.*;
 
 class List_KHACHHANG {
     Scanner sc = new Scanner(System.in);
@@ -23,10 +24,10 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheoma(int macantim) {
+    public void timkiemtheoma(String macantim) {
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == macantim) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(macantim)) {
                 timkiem = true;
                 dskh[i].xuat();
             }
@@ -62,7 +63,7 @@ class List_KHACHHANG {
         }
     }
 
-    public void timkiemtheosdt( int socantim) {
+    public void timkiemtheosdt( String socantim) {
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
             if (dskh[i].getSDT() == socantim) {
@@ -75,10 +76,10 @@ class List_KHACHHANG {
         }
     }
 
-    public void xoakhachhang(int MAKH) { 
+    public void xoakhachhang(String MAKH) { 
         boolean timkiem = false;
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == MAKH) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(MAKH)) {
                 for (int j = i; j < n; j++) {
                     dskh[i] = dskh[j + 1];
                 }
@@ -97,9 +98,9 @@ class List_KHACHHANG {
     public void suakhachhang() {
         boolean timkiem = false;
         System.out.println("Nhap ma khach hang can sua: ");
-        int MA = sc.nextInt();
+        String MA = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == MA) {  
+            if (dskh[i].getMaKH().equalsIgnoreCase(MA)) {  
                 System.out.println("Da cap nhat thong tin khach hang: " + MA);
                 timkiem = true;
                 break;
@@ -109,12 +110,12 @@ class List_KHACHHANG {
             System.out.println("Khong tim thay khach hang de sua: ");
         }
     }
-    public boolean IDKH(int makh){
-        if (makh == 0){
+    public boolean IDKH(String makh){
+        if (makh == null){
             return true;
         }
         for (int i=0; i<n; i++){
-            if(dskh[i] != null && dskh[i].getMaKH() != 0 && dskh[i].getMaKH() == makh){
+            if(dskh[i] != null && dskh[i].getMaKH() != null && dskh[i].getMaKH().equalsIgnoreCase(makh)){
                 return false;
             }
         }
@@ -135,9 +136,9 @@ class List_KHACHHANG {
     public void thongkekhachhang() {
         int d = 0;
         System.out.print("Nhap ma khach hang can thong ke: ");
-        int makhachhang = sc.nextInt();
+        String makhachhang = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (dskh[i].getMaKH() == makhachhang) {
+            if (dskh[i].getMaKH().equalsIgnoreCase(makhachhang)) {
                 d++;
             }
         }
@@ -146,5 +147,67 @@ class List_KHACHHANG {
         } else {
             System.out.println("Khach hang moi");
         }
+    }
+    public void docfile(){
+        try (BufferedReader br = new BufferedReader(new FileReader("src\\data\\List_KHACHHANG.txt"))){
+            String line;
+            KHACHHANG x = null;
+            dskh = new KHACHHANG[0];
+            while ((line = br.readLine()) != null){
+                String[] t = line.split("-");
+                if (t.length >= 8){
+                    String type = t[0].toUpperCase();
+                    if (type.contains("KH")){
+                        if (t.length >= 9){
+                            x = new KHACHHANG();
+                            x.setMakh(t[1]);
+                            x.setHo(t[2]); 
+                            x.setTen(t[3]);
+                            x.setSDT((t[4]));
+                        }else{
+                            continue;
+                        }
+                    }else{
+                        continue;
+                    }
+                    if (x != null) {
+                        dskh = Arrays.copyOf(dskh, n+1);
+                        dskh[n-1] = x;
+                        System.out.println("Doc: "+x.getMaKH()+"-"+x.getTen());
+                    }
+                }
+            }
+            System.out.println("Doc file thanh cong");
+            System.out.println("So khach hang da doc: "+ n);
+        }catch (IOException e){
+            System.out.println("Loi doc file: "+e.getMessage());
+        }catch (NumberFormatException e){
+            System.out.println("Loi format so: "+e.getMessage());
+        }
+    }
+    public void ghiFile(){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\data\\List_KHACHHANG.txt"))){
+            bw.write("====DANH SACH KHACH HANG====\n");
+            bw.write("So luong khach hang: "+n+"\n");
+            for (int i=0; i<n; i++){
+                if (dskh[i] != null){
+                    if (dskh[i] instanceof KHACHHANG){
+                        KHACHHANG kh = (KHACHHANG) dskh[i];
+                        bw.write("KH-"+kh.getMaKH()+"-"+kh.getHo()+"-"+kh.getTen()+"-"+kh.getSDT()+"\n");
+                    }
+                }
+            } 
+            System.out.println("Ghi file thanh cong");
+        }
+        catch (IOException e){
+            System.out.println("Loi ghi file: "+e.getMessage());
+        } 
+    }
+    public static void main (String[] args){
+        List_KHACHHANG dskh = new List_KHACHHANG();
+        System.out.println("Bat dau doc file.........");
+        dskh.docfile();
+        System.out.println("Hien thi ket qua: ");
+        dskh.xuat();
     }
 }
