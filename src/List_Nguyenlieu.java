@@ -1,4 +1,10 @@
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 
 class List_Nguyenlieu {
 	Scanner sc = new Scanner(System.in);
@@ -118,8 +124,53 @@ class List_Nguyenlieu {
 		System.out.println("So luong nguyen lieu co ma " + maCanTke + " la: " + d);
 	}
 
+	//Doc ghi file
+	public void docFile() {
+		try (BufferedReader br = new BufferedReader(new FileReader("src/data/List_Nguyenlieu.txt"))) {
+			String line;
+			Nguyenlieu x = null;
 
+			ds = new Nguyenlieu[0];
+			n = 0;
 
+			while ((line = br.readLine()) != null) {
+				if (line.startsWith("===") || line.startsWith("So luong")) {
+					continue;
+				}
+				String[] t = line.split("-");
+				if (t.length >= 4) {
+					x = new Nguyenlieu(t[0], t[1], Double.parseDouble(t[2]));
+					
+					// add vao mang
+					ds = Arrays.copyOf(ds, ds.length + 1);
+					ds[ds.length -1] = x;
+					n++;
+					System.out.println("Doc: " + x.getmaNL() + " - " + x.gettenNL());
+				}
+			}
+			System.out.println("Da doc file thanh cong.");
+			System.out.println("So luong nguyen lieu: " + n);
+		
+		} catch (IOException e) {
+			System.out.println("Loi doc file: " + e.toString());
+		}
+	}
+
+	//ghi file
+	public void ghiFile(String tenFile){
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/List_Nguyenlieu.txt"))) {
+			bw.write("==== DANH SACH NGUYEN LIEU ====\n");
+			bw.write("So luong nguyen lieu: " + n + "\n");
+			for (int i = 0; i < n; i++) {
+				if (ds[i] != null) {
+					bw.write(ds[i].getmaNL() + "-" + ds[i].gettenNL() + "-" + ds[i].getdongia() + "\n");
+				}
+			}
+			System.out.println("Da ghi file thanh cong.");
+		} catch (IOException e) {
+			System.out.println("Loi ghi file: " + e.toString());
+		}
+	}
 	// get/set
 	public Nguyenlieu[] getDs() {
 		return ds;

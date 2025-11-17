@@ -128,13 +128,8 @@ class List_COMBO {
                     continue;
                 }
                 String[] t = line.split("-");
-                if (t.length >= 6) {
-                    x = new COMBO();
-                    x.maSP = t[1];
-                    x.tenSP = t[2].replace("_", " ");
-                    x.giaBan = Double.parseDouble(t[3]);
-                    x.soLuong = Integer.parseInt(t[4]);
-                    x.setGiaNiemYet(Double.parseDouble(t[5]));
+                if (t.length >= 5) {
+                    x = new COMBO(t[0],t[1],Double.parseDouble(t[2]),Integer.parseInt(t[3]),Double.parseDouble(t[4]));
 
                     // add vao mang
                     ds = Arrays.copyOf(ds, ds.length + 1);
