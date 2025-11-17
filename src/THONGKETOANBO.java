@@ -58,11 +58,11 @@ public class THONGKETOANBO {
     private void thongKeChi() {
         DecimalFormat df = new DecimalFormat(/* pattern: */ "#,###");
         System.out.println("\n===== THONG KE CHI TIET =====");
-        System.out.printf(/* format: */ "%-15s | ", "Loai");
+        System.out.printf("%-15s | ", "Loai");
 
         String[] categories = { "Mon An", "Nhan Vien", "Ton Kho" };
         for (int i = 0; i < categories.length; i++) {
-            System.out.printf(/* format: */ "%-15s |", categories[i]);
+            System.out.printf("%-15s |", categories[i]);
         }
         System.out.println("\n" +
                 "x: \"\\n---------------------------------------------------------------\"");
@@ -71,10 +71,10 @@ public class THONGKETOANBO {
         // Tổng số từng loại
         double[] tongSo = { dsMonAn.getN(), dsNhanVien.getN(), dsTonKho.getN() };
         for (int i = 0; i < tongSo.length; i++) {
-            System.out.printf(/* format: */ "%-15.0f |", tongSo[i]);
+            System.out.printf("%-15.0f |", tongSo[i]);
         }
 
-        System.out.printf(/* format: */ "\n%-15s |", "Tong Gia Tri");
+        System.out.printf("\n%-15s |", "Tong Gia Tri");
 
         // Tính tổng giá trị
         double tongGiaTriMonAn = 0;
@@ -103,7 +103,7 @@ public class THONGKETOANBO {
 
         double[] giaTris = { tongGiaTriMonAn, tongLuongNV, tongGiaTriTK };
         for (int i = 0; i < giaTris.length; i++) {
-            System.out.printf(/* format: */ "%-15s |", df.format(giaTris[i]));
+            System.out.printf("%-15s |", df.format(giaTris[i]));
         }
 
         System.out.println("\n" +
@@ -111,11 +111,11 @@ public class THONGKETOANBO {
     }
 
     private void thongKeQuy() {
-        DecimalFormat df = new DecimalFormat(/* pattern: */ "#,###");
+        DecimalFormat df = new DecimalFormat("#,###");
         System.out.println("\n===== THONG KE THEO QUY =====");
-        System.out.printf(/* format: */ "%-15s | %-25s %-23s |%n", "Bo Phan", "Ten", "");
-        System.out.printf(/* format: */ "%-15s |", "Quy");
-        System.out.printf(/* format: */ "%-11s | %-10s | %-10s | %-10s |%n", "Quy 1", "Quy 2", "Quy 3", "Quy 4");
+        System.out.printf("%-15s | %-25s %-23s |%n", "Bo Phan", "Ten", "");
+        System.out.printf("%-15s |", "Quy");
+        System.out.printf("%-11s | %-10s | %-10s | %-10s |%n", "Quy 1", "Quy 2", "Quy 3", "Quy 4");
 
         // Giả lập dữ liệu theo quý
         String[] boPhan = { "Mon An", "Nhan Vien", "Ton Kho" };
@@ -135,7 +135,7 @@ public class THONGKETOANBO {
                 NhanVien[] ds = dsNhanVien.getDs();
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
-                        tongGiaTri += ds[j].getLuongCoBan() * 3; // 3 tháng/quý
+                        tongGiaTri += ds[j].getLuongCoBan() * 3; // 3 tháng
                     }
                 }
             } else { // Tồn kho
@@ -147,13 +147,13 @@ public class THONGKETOANBO {
                 }
             }
 
-            // Phân bổ theo quý (có thể tùy chỉnh)
+            // Phân bổ theo quý
             quy[0] = tongGiaTri * 0.25; // Q1
             quy[1] = tongGiaTri * 0.23; // Q2
             quy[2] = tongGiaTri * 0.27; // Q3
             quy[3] = tongGiaTri * 0.25; // Q4
 
-            System.out.printf(/* format: */ "%-15s | %-10s | %-10s | %-10s | %-10s |%n",
+            System.out.printf("%-15s | %-10s | %-10s | %-10s | %-10s |%n",
                     boPhan[i],
                     df.format(quy[0]),
                     df.format(quy[1]),
@@ -163,7 +163,7 @@ public class THONGKETOANBO {
 
         // Tổng cộng theo quý
         double[] tongQuy = new double[4];
-        System.out.printf(/* format: */ "%-15s | %-10s | %-10s | %-10s | %-10s |",
+        System.out.printf("%-15s | %-10s | %-10s | %-10s | %-10s |",
                 "Tong Cong",
                 df.format(tongQuy[0]),
                 df.format(tongQuy[1]),
@@ -230,9 +230,9 @@ public class THONGKETOANBO {
             System.out.printf("- Ty trong Nuoc Uong: %.1f%%\n", (doanhThuNuocUong / tongDoanhThu) * 100);
 
             if (doanhThuThucAn > doanhThuNuocUong) {
-                System.out.println("- Thuc An la san pham chinh 🍛");
+                System.out.println("- Thuc An la san pham chinh ");
             } else {
-                System.out.println("- Nuoc Uong la san pham chinh 🥤");
+                System.out.println("- Nuoc Uong la san pham chinh ");
             }
         }
     }
