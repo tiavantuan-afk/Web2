@@ -18,6 +18,12 @@ public class Chitietphieunhap{
         this.soluong = soluong;
         this.dongia = dongia;
     }
+    public Chitietphieunhap(Chitietphieunhap ct){
+        this.maNH = ct.maNH;
+        this.maSP = ct.maSP;
+        this.soluong = ct.soluong;
+        this.dongia = ct.dongia;
+    }
 
     public void nhap(){
         System.out.println("Mã nhập hàng: ");
@@ -29,6 +35,7 @@ public class Chitietphieunhap{
         System.out.println("Đơn giá: ");
         dongia=Double.parseDouble(sc.nextLine());
     }
+    
     public String getmaNH(){
         return maNH;
     }
@@ -47,10 +54,10 @@ public class Chitietphieunhap{
     public void setmaSP(String maSP){
         this.maSP = maSP;
     }
-    public void getsoluong(int soluong){
+    public void setsoluong(int soluong){
         this.soluong = soluong;
     }
-    public void getdongia(double dongia){
+    public void setdongia(double dongia){
         this.dongia = dongia;
     }
     public double thanhTien(){

@@ -13,7 +13,7 @@ public class Menu_MonAn {
     public Menu_MonAn() {
         quanLy = new List_MonAn();
         sc = new Scanner(System.in);
-        fileName = "DoAn/src/data/List_MonAn.txt";
+        fileName = "src/data/List_MonAn.txt";
         quanLy.docFile(fileName);
     }
 
@@ -46,9 +46,10 @@ public class Menu_MonAn {
                     quanLy.them();
                     quanLy.ghiFile(fileName);
                     break;
-                // case 4:
-                // quanLy.sua();
-                // break;
+                case 4:
+                    quanLy.docFile(fileName);
+                    quanLy.sua();
+                    break;
                 case 5:
                     System.out.print("Nhap ma san pham can xoa: ");
                     String maCanXoa = sc.nextLine().trim();

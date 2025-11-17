@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Menu_Main",
+            "request": "launch",
+            "mainClass": "Menu_Main",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
             "name": "List_KHACHHANG",
             "request": "launch",
             "mainClass": "List_KHACHHANG",
