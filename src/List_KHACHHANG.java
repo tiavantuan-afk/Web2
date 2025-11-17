@@ -171,23 +171,17 @@ class List_KHACHHANG {
                     continue;
                 }
                 String[] t = line.split("-");
-                if (t.length >= 5){
-                    String type = t[0].toUpperCase();
-                    if (type.contains("KH")){ 
-                            x = new KHACHHANG(t[1], t[2], t[3], t[4]);
-                            // x.setMakh();
-                            // x.setHo(); 
-                            // x.setTen();
-                            // x.setSDT(());
-                    } else {
-                        System.out.println("Bo qua dong khong hop le: " + line);
-                        continue;
-                    }
-                    if (x != null) {
-                        dskh = Arrays.copyOf(dskh, n+1);
-                        dskh[n-1] = x;
-                    }
-                }
+                if (t.length >= 4){
+                    x = new KHACHHANG();
+                    x.setMakh(t[0]);
+                    x.setHo(t[1]); 
+                    x.setTen(t[2]);
+                    x.setSDT((t[3]));
+                    dskh = Arrays.copyOf(dskh, dskh.length + 1);
+                    dskh[dskh.length - 1] = x;
+                    System.out.println("Doc: " + x.getMaKH() + " - " + x.getHo() + " " + x.getTen());
+
+                } 
             }
             System.out.println("Doc file thanh cong, So khach hang da doc: "+ n);
         }catch (IOException e){
@@ -207,12 +201,5 @@ class List_KHACHHANG {
         }catch (IOException e){
             System.out.println("Loi ghi file");
         }   
-    }
-    public static void main (String[] args){
-        List_KHACHHANG dskh = new List_KHACHHANG();
-        System.out.println("Bat dau doc file.........");
-        dskh.docfile("data\\List_KHACHHANG.txt");
-        System.out.println("Hien thi ket qua: ");
-        dskh.xuat();
     }
 }

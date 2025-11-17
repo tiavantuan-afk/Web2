@@ -259,12 +259,4 @@ class List_CTHD {
             System.out.println("Loi ghi file");
         }   
     }
-
-    public static void main(String[] args) {
-        List_CTHD dscthd = new List_CTHD();
-        System.out.println("Bat dau doc file.........");
-        dscthd.docfile("");
-        System.out.println("Hien thi ket qua: ");
-        dscthd.xuat();
-    }
 }

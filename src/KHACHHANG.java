@@ -33,12 +33,8 @@ public class KHACHHANG {
         System.out.print("Nhap ma khach hang: ");
         Makh = sc.nextLine();
         System.out.print("Nhap so dien thoai: ");
-<<<<<<< HEAD
-        SDT = sc.nextInt();
-=======
         SDT = sc.nextLine();
-        sc.close();
->>>>>>> 6d3a0bc6c69247dbfe4c8bdae553084d94ddd165
+
     }
     public void xuat(){
         System.out.println("Thong tin khach hang: ");
