@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Menu_Main",
             "request": "launch",
             "mainClass": "Menu_Main",
@@ -13,6 +14,23 @@
         },
         {
             "type": "java",
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            "name": "Menu_MonAn",
+            "request": "launch",
+            "mainClass": "Menu_MonAn",
+            "projectName": "DoAn_75d2812f"
+        },
+        {
+            "type": "java",
+            "name": "Menu_KHO",
+            "request": "launch",
+            "mainClass": "Menu_KHO",
+            "projectName": "DoAn_75d2812f"
+=======
+=======
+>>>>>>> c576180ff9f4146e4f0a6a1463d7a5a685bfc8fd
             "name": "List_KHACHHANG",
             "request": "launch",
             "mainClass": "List_KHACHHANG",
@@ -20,6 +38,7 @@
         },
         {
             "type": "java",
+>>>>>>> e588054f18cb0e572745611afaa177a3c6b570d8
             "name": "List_NCC",
             "request": "launch",
             "mainClass": "List_NCC",
@@ -59,6 +78,7 @@
             "request": "launch",
             "mainClass": "List_NhanVien",
             "projectName": "DoAn_d1382049"
+>>>>>>> 6d3a0bc6c69247dbfe4c8bdae553084d94ddd165
         },
         {
             "type": "java",
