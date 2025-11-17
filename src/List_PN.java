@@ -12,15 +12,6 @@ public class List_PN {
     private int n;
     private Phieunhaphang[] ds = new Phieunhaphang[100];
 
-
-    public int getN() {
-        return n;
-    }
-
-    public void setN(int n) {
-        this.n = n;
-    }
-
     public void nhap() {
         System.out.print("So luong phieu nhap hang: ");
         n = sc.nextInt();
