@@ -1,10 +1,17 @@
 import java.util.Scanner;
 public class Menu_CTHD {
     private List_CTHD quanly;
+    private String filename;
     private Scanner sc;
+    public static void main (String[] args){
+        Menu_CTHD menu = new Menu_CTHD();
+        menu.menu();
+    }
     public Menu_CTHD(){
         quanly = new List_CTHD();
         sc = new Scanner(System.in);
+        filename = "src/data/List_CTHD.txt";
+        quanly.docfile(filename);
     }
     public void menu(){
         int chon = -1;
@@ -86,8 +93,5 @@ public class Menu_CTHD {
         } while (chon != 0);
         sc.close();
     }
-    public static void main (String[] args){
-        Menu_CTHD menu = new Menu_CTHD();
-        menu.menu();
-    }
+
 }

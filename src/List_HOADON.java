@@ -3,6 +3,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -189,68 +190,60 @@ class List_HOADON {
         }
     }
 
-    public void docfile() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\data\\List_HOADON.txt"))) {
+    public void docfile(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             HOADON x = null;
             dshd = new HOADON[0];
             while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()){
+                    continue;
+                }
                 String[] t = line.split("-");
-                if (t.length >= 8) {
+                if (t.length >= 5) {
                     String type = t[0].toUpperCase();
                     if (type.contains("HD")) {
-                        if (t.length >= 9) {
-                            x = new HOADON();
-                            x.setMahd(t[1]);
-                            ((HOADON) x).setManv((t[2]));
-                            ((HOADON) x).setMakh(t[3]);
-                            x.setNgay(t[4]);
-                            x.setTongTien(Double.parseDouble(t[5]));
-                        } else {
-                            continue;
-                        }
+                        x = new HOADON(t[1], t[2], t[3], t[4], Double.parseDouble(t[5]));
+                        // x.setMahd();
+                        // ((HOADON) x).setManv(());
+                        // ((HOADON) x).setMakh();
+                        // x.setNgay();
+                        // x.setTongTien();
                     } else {
+                         System.out.println("Bo qua dong khong hop le: " + line);
                         continue;
                     }
                     if (x != null) {
-                        dshd = Arrays.copyOf(dshd, n + 1);
-                        dshd[n - 1] = x;
-                        System.out.println("Doc: " + x.getMahd() + "-" + x.getMakh());
+                        dshd = Arrays.copyOf(dshd, n+1);
+                        dshd[n-1] = x;
                     }
                 }
             }
-            System.out.println("Doc file thanh cong");
-            System.out.println("So hoa don da doc: " + n);
+            System.out.println("Doc file thanh cong, So khach hang da doc: "+ n);
         } catch (IOException e) {
             System.out.println("Loi doc file: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Loi format so: " + e.getMessage());
-        }
+        } //catch (NumberFormatException e) {
+            // System.out.println("Loi format so: " + e.getMessage());
+            // }
     }
 
-    public void ghiFile() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\data\\List_HOADON.txt"))) {
-            bw.write("=====DANH SACH HOA DON=====\n");
-            bw.write("So luong hao don: " + n + "\n");
-            for (int i = 0; i < n; i++) {
-                if (dshd[i] != null) {
-                    if (dshd[i] instanceof HOADON) {
-                        HOADON hd = (HOADON) dshd[i];
-                        bw.write("HD" + hd.getMahd() + "-" + hd.getManv() + "-" + hd.getMakh() + "-" + hd.getNgay()
-                                + "-" + hd.getTongtien() + "\n");
-                    }
+    public void ghiFile(String filename){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))){
+            for (int i=0; i<n; i++){
+                if (dshd[i] != null){
+                    writer.println(dshd[i].toString());
                 }
             }
-            System.out.println("Ghi file thanh cong");
-        } catch (IOException e) {
-            System.out.println("Loi ghi file: " + e.getMessage());
-        }
+            System.out.println("Ghi file thanh cong: "+n+ " hoa don");
+        }catch (IOException e){
+            System.out.println("Loi ghi file");
+        }   
     }
 
     public static void main(String[] args) {
         List_HOADON dshd = new List_HOADON();
         System.out.println("Bat dau doc file.........");
-        dshd.docfile();
+        dshd.docfile("");
         System.out.println("Hien thi ket qua: ");
         dshd.xuat();
     }

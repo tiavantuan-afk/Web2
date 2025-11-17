@@ -65,8 +65,7 @@ public class Menu_Nguyenlieu {
 					quanLy.timkiemtheoten();
 					break;
 				case 9:
-					System.out.print("Nhap ma nguyen lieu can thong ke: ");
-					quanLy.thongkeguyen();
+					quanLy.thongkeNguyenLieu();
 					break;
 				case 0:
 					System.out.println("Thoat chuong trinh.");

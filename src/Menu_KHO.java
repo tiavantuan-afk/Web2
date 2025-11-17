@@ -66,8 +66,7 @@ public class Menu_KHO {
 					quanLy.timkiemtheoten();
 					break;
 				case 9:
-					System.out.print("Nhap ma hang can thong ke: ");
-					quanLy.thongkehang();
+					quanLy.thongkeKho();
 					break;
 				case 0:
 					System.out.println("Thoat chuong trinh.");

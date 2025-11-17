@@ -161,66 +161,45 @@ class List_KHACHHANG {
             System.out.println("Khach hang moi");
         }
     }
-    public void docfile(){
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\data\\List_KHACHHANG.txt"))){
+    public void docfile(String filename){
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))){
             String line;
             KHACHHANG x = null;
             dskh = new KHACHHANG[0];
             while ((line = br.readLine()) != null){
-                String[] t = line.split("-");
-                if (t.length >= 8){
-                    String type = t[0].toUpperCase();
-                    if (type.contains("KH")){
-                        if (t.length >= 9){
-                            x = new KHACHHANG();
-                            x.setMakh(t[1]);
-                            x.setHo(t[2]); 
-                            x.setTen(t[3]);
-                            x.setSDT((t[4]));
-                        }else{
-                            continue;
-                        }
-                    }else{
-                        continue;
-                    }
-                    if (x != null) {
-                        dskh = Arrays.copyOf(dskh, n+1);
-                        dskh[n-1] = x;
-                        System.out.println("Doc: "+x.getMaKH()+"-"+x.getTen());
-                    }
+                if (line.trim().isEmpty()){
+                    continue;
                 }
+                String[] t = line.split("-");
+                if (t.length >= 4){
+                    x = new KHACHHANG();
+                    x.setMakh(t[0]);
+                    x.setHo(t[1]); 
+                    x.setTen(t[2]);
+                    x.setSDT((t[3]));
+                    dskh = Arrays.copyOf(dskh, dskh.length + 1);
+                    dskh[dskh.length - 1] = x;
+                    System.out.println("Doc: " + x.getMaKH() + " - " + x.getHo() + " " + x.getTen());
+
+                } 
             }
-            System.out.println("Doc file thanh cong");
-            System.out.println("So khach hang da doc: "+ n);
+            System.out.println("Doc file thanh cong, So khach hang da doc: "+ n);
         }catch (IOException e){
             System.out.println("Loi doc file: "+e.getMessage());
-        }catch (NumberFormatException e){
-            System.out.println("Loi format so: "+e.getMessage());
-        }
+        }// catch (NumberFormatException e){
+        //     System.out.println("Loi format so: "+e.getMessage());
+        // }
     }
-    public void ghiFile(){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\data\\List_KHACHHANG.txt"))){
-            bw.write("====DANH SACH KHACH HANG====\n");
-            bw.write("So luong khach hang: "+n+"\n");
+    public void ghiFile(String filename){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))){
             for (int i=0; i<n; i++){
                 if (dskh[i] != null){
-                    if (dskh[i] instanceof KHACHHANG){
-                        KHACHHANG kh = (KHACHHANG) dskh[i];
-                        bw.write("KH-"+kh.getMaKH()+"-"+kh.getHo()+"-"+kh.getTen()+"-"+kh.getSDT()+"\n");
-                    }
+                    writer.println(dskh[i].toString());
                 }
-            } 
-            System.out.println("Ghi file thanh cong");
-        }
-        catch (IOException e){
-            System.out.println("Loi ghi file: "+e.getMessage());
-        } 
-    }
-    public static void main (String[] args){
-        List_KHACHHANG dskh = new List_KHACHHANG();
-        System.out.println("Bat dau doc file.........");
-        dskh.docfile();
-        System.out.println("Hien thi ket qua: ");
-        dskh.xuat();
+            }
+            System.out.println("Ghi file thanh cong: "+n+ " khach");
+        }catch (IOException e){
+            System.out.println("Loi ghi file");
+        }   
     }
 }
