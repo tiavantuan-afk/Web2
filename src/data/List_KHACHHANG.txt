@@ -1,5 +1,3 @@
------ DANH SACH KHACH HANG -----
-So luong khach hang: 4
 KH-001-Huynh-Qui Bao-11111
 KH-002-Tia-Quang Minh-22222
 KH-003-Nguyen-Tuan Kiet-33333

@@ -3,6 +3,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -208,70 +209,61 @@ class List_CTHD {
         }
     }
 
-    public void docfile() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src\\data\\List_CTHD.txt"))) {
+    public void docfile(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             CHITIETHOADON x = null;
             dscthd = new CHITIETHOADON[0];
             while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()){
+                    continue;
+                }
                 String[] t = line.split("-");
-                if (t.length >= 8) {
+                if (t.length >= 5) {
                     String type = t[0].toUpperCase();
                     if (type.contains("CT")) {
-                        if (t.length >= 9) {
-                            x = new CHITIETHOADON();
-                            ((CHITIETHOADON) x).setMahd(t[1]);
-                            ((CHITIETHOADON) x).setMasp(t[2]);
-                            ((CHITIETHOADON) x).setMakh(t[3]);
-                            x.setSL(Integer.parseInt(t[4]));
-                            x.setDG(Integer.parseInt(t[5]));
-                            x.setThanhtien(Double.parseDouble(t[6]));
-                        } else {
-                            continue;
-                        }
+                            x = new CHITIETHOADON(t[1], t[2], t[3], Integer.parseInt(t[4]), Integer.parseInt(t[5]), Double.parseDouble(t[6]));
+                            // ((CHITIETHOADON) x).setMahd();
+                            // ((CHITIETHOADON) x).setMasp();
+                            // ((CHITIETHOADON) x).setMakh();
+                            // x.setSL());
+                            // x.setDG());
+                            // x.setThanhtien();
                     } else {
+                        System.out.println("Bo qua dong khong hop le: " + line);
                         continue;
                     }
                     if (x != null) {
-                        dscthd = Arrays.copyOf(dscthd, n + 1);
-                        dscthd[n - 1] = x;
-                        System.out.println("Doc: " + x.getMahd() + "-" + x.getMasp() + "-" + x.getSL() + "-" + x.getDG()
-                                + "-" + x.getThanhtien() + "\n");
+                        dscthd = Arrays.copyOf(dscthd, n+1);
+                        dscthd[n-1] = x;
                     }
                 }
             }
-            System.out.println("Doc file thanh cong");
-            System.out.println("So chi tiet da doc: " + n);
+             System.out.println("Doc file thanh cong, So chi tiet da doc: "+ n);
         } catch (IOException e) {
             System.out.println("Loi doc file: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Loi format so: " + e.getMessage());
-        }
+        }  //catch (NumberFormatException e) {
+        // // //     System.out.println("Loi format so: " + e.getMessage());
+        // // }
     }
 
-    public void ghiFile() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\data\\List_CTHD.txt"))) {
-            bw.write("====DANH SACH CHI TIET HOA DON=====");
-            bw.write("So luong chi tiet: " + n + "\n");
-            for (int i = 0; i < n; i++) {
-                if (dscthd[i] != null) {
-                    if (dscthd[i] instanceof CHITIETHOADON) {
-                        CHITIETHOADON ct = (CHITIETHOADON) dscthd[i];
-                        bw.write("CT-" + ct.getMahd() + "-" + ct.getMasp() + "-" + ct.getMakh() + "-" + ct.getSL() + "-"
-                                + ct.getDG() + "-" + ct.getThanhtien());
-                    }
+    public void ghiFile(String filename){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))){
+            for (int i=0; i<n; i++){
+                if (dscthd[i] != null){
+                    writer.println(dscthd[i].toString());
                 }
             }
-            System.out.println("Ghi file thanh cong");
-        } catch (IOException e) {
-            System.out.println("Loi ghi file: " + e.getMessage());
-        }
+            System.out.println("Ghi file thanh cong: ");
+        }catch (IOException e){
+            System.out.println("Loi ghi file");
+        }   
     }
 
     public static void main(String[] args) {
         List_CTHD dscthd = new List_CTHD();
         System.out.println("Bat dau doc file.........");
-        dscthd.docfile();
+        dscthd.docfile("");
         System.out.println("Hien thi ket qua: ");
         dscthd.xuat();
     }
