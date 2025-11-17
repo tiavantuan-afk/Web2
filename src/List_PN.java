@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ListPN {
+public class List_PN {
     Scanner sc = new Scanner(System.in);
     private int n;
     private Phieunhaphang[] ds = new Phieunhaphang[100];
@@ -29,7 +29,7 @@ public class ListPN {
         }
     }
     
-    public void docFileTXT(String tenFile) {
+    public void docFile(String tenFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
             String line;
             n = 0;
@@ -37,10 +37,10 @@ public class ListPN {
                 String[] parts = line.split(",");
                 if (parts.length >= 5) {
                     ds[n] = new Phieunhaphang();
-                    ds[n].setmaNH(parts[0].trim());
+                    ds[n].setmaPNH(parts[0].trim());
                     ds[n].setmaNV(parts[1].trim());
                     ds[n].setngay(parts[2].trim());
-                    ds[n].setmaNCC(parts[3].trim());
+                    ds[n].setncc(parts[3].trim());
                     n++;
                 }
             }
@@ -57,10 +57,10 @@ public class ListPN {
         }
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(tenFile))) {
             String line =
-                ds[index].getmaNH() + "," +
+                ds[index].getmaPNH() + "," +
                 ds[index].getmaNV() + "," +
                 ds[index].getngay() + "," +
-                ds[index].getmaNCC();
+                ds[index].getmancc();
             bw.write(line);
             bw.newLine();
             System.out.println("Đã ghi 1 chi tiết vào file!");
@@ -72,10 +72,10 @@ public class ListPN {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(tenFile))) {
             for (int i = 0; i < n; i++) {
                 String line =
-                    ds[i].getmaNH() + "," +
+                    ds[i].getmaPNH() + "," +
                     ds[i].getmaNV() + "," +
                     ds[i].getngay() + "," +
-                    ds[i].getmaNCC();
+                    ds[i].getmancc();
                 bw.write(line);
                 bw.newLine();
             }
@@ -90,7 +90,7 @@ public class ListPN {
         String macanthem = sc.nextLine();
         boolean themma = false;
         for(int i = 0;i < n; i++){
-            if(ds[i].getmaNH().equalsIgnoreCase(macanthem)){
+            if(ds[i].getmaPNH().equalsIgnoreCase(macanthem)){
                 themma = true;
                 return;
                 }
@@ -105,7 +105,7 @@ public class ListPN {
             System.out.println("Nhập thông tin phiêu nhap hang mới có mã " + macanthem);
             ds[n] = new Phieunhaphang();
             ds[n].nhap();
-            ds[n].setmaNH(macanthem);
+            ds[n].setmaPNH(macanthem);
             n++;
     }
 
@@ -113,7 +113,7 @@ public class ListPN {
         System.out.print("Nhap ma can tim: ");
         String ma = sc.nextLine();
         for (int i = 0; i < n; i++) {
-            if (ds[i].getmaNH().equalsIgnoreCase(ma)) {
+            if (ds[i].getmaPNH().equalsIgnoreCase(ma)) {
                 System.out.println("Tim thay: " + ds[i]);
                 return;
             }
@@ -126,7 +126,7 @@ public class ListPN {
         String macanxoa = sc.nextLine();
         boolean daxoa = false;
         for(int i = 0;i < n; i++){
-            if(ds[i].getmaNH().equalsIgnoreCase(macanxoa)){
+            if(ds[i].getmaPNH().equalsIgnoreCase(macanxoa)){
                 for(int j = i;j < n-1;j++){
                     ds[j] = ds[j+1];
                 }
@@ -147,7 +147,7 @@ public class ListPN {
         String macansua = sc.nextLine();
         boolean dasua = false;
         for(int i = 0; i < n; i++){
-            if(ds[i].getmaNH().equalsIgnoreCase(macansua)){
+            if(ds[i].getmaPNH().equalsIgnoreCase(macansua)){
                 System.out.println("Tìm thấy phieu nhap hang: ");
                 ds[i].toString();
                 System.out.println("Thông tin cần sửa cho phieu nhap hang: ");
@@ -162,70 +162,32 @@ public class ListPN {
             System.out.println("Không tìm thấy phieu nhap hang có mã "+ macansua);
         }
     }
-    public void menu() {
-        int chon;
-        do {
-            System.out.println("\nMENU CTPN");
-            System.out.println("1. Nhap danh sach");
-            System.out.println("2. Xuat danh sach");
-            System.out.println("3. Them theo ma");
-            System.out.println("4. Tim theo ma");
-            System.out.println("5. Sua theo ma");
-            System.out.println("6. Xoa theo ma");
-            System.out.println("7. Ghi 1 chi tiet ra file");
-            System.out.println("8. Ghi tat ca ra file");
-            System.out.println("9. Doc tu file");
-            System.out.println("0 Thoat");
-            System.out.print("Chon: ");
-
-            chon = sc.nextInt();
-            sc.nextLine();
-
-            switch (chon) {
-                case 1: 
-                    nhap(); 
+    public void thongketheongay() {
+        String[] ngaydadem = new String[100];
+        int[] soLuong = new int[100];
+        int dem = 0;
+        for (int i = 0; i < n; i++) {
+            String ho = ds[i].getngay();
+            int index = -1;
+            for (int j = 0; j < dem; j++) {
+                if (ngaydadem[j].equalsIgnoreCase(ho)) {
+                    index = j;
                     break;
-                case 2: 
-                    xuat(); 
-                    break;
-                case 3: 
-                    themtheoma(); 
-                    break;
-                case 4: 
-                    timTheoMa(); 
-                    break;
-                case 5: 
-                    suatheoma(); 
-                    break;
-                case 6: 
-                    xoatheoma(); 
-                    break;
-                case 7:
-                    System.out.print("Nhập tên file TXT cần đọc: ");
-                    String fileDoc = sc.nextLine();
-                    docFileTXT(fileDoc);
-                    break;
-                case 8:
-                    System.out.print("Nhập vị trí muốn ghi ONE: ");
-                    int vt = sc.nextInt(); sc.nextLine();
-                    WriteOne("one.txt", vt);
-                    break;
-                case 9:
-                    WriteAll("all.txt");
-                    break;
-                case 0:
-                    System.out.println("Thoát");
-                    return;
-                default:
-                    System.out.println("Lua chon khong hop le, vui long chon lai");
-                    break;
+                }
             }
-        } while (chon != 0);
-    }
-
-    public static void main(String[] args) {
-        ListPN l = new ListPN();
-        l.menu();
+            if (index == -1) { 
+                ngaydadem[dem] = ho;
+                soLuong[dem] = 1;
+                dem++;
+            } else {
+                soLuong[index]++;
+            }
+        }
+        System.out.println("\nThong ke theo ho");
+        System.out.printf("%-15s %-10s\n", "Họ", "Số lượng");
+        for (int i = 0; i < dem; i++) {
+            System.out.printf("%-15s %-10d\n", ngaydadem[i], soLuong[i]);
+        }
     }
 }
 

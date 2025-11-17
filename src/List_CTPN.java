@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ListCTPN {
+public class List_CTPN {
     Scanner sc = new Scanner(System.in);
     private int n;
     private Chitietphieunhap[] ds = new Chitietphieunhap[100];
@@ -29,7 +29,34 @@ public class ListCTPN {
         }
     }
     
-    public void docFileTXT(String tenFile) {
+    public void thongketheongay() {
+        String[] ngaydadem = new String[100];
+        int[] soLuong = new int[100];
+        int dem = 0;
+        for (int i = 0; i < n; i++) {
+            String ho = ds[i].getngay();
+            int index = -1;
+            for (int j = 0; j < dem; j++) {
+                if (ngaydadem[j].equalsIgnoreCase(ho)) {
+                    index = j;
+                    break;
+                }
+            }
+            if (index == -1) { 
+                ngaydadem[dem] = ho;
+                soLuong[dem] = 1;
+                dem++;
+            } else {
+                soLuong[index]++;
+            }
+        }
+        System.out.println("\nThong ke theo ho");
+        System.out.printf("%-15s %-10s\n", "Họ", "Số lượng");
+        for (int i = 0; i < dem; i++) {
+            System.out.printf("%-15s %-10d\n", ngaydadem[i], soLuong[i]);
+        }
+    }
+    public void docFile(String tenFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(tenFile))) {
             String line;
             n = 0;
@@ -161,70 +188,5 @@ public class ListCTPN {
         if(!dasua){
             System.out.println("Không tìm thấy chi tiết phiếu nhập có mã "+ macansua);
         }
-    }
-    public void menu() {
-        int chon;
-        do {
-            System.out.println("\nMENU CTPN");
-            System.out.println("1. Nhap danh sach");
-            System.out.println("2. Xuat danh sach");
-            System.out.println("3. Them theo ma");
-            System.out.println("4. Tim theo ma");
-            System.out.println("5. Sua theo ma");
-            System.out.println("6. Xoa theo ma");
-            System.out.println("7. Doc tu File");
-            System.out.println("8. Ghi 1 chi tiet ra file");
-            System.out.println("9. Ghi tat ca ra file");
-            System.out.println("0 Thoat");
-            System.out.print("Chon: ");
-
-            chon = sc.nextInt();
-            sc.nextLine();
-
-            switch (chon) {
-                case 1: 
-                    nhap(); 
-                    break;
-                case 2: 
-                    xuat(); 
-                    break;
-                case 3: 
-                    themtheoma(); 
-                    break;
-                case 4: 
-                    timTheoMa(); 
-                    break;
-                case 5: 
-                    suatheoma(); 
-                    break;
-                case 6: 
-                    xoatheoma(); 
-                    break;
-                case 7:
-                    System.out.print("Nhập tên file TXT cần đọc: ");
-                    String fileDoc = sc.nextLine();
-                    docFileTXT(fileDoc);
-                    break;
-                case 8:
-                    System.out.print("Nhập vị trí muốn ghi ONE: ");
-                    int vt = sc.nextInt(); sc.nextLine();
-                    WriteOne("one.txt", vt);
-                    break;
-                case 9:
-                    WriteAll("all.txt");
-                    break;
-                case 0:
-                    System.out.println("Thoát");
-                    return;
-                default:
-                    System.out.println("Lua chon khong hop le, vui long chon lai");
-                    break;
-            }
-        } while (chon != 0);
-    }
-
-    public static void main(String[] args) {
-        ListCTPN l = new ListCTPN();
-        l.menu();
     }
 }
