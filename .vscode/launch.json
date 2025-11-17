@@ -7,6 +7,15 @@
         {
             "type": "java",
 <<<<<<< HEAD
+            "name": "Menu_Main",
+            "request": "launch",
+            "mainClass": "Menu_Main",
+            "projectName": "DoAn_d1382049"
+        },
+        {
+            "type": "java",
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
             "name": "Menu_MonAn",
             "request": "launch",
@@ -21,6 +30,7 @@
             "projectName": "DoAn_75d2812f"
 =======
 =======
+>>>>>>> c576180ff9f4146e4f0a6a1463d7a5a685bfc8fd
             "name": "List_KHACHHANG",
             "request": "launch",
             "mainClass": "List_KHACHHANG",

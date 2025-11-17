@@ -2,16 +2,19 @@ import java.util.Scanner;
 
 public class Menu_NV {
     private List_NhanVien quanLy;
+    private String fileName;
     private Scanner sc;
 
     public Menu_NV() {
         quanLy = new List_NhanVien();
         sc = new Scanner(System.in);
+        fileName = "src/data/List_NV.txt";
+        quanLy.docFile(fileName);
     }
 
     public void menu() {
         int luaChon = -1;
-        quanLy.docFile();
+
         do {
             System.out.println("\n--- MENU QUAN LY NHAN VIEN ---");
             System.out.println("1.Nhap danh sach nhan vien: ");
@@ -32,7 +35,7 @@ public class Menu_NV {
                     break;
 
                 case 2:
-                    quanLy.xuatds();
+                    quanLy.xuat();
                     break;
 
                 case 3:
@@ -48,6 +51,7 @@ public class Menu_NV {
                     quanLy.xoaMaNV(maCanXoa);
                     break;
                 case 6:
+
                     System.out.print("Nhap ma nhan vien can tim: ");
                     String maCanTim = sc.nextLine();
                     quanLy.timNVMa(maCanTim);
@@ -58,6 +62,9 @@ public class Menu_NV {
                 case 8:
                     quanLy.ThongKeLuongCoBan();
                     break;
+                case 9:
+                    System.out.println("Quay lai menu chinh...");
+                    return;
 
                 case 0:
                     System.out.println("Cam on, hen gap lai ");
@@ -66,7 +73,7 @@ public class Menu_NV {
                     System.out.println("Lua chon khong hop le ");
             }
 
-        } while (luaChon != 0);
+        } while (luaChon != 0 && luaChon != 9);
     }
 
     public static void main(String[] args) {

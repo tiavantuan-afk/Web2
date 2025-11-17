@@ -1,3 +1,131 @@
-public class Menu_Main {
+import java.util.Scanner;
 
+public class Menu_Main {
+    private Scanner sc;
+
+    public Menu_Main() {
+        sc = new Scanner(System.in);
+    }
+
+    public void menuChinh() {
+        int luaChon = -1;
+
+        do {
+            System.out.println("\n===============================================");
+            System.out.println("         CHUONG TRINH QUAN LY CUA HANG");
+            System.out.println("===============================================");
+            System.out.println("1. Quan ly Mon An");
+            System.out.println("2. Quan ly Nhan Vien");
+            System.out.println("3. Quan ly Khach Hang");
+            System.out.println("4. Quan ly Hoa Don");
+            System.out.println("5. Quan ly Kho Hang");
+            System.out.println("6. Quan ly The Loai");
+            System.out.println("7. Thong ke tong quan");
+            System.out.println("8. Sao luu du lieu");
+            System.out.println("0. Thoat chuong trinh");
+            System.out.println("===============================================");
+            System.out.print("Vui long chon chuc nang: ");
+
+            luaChon = sc.nextInt();
+            sc.nextLine();
+
+            switch (luaChon) {
+                case 1:
+                    quanLyMonAn();
+                    break;
+                case 2:
+                    quanLyNhanVien();
+                    break;
+                case 3:
+                    quanLyKhachHang();
+                    break;
+                case 4:
+                    quanLyHoaDon();
+                    break;
+                case 5:
+                    quanLyKhoHang();
+                    break;
+                case 6:
+                    quanLyTheLoai();
+                    break;
+                case 7:
+                    thongKeTongQuan();
+                    break;
+                case 8:
+                    saoLuuDuLieu();
+                    break;
+                case 0:
+                    System.out.println("Cam on ban da su dung chuong trinh!");
+                    System.out.println("Hen gap lai!");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le! Vui long thu lai.");
+                    break;
+            }
+        } while (luaChon != 0);
+
+        sc.close();
+    }
+
+    // Gọi menu Mon An hiện tại của bạn
+    private void quanLyMonAn() {
+        System.out.println("\n=== CHUYEN DEN QUAN LY MON AN ===");
+        Menu_MonAn menuMonAn = new Menu_MonAn();
+        menuMonAn.menu();
+    }
+
+    // Template cho các menu khác
+    private void quanLyNhanVien() {
+        System.out.println("\n=== CHUYEN DEN QUAN LY NHAN VIEN ===");
+        Menu_NV menNV = new Menu_NV();
+        menNV.menu();
+
+    }
+
+    private void quanLyKhachHang() {
+        System.out.println("\n=== QUAN LY KHACH HANG ===");
+        System.out.println("Chuc nang dang phat trien...");
+
+    }
+
+    private void quanLyHoaDon() {
+        System.out.println("\n=== QUAN LY HOA DON ===");
+        System.out.println("Chuc nang dang phat trien...");
+
+    }
+
+    private void quanLyKhoHang() {
+        System.out.println("\n=== QUAN LY KHO HANG ===");
+        System.out.println("Chuc nang dang phat trien...");
+
+    }
+
+    private void quanLyTheLoai() {
+        System.out.println("\n=== QUAN LY THE LOAI ===");
+        System.out.println("Chuc nang dang phat trien...");
+        // Menu_TheLoai menuTheLoai = new Menu_TheLoai();
+        // menuTheLoai.menu();
+    }
+
+    private void thongKeTongQuan() {
+        System.out.println("\n=== THONG KE TONG QUAN ===");
+        System.out.println("1. Thong ke Mon An");
+        System.out.println("2. Thong ke Doanh thu");
+        System.out.println("3. Thong ke Khach hang");
+        System.out.println("4. Bao cao tong hop");
+        System.out.println("Chuc nang dang phat trien...");
+    }
+
+    private void saoLuuDuLieu() {
+        System.out.println("\n=== SAO LUU DU LIEU ===");
+        System.out.println("1. Sao luu tat ca");
+        System.out.println("2. Khoi phuc du lieu");
+        System.out.println("3. Xuat ra Excel");
+        System.out.println("Chuc nang dang phat trien...");
+    }
+
+    public static void main(String[] args) {
+        Menu_Main mainMenu = new Menu_Main();
+        mainMenu.menuChinh();
+    }
 }

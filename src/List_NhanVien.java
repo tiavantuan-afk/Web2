@@ -1,9 +1,10 @@
 import java.util.Scanner;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+// import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class List_NhanVien {
@@ -52,15 +53,17 @@ public class List_NhanVien {
         System.out.println("Da nhap xong " + n + " nhan vien");
     }
 
-    public void xuatds() {
+    public void xuat() {
         if (ds.length == 0) {
-            System.out.println("Danh sach empty ");
+            System.out.println("Danh sach empty!");
             return;
         }
-        System.out.println("\n=== DANH SACH NHAN VIEN ===");
         System.out.println("So luong nhan vien: " + ds.length);
-        System.out.printf("%-8s %-15s %-10s %-15s\n", "Ma NV", "Ho NV", "Ten NV", "Luong Co Ban");
-        System.out.println("----------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.printf("%-10s | %-20s | %-15s | %-10s\n",
+                "Ma NV", "Ho NV", "Ten NV", "Luong");
+        System.out.println("-------------------------------------------------------------------------------");
+
         for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null) {
                 ds[i].xuat();
@@ -78,6 +81,20 @@ public class List_NhanVien {
             }
         }
         return true;
+    }
+
+    private void tuDongCapNhatFile() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("src/data/List_NV.txt"))) {
+            for (int i = 0; i < ds.length; i++) {
+                if (ds[i] != null) {
+                    writer.println(ds[i].toString());
+                }
+            }
+            System.out.println("Da tu dong luu thong tin vao file ");
+        } catch (IOException e) {
+            System.out.println("Loi ghi file " + e.getMessage());
+        }
+
     }
 
     public void them() {
@@ -248,6 +265,9 @@ public class List_NhanVien {
         System.out.println("\nThong tin sau khi sua:");
         System.out.printf("%-8s %-15s %-10s %-15s\n", "Ma NV", "Ho NV", "Ten NV", "Luong Co Ban");
         System.out.println("----------------------------------------------------");
+
+        tuDongCapNhatFile();
+        System.out.println("Da sua thanh cong!");
         ds[v].xuat();
     }
 
@@ -318,60 +338,49 @@ public class List_NhanVien {
         System.out.printf("Luong cao: %.1f%%\n", (double) luongCao / ds.length * 100);
     }
 
-    public void docFile() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/data/List_NV.txt"))) {
-            String line;
-            NhanVien x = null;
-
-            ds = new NhanVien[0];
-
-            while ((line = br.readLine()) != null) {
-
-                if (line.startsWith("====") || line.startsWith("So luong")) {
-                    continue;
-                }
-                String[] t = line.split("-");
-                if (t.length >= 4) {
-                    String type = t[0].toUpperCase();
-
-                    x = new NhanVien();
-                    x.setMaNV(t[1]);
-                    x.setHoNV(t[2].replace("_", " "));
-                    x.setTenNV(t[3].replace("_", " "));
-                    x.setLuongCoBan(Double.parseDouble(t[4]));
-
-                    // add vao mang
-                    ds = Arrays.copyOf(ds, ds.length + 1);
-                    ds[ds.length - 1] = x;
-                    System.out.println("Doc: " + x.getMaNV() + " - " + x.getHoNV() + " " + x.getTenNV());
+    public void ghiFile(String fileName) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+            for (int i = 0; i < ds.length; i++) {
+                if (ds[i] != null) {
+                    writer.println(ds[i].toString());
                 }
             }
-            System.out.println("Doc file thanh cong ");
-            System.out.println("So nhan vien da doc duoc: " + ds.length);
-
+            System.out.println("Ghi file thanh cong! " + ds.length + " nhan vien");
         } catch (IOException e) {
-            System.out.println("Loi doc file: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Loi format so: " + e.getMessage());
+            System.out.println("Loi ghi file: " + e.getMessage());
         }
     }
 
-    public void ghiFile() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/List_NV.txt"))) {
-            bw.write("==== DANH SACH NHAN VIEN ====\n");
-            bw.write("So luong nhan vien: " + ds.length + "\n");
+    public void docFile(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            ds = new NhanVien[0]; // Reset mảng
 
-            for (int i = 0; i < ds.length; i++) {
-                if (ds[i] != null) {
-                    bw.write("NV-" + ds[i].getMaNV() + "-" +
-                            ds[i].getHoNV().replace("_", " ") + "-" +
-                            ds[i].getTenNV().replace("_", " ") + "-" +
-                            ds[i].getLuongCoBan() + "\n");
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+
+                String[] t = line.split("-");
+                if (t.length >= 4) { // Format: maNV-hoNV-tenNV-luong
+                    NhanVien nv = new NhanVien(
+                            t[0], // maNV
+                            t[1], // hoNV
+                            t[2], // tenNV
+                            Double.parseDouble(t[3]) // luongCoBan
+                    );
+
+                    ds = Arrays.copyOf(ds, ds.length + 1);
+                    ds[ds.length - 1] = nv;
                 }
             }
-            System.out.println("Ghi file thanh cong ");
+
+            System.out.println("Doc file thanh cong! So nhan vien: " + ds.length);
+
         } catch (IOException e) {
-            System.out.println("Loi ghi file " + e.getMessage());
+            System.out.println("Loi doc file: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Loi parse du lieu: " + e.getMessage());
         }
     }
 }

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+// import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -149,49 +149,169 @@ public class List_MonAn {
         tuDongCapNhatFile();
     }
 
-    // public void sua() {
-    // if(ds.length == 0){
-    // System.out.println("Danh sach empty");
-    // return;
-    // }
+    public void sua() {
+        if (ds.length == 0) {
+            System.out.println("Danh sach empty");
+            return;
+        }
 
-    // System.out.print("Nhap san pham can sua: ");
-    // String maSP = sc.nextLine();
+        System.out.print("Nhap ma san pham can sua: ");
+        String maSP = sc.nextLine();
 
-    // int v = -1;
-    // for(int i = 0; i < ds.length; i++){
-    // if(ds[i] !=null && ds[i].maSP !=null && ds[i].maSP.equalsIgnoreCase(maSP)){
-    // v = i;
-    // break;
-    // }
-    // }
+        int v = -1;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].maSP != null && ds[i].maSP.equalsIgnoreCase(maSP)) {
+                v = i;
+                break;
+            }
+        }
+        if (v == -1) {
+            System.out.println("Khong tim thay san pham co ma: " + maSP);
+            return;
+        }
+        System.out.println("--- THONG TIN HIEN TAI ---");
+        ds[v].xuat();
+        System.out.println();
 
-    // if(v == -1){
-    // System.out.println("Khong tim thay san pham co ma: " + maSP);
-    // return;
-    // }
+        int choice;
+        do {
+            System.out.println("\n=== CHON THUOC TINH CAN SUA ===");
+            System.out.println("1. Sua ma san pham");
+            System.out.println("2. Sua ten san pham");
+            System.out.println("3. Sua gia ban");
+            System.out.println("4. Sua so luong");
 
-    // System.out.println("Thong tin hien tai: ");
-    // ds[v].xuat();
+            // Menu ThucAn
+            if (ds[v] instanceof ThucAn) {
+                System.out.println("5. Sua tinh chat co thit");
+                System.out.println("6. Sua tinh chat co tinh bot");
+                System.out.println("7. Sua tinh chat co bot ngot");
+            }
 
-    // System.out.println("Chon cach sua:");
-    // System.out.println("1.Sua toan bo");
-    // System.out.println("2.Sua tung phan");
-    // System.out.print("Lua chon: ");
+            if (ds[v] instanceof NuocUong) {
+                System.out.println("5. Sua tinh chat co da");
+                System.out.println("6. Sua tinh chat co gas");
+                System.out.println("7. Sua loai lon");
+                System.out.println("7. Sua loai chai");
+            }
 
-    // int choice = sc.nextInt();
-    // sc.nextLine();
+            System.out.println("9.Sua tat ca thong tin ");
+            System.out.println("0.Hoan thanh sua ");
+            System.out.print("Lua chon: ");
 
-    // if(choice == 2) {
-    // System.out.println("Nhap lai thong tin: ");
-    // ds[v].nhap();
-    // }else{
-    // System.out.println("Lua chon khong hop le");
-    // return;
-    // }
+            choice = sc.nextInt();
+            sc.nextLine();
 
-    // System.out.printl
-    // }
+            switch (choice) {
+                case 1:
+                    System.out.print("Nhap ma san pham moi: ");
+                    String maMoi = sc.nextLine();
+                    ds[v].maSP = maMoi;
+                    System.out.println("Da cap nhat san pham");
+                    break;
+
+                case 2:
+                    System.out.print("Nhap ten san pham moi: ");
+                    String tenMoi = sc.nextLine();
+                    ds[v].tenSP = tenMoi;
+                    System.out.println("Da cap nhat san pham");
+                    break;
+
+                case 3:
+                    System.out.println("Nhap gia ban moi: ");
+                    double giaMoi = sc.nextDouble();
+                    sc.nextLine();
+                    ds[v].giaBan = giaMoi;
+                    System.out.println("Da cap nhat gia ban");
+                    break;
+
+                case 4:
+                    System.out.println("Nhap so luong moi: ");
+                    int soMoi = sc.nextInt();
+                    ds[v].soLuong = soMoi;
+                    break;
+
+                case 5:
+                    if (ds[v] instanceof ThucAn) {
+                        System.out.println("Co thit khong? (true/false): ");
+                        boolean coThit = sc.nextBoolean();
+                        sc.nextLine();
+                        ((ThucAn) ds[v]).setCoThit(coThit);
+                        System.out.println("Da cap nhat co thit");
+                    } else if (ds[v] instanceof NuocUong) {
+                        System.out.println("Co da khong? (true/false): ");
+                        boolean coDa = sc.nextBoolean();
+                        ((NuocUong) ds[v]).setCoDa(coDa);
+                        System.out.println("Da cap nhat co da");
+                    }
+                    break;
+
+                case 6: // Thuộc tính đặc biệt 2
+                    if (ds[v] instanceof ThucAn) {
+                        System.out.print("Co tinh bot khong? (true/false): ");
+                        boolean coTinhBot = sc.nextBoolean();
+                        sc.nextLine();
+                        ((ThucAn) ds[v]).setCoTinhBot(coTinhBot);
+                        System.out.println("Da cap nhat tinh chat co tinh bot!");
+                    } else if (ds[v] instanceof NuocUong) {
+                        System.out.print("Co gas khong? (true/false): ");
+                        boolean coGas = sc.nextBoolean();
+                        sc.nextLine();
+                        ((NuocUong) ds[v]).setCoGas(coGas);
+                        System.out.println("Da cap nhat tinh chat co gas!");
+                    }
+                    break;
+
+                case 7: // Thuộc tính đặc biệt 3
+                    if (ds[v] instanceof ThucAn) {
+                        System.out.print("Co bot ngot khong? (true/false): ");
+                        boolean coBotNgot = sc.nextBoolean();
+                        sc.nextLine();
+                        ((ThucAn) ds[v]).setCoBotNgot(coBotNgot);
+                        System.out.println("Da cap nhat tinh chat co bot ngot!");
+                    } else if (ds[v] instanceof NuocUong) {
+                        System.out.print("Loai lon khong? (true/false): ");
+                        boolean loaiLon = sc.nextBoolean();
+                        sc.nextLine();
+                        ((NuocUong) ds[v]).setLoaiLon(loaiLon);
+                        System.out.println("Da cap nhat loai lon!");
+                    }
+                    break;
+                case 8: // Thuộc tính đặc biệt 4 (chỉ NuocUong)
+                    if (ds[v] instanceof NuocUong) {
+                        System.out.print("Loai chai khong? (true/false): ");
+                        boolean loaiChai = sc.nextBoolean();
+                        sc.nextLine();
+                        ((NuocUong) ds[v]).setLoaiChai(loaiChai);
+                        System.out.println("Da cap nhat loai chai!");
+                    } else {
+                        System.out.println("Lua chon khong hop le cho loai san pham nay!");
+                    }
+                    break;
+
+                case 9: // Sửa tất cả
+                    System.out.println("Nhap lai tat ca thong tin:");
+                    ds[v].nhap();
+                    System.out.println("Da cap nhat tat ca thong tin!");
+                    break;
+
+                case 0: // Hoàn thành
+                    System.out.println("Hoan thanh sua san pham!");
+                    break;
+
+                default:
+                    System.out.println("Lua chon khong hop le!");
+                    break;
+            }
+            if (choice >= 1 && choice <= 9) {
+                System.out.println("=== THONG TIN SAU KHI SUA ===");
+                ds[v].xuat();
+                System.out.println();
+            }
+        } while (choice != 0);
+        tuDongCapNhatFile();
+        System.out.println("Da luu thay doi vao file");
+    }
 
     // Xoa theo Ma
     public void xoaTheoMa(String maSP) {
@@ -201,7 +321,7 @@ public class List_MonAn {
         }
 
         boolean found = false;
-        for (int i = 0; i < ds.length - 1; i++) {
+        for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null && ds[i].getMaSP() != null &&
                     ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 System.out.println("San pham can xoa: ");
@@ -209,7 +329,7 @@ public class List_MonAn {
                 System.out.println();
 
                 // Dich chuyen ob
-                for (int j = i; j < ds.length; j++) {
+                for (int j = i; j < ds.length - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
                 // Giam kich thuoc cua Array
@@ -218,7 +338,7 @@ public class List_MonAn {
                 found = true;
 
                 tuDongCapNhatFile();
-                break;
+                return;
             }
         }
         if (!found) {
@@ -369,12 +489,12 @@ public class List_MonAn {
                     String type = t[0].toUpperCase();
 
                     if (type.contains("T")) {
-                        x = new ThucAn(t[1], t[2], Double.parseDouble(t[4]), Integer.parseInt(t[3]),
+                        x = new ThucAn(t[1], t[2], Double.parseDouble(t[3]), Integer.parseInt(t[4]),
                                 Boolean.parseBoolean(t[5]), Boolean.parseBoolean(t[6]),
                                 Boolean.parseBoolean(t[7]));
 
                     } else if (type.contains("N") && t.length >= 9) {
-                        x = new NuocUong(t[1], t[2], Double.parseDouble(t[4]), Integer.parseInt(t[3]),
+                        x = new NuocUong(t[1], t[2], Double.parseDouble(t[3]), Integer.parseInt(t[4]),
                                 Boolean.parseBoolean(t[5]), Boolean.parseBoolean(t[6]),
                                 Boolean.parseBoolean(t[7]), Boolean.parseBoolean(t[8]));
                     } else {

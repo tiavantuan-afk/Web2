@@ -5,6 +5,7 @@ public class NhanVien {
     public String hoNV;
     public String tenNV;
     public double luongCoBan;
+    Scanner sc = new Scanner(System.in);
 
     public NhanVien() {
         this.maNV = "";
@@ -29,8 +30,13 @@ public class NhanVien {
         }
     }
 
+    @Override
+    public String toString() {
+        return maNV + "-" + hoNV + "-" + tenNV + "-" + luongCoBan;
+    }
+
     public void nhap() {
-        Scanner sc = new Scanner(System.in);
+
         System.out.print("Nhap ma nhan vien: ");
         maNV = sc.nextLine();
         System.out.print("Nhap ho nhan vien: ");
@@ -40,7 +46,6 @@ public class NhanVien {
         System.out.print("Nhap luong co ban: ");
         luongCoBan = sc.nextDouble();
         sc.nextLine();
-        sc.close();
     }
 
     public void xuat() {
