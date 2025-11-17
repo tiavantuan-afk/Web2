@@ -32,6 +32,19 @@ public class Chitietphieunhap {
         this.dongia = ct.dongia;
     }
 
+<<<<<<< HEAD
+    public void nhap(){
+        System.out.println("Mã chi tiet nhập hàng: ");
+        maNH=sc.nextLine();
+        System.out.println("Mã chi tiet sản phẩm: ");
+        maSP=sc.nextLine();
+        System.out.println("ngay nhap chi tiet san pham: ");
+        ngay=sc.nextLine();
+        System.out.println("Số lượng: ");
+        soluong=sc.nextInt();
+        System.out.println("Đơn giá: ");
+        dongia=Double.parseDouble(sc.nextLine());
+=======
     // Nhập thông tin chi tiết phiếu nhập
     // nhapMa = true nếu muốn nhập mã, false nếu giữ mã hiện có
     public void nhap(boolean nhapMa) {
@@ -47,6 +60,7 @@ public class Chitietphieunhap {
         soluong = Integer.parseInt(sc.nextLine());
         System.out.print("Đơn giá: ");
         dongia = Double.parseDouble(sc.nextLine());
+>>>>>>> 6224f9e8d9a59491c1826d7736468cf708bfd88d
     }
 
     // Các getter và setter
@@ -56,8 +70,16 @@ public class Chitietphieunhap {
     public String getmaSP() { 
         return maSP; 
     }
+<<<<<<< HEAD
+    public String getngay(){
+        return ngay;
+    }
+    public int getsoluong(){
+        return soluong;
+=======
     public String getngay() { 
         return ngay; 
+>>>>>>> 6224f9e8d9a59491c1826d7736468cf708bfd88d
     }
     public int getsoluong() { 
         return soluong; 
@@ -69,8 +91,16 @@ public class Chitietphieunhap {
     public void setmaNH(String maNH) { 
         this.maNH = maNH; 
     }
+<<<<<<< HEAD
+    public void setngay(String ngay){
+        this.ngay = ngay;
+    }
+    public void setsoluong(int soluong){
+        this.soluong = soluong;
+=======
     public void setmaSP(String maSP) { 
         this.maSP = maSP; 
+>>>>>>> 6224f9e8d9a59491c1826d7736468cf708bfd88d
     }
     public void setngay(String ngay) { 
         this.ngay = ngay; 
@@ -89,10 +119,15 @@ public class Chitietphieunhap {
 
     // Chuẩn hóa xuất ra màn hình
     @Override
+<<<<<<< HEAD
+    public String toString(){
+        return maNH +" | Sản phẩm: " + maSP + " | Số lượng: " + soluong +"| ngay nhap :" + ngay + " | Đơn giá: " + dongia + " | Thành tiền: " +thanhTien();
+=======
     public String toString() {
         return maNH + " | Sản phẩm: " + maSP + " | Số lượng: " + soluong +
                " | Ngày nhập: " + ngay + " | Đơn giá: " + dongia +
                " | Thành tiền: " + thanhTien();
+>>>>>>> 6224f9e8d9a59491c1826d7736468cf708bfd88d
     }
 
     // Xuất ra file dễ đọc và đọc lại được

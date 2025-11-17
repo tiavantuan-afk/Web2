@@ -18,12 +18,35 @@ public class Menu_Main {
             System.out.println("2. Quan ly Nhan Vien");
             System.out.println("3. Quan ly Khach Hang");
             System.out.println("4. Quan ly Hoa Don");
+<<<<<<< HEAD
             System.out.println("5. Quan ly Kho Hang");
             System.out.println("6. Quan ly Ton Kho");
             System.out.println("8. Quan ly ComBo");
             System.out.println("9. Quan ly Nguyen Lieu");
             System.out.println("10. Quan ly Combo");
             System.out.println("12. Thong ke tong quan");
+=======
+
+            System.out.println("5. Quan ly Kho Hang");
+
+            System.out.println("6. Quan ly Ton Kho");
+            System.out.println("7. Thong ke tong quan");
+
+            System.out.println("5. Quan ly Kho Hang"); ///Triet
+
+            System.out.println("6. Quan ly Ton Kho");
+
+
+            System.out.println("8. Sao luu du lieu");
+
+            System.out.println("9. Quan ly Nguyen Lieu");
+            System.out.println("10. Quan ly Combo");
+            System.out.println("12. Thong ke tong quan");
+
+            System.out.println("9. Quan ly Nguyen Lieu"); //Triet
+            System.out.println("9. Quan ly Combo");  //Triet
+
+>>>>>>> 86234cc99a9e4957c130a64a02f19cb5a7fd431a
             System.out.println("0. Thoat chuong trinh");
             System.out.println("===============================================");
             System.out.print("Vui long chon chuc nang: ");
@@ -107,13 +130,22 @@ public class Menu_Main {
         menuKho.menu();
 
     }
-
     private void quanLyNguyenLieu() {
         System.out.println("\n=== CHUYEN DEN QUAN LY NGUYEN LIEU ===");
         Menu_Nguyenlieu menuNguyenlieu = new Menu_Nguyenlieu();
         menuNguyenlieu.menu();
     }
 
+<<<<<<< HEAD
+=======
+    private void quanLyCOMBO() {
+        System.out.println("\n=== CHUYEN DEN QUAN LY COMBO ===");
+        Menu_COMBO menuCombo = new Menu_COMBO();
+        menuCombo.menu();
+    }
+
+
+>>>>>>> 86234cc99a9e4957c130a64a02f19cb5a7fd431a
     private void quanLyTonKho() {
         System.out.println("\n=== QUAN LY TON KHO ===");
         Menu_TonKho menuTK = new Menu_TonKho();
