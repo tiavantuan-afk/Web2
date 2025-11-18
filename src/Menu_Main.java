@@ -90,7 +90,8 @@ public class Menu_Main {
 
     private void quanLyKhachHang() {
         System.out.println("\n=== QUAN LY KHACH HANG ===");
-        System.out.println("Chuc nang dang phat trien...");
+        Menu_KH menuKH = new Menu_KH();
+        menuKH.menu();
 
     }
 
