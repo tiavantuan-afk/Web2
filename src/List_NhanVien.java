@@ -71,18 +71,6 @@ public class List_NhanVien {
         }
     }
 
-    public boolean OneIDNV(String maNV) {
-        if (maNV == null)
-            return true;
-        for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].getMaNV() != null &&
-                    ds[i].getMaNV().equalsIgnoreCase(maNV)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     private void tuDongCapNhatFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("src/data/List_NV.txt"))) {
             for (int i = 0; i < ds.length; i++) {
@@ -95,6 +83,18 @@ public class List_NhanVien {
             System.out.println("Loi ghi file " + e.getMessage());
         }
 
+    }
+
+    public boolean OneIDNV(String maNV) {
+        if (maNV == null)
+            return true;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaNV() != null &&
+                    ds[i].getMaNV().equalsIgnoreCase(maNV)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void them() {

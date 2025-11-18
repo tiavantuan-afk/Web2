@@ -98,10 +98,53 @@ public class TestMonAn {
         }
     }
 
-    public void xoa(String maSP){
-       boolean found = false;
-        for(int i = 0; i < ds.length; i++){
-            if(ds[i] !=null && ds[i].getMaSP() !=null && ds[i].)
+    public void xoa(String maSP) {
+        boolean found = false;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaSP() != null && ds[i].getMaSP().equalsIgnoreCase(maSP)) {
+                System.out.println("Da tim thay san pham can xoa:");
+                ds[i].xuat();
+
+                for (int j = i; j < ds.length - 1; j++) {
+                    ds[j] = ds[j + 1];
+                }
+                ds = Arrays.copyOf(ds, ds.length - 1);
+                System.out.println("Da xoa san pham: ");
+                found = true;
+                break;
+            }
         }
-}
+        if (!found) {
+            System.out.println("None");
+        }
+    }
+
+    public void them() {
+        System.out.println("Them nhan vien");
+        TestMonAn testmoi = new TestMonAn();
+        testmoi.nhap();
+
+        if (!ONEID(testmoi.getMaNV())) {
+            System.out.println("Trung");
+        }
+
+        ds = Arrays.copyOf(ds, ds.length + 1);
+        ds[ds.length - 1] = testmoi;
+    }
+
+    public TestMon getArrays() {
+        return ds;
+    }
+
+    public boolean ONEID(String maNV) {
+        if (maNV == null) {
+            return false;
+        }
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].getMaNV() != null && ds[i].getMaNV.equalsIgnoreCase(maNV)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
