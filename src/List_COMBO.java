@@ -62,17 +62,33 @@ class List_COMBO {
 
     //sửa combo theo mã
     public void suacombo(String MA, COMBO c) {
-        boolean timkiem = false;
+       if (ds.length == 0) {
+            System.out.println("Danh sach combo rong.");
+            return;
+        }
+        
+        System.out.print("Nhap ma combo can sua: ");
+        String maSua = sc.nextLine();
+
+        int v = -1;
         for (int i = 0; i < n; i++) {
-            if (ds[i] != null && ds[i].maSP != null && ds[i].maSP.equalsIgnoreCase(MA)) {
-                ds[i] = c;
-                System.out.println("Da cap nhat thong tin combo: " + MA);
-                timkiem = true;
+            if (ds[i] != null && ds[i].maSP.equalsIgnoreCase(maSua)) {
+                v = i;
                 break;
             }
         }
-        if (!timkiem) System.out.println("Khong tim thay combo de sua: " + MA);
+
+        if (v == -1) {
+            System.out.println("Khong tim thay combo co ma: " + maSua);
+            return;
+        }
+
+        System.out.println("Khong tim thay combo co ma: " + maSua);
+        return;
     }
+
+    System.out.println("==Thong tin hien tai==");
+    
 
     //xóa combo theo mã
     public void xoacombo(String MAC) {
