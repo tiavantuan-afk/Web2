@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,7 +11,7 @@ class List_CTHD {
     private CHITIETHOADON[] dscthd;
 
      public List_CTHD() {
-        dscthd = new CHITIETHOADON[0]; // SỬA: Khởi tạo mảng rỗng
+        dscthd = new CHITIETHOADON[0];
     }
 
     public List_CTHD(int n) {
@@ -53,7 +52,7 @@ class List_CTHD {
             dscthd[i] = new CHITIETHOADON();
             dscthd[i].nhap();
         }
-        tuDongCapNhatFile(); // Tự động lưu
+        tuDongCapNhatFile(); 
         System.out.println("Da nhap xong " + dscthd.length);
     }
 
@@ -213,20 +212,6 @@ class List_CTHD {
         }
         return false;
     }
-
-    // public void themchitiet() {
-    //     System.out.println("Nhap ma san pham can them: ");
-    //     CHITIETHOADON ctmoi = new CHITIETHOADON();
-    //     ctmoi.nhap();
-    //     if (!IDCTHD(ctmoi.getMasp())) {
-    //         System.out.println("Ma san pham da ton tai");
-    //         return;
-    //     }
-    //     dscthd = Arrays.copyOf(dscthd, dscthd.length + 1);
-    //     dscthd[dscthd.length - 1] = ctmoi;
-    //     System.out.println("Da them ma san pham moi");
-
-    // }
     public void themchitiet() {
         System.out.println("\n---- THEM CHI TIET MOI ----");
         CHITIETHOADON ctMoi = new CHITIETHOADON();
@@ -244,7 +229,6 @@ class List_CTHD {
             }
         } while (maTrung);
 
-        // Add vào mảng giống MonAn
         dscthd = Arrays.copyOf(dscthd, dscthd.length + 1);
         dscthd[dscthd.length - 1] = ctMoi;
 
@@ -276,24 +260,36 @@ class List_CTHD {
         }
     }
 
-    public void thongkesanpham() {
-        int d = 0;
-        System.out.print("Nhap ma san pham can thong ke: ");
-        String masanpham = sc.nextLine();
-        for (int i = 0; i < dscthd.length; i++) {
-            if (dscthd[i].getMasp().equalsIgnoreCase(masanpham)) {
-                d++;
-            }
-        }
-        if (d >= 5) {
-            System.out.println("San pham ban chay");
-        } else if (d >= 1) {
-            System.out.println("San pham ban cham");
-        } else {
-            System.out.println("San pham ban lo");
+public void thongKeTongBanCuaSanPham() {
+    if (dscthd.length == 0) {
+        System.out.println("Danh sach chi tiet rong!");
+        return;
+    }
+
+    System.out.print("Nhap ma san pham can thong ke: ");
+    String maSP = sc.nextLine();
+    
+    int tongSoLuong = 0;
+    double tongTienThuDuoc = 0;
+    int soLanXuatHien = 0;
+
+    for (int i = 0; i < dscthd.length; i++) {
+        if (dscthd[i] != null && dscthd[i].getMasp().equalsIgnoreCase(maSP)) {
+            tongSoLuong += dscthd[i].getSL();
+            tongTienThuDuoc += dscthd[i].getThanhtien();
+            soLanXuatHien++;
         }
     }
 
+    if (soLanXuatHien > 0) {
+        System.out.println("\n=== THONG KE SAN PHAM: " + maSP.toUpperCase() + " ===");
+        System.out.println("So hoa don da xuat hien: " + soLanXuatHien);
+        System.out.println("Tong so luong da ban: " + tongSoLuong);
+        System.out.printf("Tong tien thu ve tu san pham nay: %,.0f \n", tongTienThuDuoc);
+    } else {
+        System.out.println("San pham '" + maSP + "' chua ban duoc cai nao!");
+    }
+}
     public void docfile(String filename) {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
@@ -306,12 +302,6 @@ class List_CTHD {
                 String[] t = line.split("-");
                 if (t.length >= 6) {                  
                             x = new CHITIETHOADON(t[0], t[1], t[2], Integer.parseInt(t[3]), Double.parseDouble(t[4]), Double.parseDouble(t[5]));
-                            // ((CHITIETHOADON) x).setMahd();
-                            // ((CHITIETHOADON) x).setMasp();
-                            // ((CHITIETHOADON) x).setMakh();
-                            // x.setSL());
-                            // x.setDG());
-                            // x.setThanhtien();
                         dscthd = Arrays.copyOf(dscthd, dscthd.length+1);
                         dscthd[dscthd.length-1] = x;
                         System.out.println("Doc: "+x.getMahd()+"-"+x.getMasp()+"-"+x.getMakh()+"-"+x.getSL()+"-"+x.getDG()+"-"+x.getThanhtien());
@@ -320,9 +310,7 @@ class List_CTHD {
              System.out.println("Doc file thanh cong, So chi tiet da doc: "+ dscthd.length);
         } catch (IOException e) {
             System.out.println("Loi doc file: " + e.getMessage());
-        }  //catch (NumberFormatException e) {
-        // // //     System.out.println("Loi format so: " + e.getMessage());
-        // // }
+        }
     }
 
     public void ghiFile(String filename){

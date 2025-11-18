@@ -47,9 +47,9 @@ public class Menu_Main {
                 case 4:
                     quanLyHoaDon();
                     break;
-                // case 5:
-                // quanLyChiTietHoaDon();
-                // break;
+                case 5:
+                    quanLyChiTietHoaDon();
+                    break;
                 case 6:
                     quanLyKhoHang();
                     break;
@@ -109,13 +109,15 @@ public class Menu_Main {
 
     private void quanLyHoaDon() {
         System.out.println("\n=== QUAN LY HOA DON ===");
-        System.out.println("Chuc nang dang phat trien...");
-
+        Menu_HD menuHD = new Menu_HD();
+        menuHD.menu();
     }
 
-    // private void quanLyChiTietHoaDon(){
-    //     System.out.println("\n=== QUAN LY CHI TIET HOA DON ===");
-    // }
+    private void quanLyChiTietHoaDon(){
+        System.out.println("\n=== QUAN LY CHI TIET HOA DON ===");
+        Menu_CTHD menuCTHD = new Menu_CTHD();
+        menuCTHD.menu();
+    }
     private void quanLyKhoHang() {
         System.out.println("\n=== QUAN LY KHO HANG ===");
         Menu_KHO menuKho = new Menu_KHO();

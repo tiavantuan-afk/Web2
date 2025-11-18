@@ -293,24 +293,27 @@ public class List_KHACHHANG {
             System.out.println("Khong tim thay khach hang co ten: " + tenCanTim);
         }
     }
-
-    public void thongkekhachhang() {
+    public void thongKeKhachHangTheoHo() {
         if (dskh.length == 0) {
             System.out.println("Danh sach khach hang rong!");
             return;
         }
 
-        System.out.println("\n========== THONG KE KHACH HANG ==========");
-        System.out.println("Tong so khach hang: " + dskh.length);
-        System.out.println("Danh sach tat ca khach hang:");
+        System.out.print("Nhap ho khach hang can thong ke: ");
+        String hoCanThongKe = sc.nextLine().trim();
+        
+        int count = 0;
+        System.out.println("\n--- DANH SACH KHACH HANG HO: " + hoCanThongKe.toUpperCase() + " ---");
 
         for (int i = 0; i < dskh.length; i++) {
-            if (dskh[i] != null) {
-                System.out.printf("%d. ", (i + 1));
+            if (dskh[i] != null && dskh[i].getHo().equalsIgnoreCase(hoCanThongKe)) {
                 dskh[i].xuat();
+                count++;
             }
         }
-        System.out.println("=========================================");
+
+        System.out.println("-------------------------------------------------------");
+        System.out.println("=> Tong so khach hang ho " + hoCanThongKe + ": " + count);
     }
 
     public void ghiFile(String filename) {
@@ -326,10 +329,8 @@ public class List_KHACHHANG {
         }
     }
 
-    // SỬA: Đọc file giống MonAn
     public void docfile(String filename) {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-            // Reset mảng trước khi đọc
             dskh = new KHACHHANG[0];
 
             String line;
@@ -340,13 +341,7 @@ public class List_KHACHHANG {
 
                 String[] t = line.split("-");
                 if (t.length >= 4) {
-                    KHACHHANG x = new KHACHHANG();
-                    x.setMakh(t[0]);
-                    x.setHo(t[1]);
-                    x.setTen(t[2]);
-                    x.setSDT(t[3]);
-
-                    // Add vào mảng giống MonAn
+                    KHACHHANG x = new KHACHHANG(t[0], t[1], t[2], t[3]);
                     dskh = Arrays.copyOf(dskh, dskh.length + 1);
                     dskh[dskh.length - 1] = x;
                 }

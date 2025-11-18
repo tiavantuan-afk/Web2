@@ -23,7 +23,8 @@ public class Menu_HD {
             System.out.println("4. Sua mot hoa don theo ma hoa don: ");
             System.out.println("5. Them mot hoa don theo ma hoa don: ");
             System.out.println("6. Xoa mot hoa don theo ma hoa don: ");
-            System.out.println("7. Thong ke nhan vien: ");
+            System.out.println("7. Thong ke doanh thu: ");
+            System.out.println("8. Quay lai man hinh chinh");
             System.out.println("0. Thoat.");
             System.out.print("Vui long chon: ");
             chon = sc.nextInt();
@@ -52,15 +53,20 @@ public class Menu_HD {
                     quanly.xoahoadon(hdcanxoa);
                     break;
                 case 7:
-                    quanly.thongkenhanvien();
+                    quanly.thongKeDoanhThu();
                     break;
+                case 8:
+                    System.out.println("Quay li menu chinh...");
+                    return;
                 case 0:
                     System.out.println("Xong");
+                    break;
                 default:
                     System.out.println("Lua chon khong hop le");
                     break;
             }
         } while (chon != 0);
-        sc.close();   
+        
+        
     }
 }

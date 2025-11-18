@@ -4,7 +4,10 @@ public class Menu_KH {
     private List_KHACHHANG quanLy;
     private String fileName;
     private Scanner sc;
-
+    public static void main(String[] args) {
+        Menu_KH menu = new Menu_KH();
+        menu.menu();
+    }
     public Menu_KH() {
         quanLy = new List_KHACHHANG();
         sc = new Scanner(System.in);
@@ -63,7 +66,7 @@ public class Menu_KH {
                     quanLy.timkiemtheoten();
                     break;
                 case 8:
-                    quanLy.thongkekhachhang();
+                    quanLy.thongKeKhachHangTheoHo();
                     break;
                 case 9:
                     System.out.println("Quay lai menu chinh...");
@@ -76,12 +79,7 @@ public class Menu_KH {
                     break;
             }
         } while (luaChon != 0 && luaChon != 9);
-
-        sc.close();
     }
 
-    public static void main(String[] args) {
-        Menu_KH menu = new Menu_KH();
-        menu.menu();
-    }
+
 }

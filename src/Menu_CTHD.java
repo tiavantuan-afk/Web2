@@ -24,6 +24,7 @@ public class Menu_CTHD {
             System.out.println("5. Them san pham theo ma: ");
             System.out.println("6. Xoa chi tiet theo ma hoa don: ");
             System.out.println("7. Thong ke san pham: ");
+            System.out.println("8. Quay lai man hinh chinh");
             System.out.println("0. Thoat.");
             System.out.print("Vui long chon: ");
             chon = sc.nextInt();
@@ -52,8 +53,11 @@ public class Menu_CTHD {
                     quanly.xoachitietmahd(hdcanxoa);
                     break;
                 case 7:
-                    quanly.thongkesanpham();
+                    quanly.thongKeTongBanCuaSanPham();
                     break;    
+                case 8:
+                    System.out.println("Quay lai menu chinh...");
+                    return;
                 case 0:
                     System.out.println("Xong");
                     break;
@@ -62,7 +66,7 @@ public class Menu_CTHD {
                     break;
             }
         } while (chon != 0);
-        sc.close();
+        
     }
 
 }
