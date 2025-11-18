@@ -38,12 +38,7 @@ public class Menu_Nguyenlieu {
 					quanLy.them();
 					break;
 				case 4:
-					System.out.print("Nhap ma nguyen lieu can sua: ");
-					String maSua = sc.nextLine();
-					System.out.println("Nhap thong tin moi:");
-					Nguyenlieu nlSua = new Nguyenlieu();
-					nlSua.nhap();
-					quanLy.suanguyen(maSua, nlSua);
+					quanLy.suanguyen();
 					break;
 				case 5:
 					System.out.print("Nhap ma nguyen lieu can xoa: ");
