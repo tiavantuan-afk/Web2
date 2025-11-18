@@ -81,4 +81,8 @@ public class KHACHHANG {
     public void setSDT(String SDT) {
         this.SDT = SDT;
     }
+    @Override
+    public String toString() {
+    return Makh + "-" + ho + "-" + ten + "-" + SDT;
+    }
 }

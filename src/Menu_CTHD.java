@@ -56,6 +56,7 @@ public class Menu_CTHD {
                     break;    
                 case 0:
                     System.out.println("Xong");
+                    break;
                 default:
                     System.out.println("Lua chon khong hop le");
                     break;

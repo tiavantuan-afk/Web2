@@ -102,7 +102,8 @@ public class Menu_Main {
 
     private void quanLyKhachHang() {
         System.out.println("\n=== QUAN LY KHACH HANG ===");
-        System.out.println("Chuc nang dang phat trien...");
+        Menu_KH menuKH = new Menu_KH();
+        menuKH.menu();
 
     }
 
@@ -112,6 +113,9 @@ public class Menu_Main {
 
     }
 
+    // private void quanLyChiTietHoaDon(){
+    //     System.out.println("\n=== QUAN LY CHI TIET HOA DON ===");
+    // }
     private void quanLyKhoHang() {
         System.out.println("\n=== QUAN LY KHO HANG ===");
         Menu_KHO menuKho = new Menu_KHO();

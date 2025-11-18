@@ -46,8 +46,10 @@ class List_CTHD {
     public void nhap() {
         System.out.print("Nhap n: ");
         int n = sc.nextInt();
+        sc.nextLine();
+        dscthd = new CHITIETHOADON[n];
         for (int i = 0; i < dscthd.length; i++) {
-            System.out.print("Nhap chi tiet hoa don thu: " + (i + 1));
+            System.out.println("Nhap chi tiet hoa don thu: " + (i + 1));
             dscthd[i] = new CHITIETHOADON();
             dscthd[i].nhap();
         }
@@ -62,9 +64,6 @@ class List_CTHD {
         }
 
         System.out.println("So luong chi tiet: " + dscthd.length);
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("%-10s | %-15s | %-10s | %-15s\n", "Ma HD", "Ma SP", "Ma KH");
-        System.out.println("-------------------------------------------------------");
         for (int i = 0; i < dscthd.length; i++) {
             if (dscthd[i] != null){
             dscthd[i].xuat();
@@ -72,7 +71,6 @@ class List_CTHD {
         }
     }
     public void timkiemtheomahoadon(String mahdcantim) {
-        System.out.print("Nhap ma hoa don can tim: ");
         boolean timkiem = false;
         for (int i = 0; i < dscthd.length; i++) {
             if (dscthd[i].getMahd().equalsIgnoreCase(mahdcantim)) {
@@ -216,18 +214,42 @@ class List_CTHD {
         return false;
     }
 
-    public void themchitiet() {
-        System.out.println("Nhap ma san pham can them: ");
-        CHITIETHOADON ctmoi = new CHITIETHOADON();
-        ctmoi.nhap();
-        if (!IDCTHD(ctmoi.getMasp())) {
-            System.out.println("Ma san pham da ton tai");
-            return;
-        }
-        dscthd = Arrays.copyOf(dscthd, dscthd.length + 1);
-        dscthd[dscthd.length - 1] = ctmoi;
-        System.out.println("Da them ma san pham moi");
+    // public void themchitiet() {
+    //     System.out.println("Nhap ma san pham can them: ");
+    //     CHITIETHOADON ctmoi = new CHITIETHOADON();
+    //     ctmoi.nhap();
+    //     if (!IDCTHD(ctmoi.getMasp())) {
+    //         System.out.println("Ma san pham da ton tai");
+    //         return;
+    //     }
+    //     dscthd = Arrays.copyOf(dscthd, dscthd.length + 1);
+    //     dscthd[dscthd.length - 1] = ctmoi;
+    //     System.out.println("Da them ma san pham moi");
 
+    // }
+    public void themchitiet() {
+        System.out.println("\n---- THEM CHI TIET MOI ----");
+        CHITIETHOADON ctMoi = new CHITIETHOADON();
+
+        boolean maTrung;
+        do {
+            ctMoi.nhap();
+
+            if (!IDCTHD(ctMoi.getMahd())) {
+                System.out.println(" Ma hoa don '" + ctMoi.getMahd() + "' da ton tai!");
+                System.out.println("Vui long nhap lai ma khac:");
+                maTrung = true;
+            } else {
+                maTrung = false;
+            }
+        } while (maTrung);
+
+        // Add vào mảng giống MonAn
+        dscthd = Arrays.copyOf(dscthd, dscthd.length + 1);
+        dscthd[dscthd.length - 1] = ctMoi;
+
+        tuDongCapNhatFile();
+        System.out.println("Da them khach hang moi thanh cong!");
     }
 
     public void xoachitietmahd(String mahd) {
@@ -292,7 +314,7 @@ class List_CTHD {
                             // x.setThanhtien();
                         dscthd = Arrays.copyOf(dscthd, dscthd.length+1);
                         dscthd[dscthd.length-1] = x;
-                        System.out.println("Doc: "+x.getMahd()+"-"+x.getMakh()+"-"+x.getMasp());
+                        System.out.println("Doc: "+x.getMahd()+"-"+x.getMasp()+"-"+x.getMakh()+"-"+x.getSL()+"-"+x.getDG()+"-"+x.getThanhtien());
                 }
             }
              System.out.println("Doc file thanh cong, So chi tiet da doc: "+ dscthd.length);

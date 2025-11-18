@@ -36,7 +36,7 @@ public class CHITIETHOADON {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma hoa don: ");
         Mahd = sc.nextLine();
-        System.out.print("Nhap ma san pham:");
+        System.out.print("Nhap ma san pham: ");
         Masp = sc.nextLine();
         System.out.print("Nhap ma khach hang: ");
         Makh = sc.nextLine();
@@ -46,7 +46,6 @@ public class CHITIETHOADON {
         DG = sc.nextInt();
         System.out.print("Nhap so thanh tien: ");
         Thanhtien = sc.nextDouble();
-        sc.close();
     }
     public void xuat(){
         System.out.println("Chi tiet hoa don: ");
@@ -93,5 +92,8 @@ public class CHITIETHOADON {
     public void setThanhtien(double Thanhtien){
         this.Thanhtien = Thanhtien;
     }
-    
+    @Override
+    public String toString() {
+    return Mahd + "-" + Masp + "-" + Makh + "-" + SL + "-" + DG + "-" + Thanhtien;
+    }
 }

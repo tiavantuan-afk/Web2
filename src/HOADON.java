@@ -79,4 +79,8 @@ public class HOADON {
     public void setTongTien(double Tongtien){
         this.Tongtien = Tongtien;
     }
+    @Override
+    public String toString() {
+    return Mahd + "-" + Manv + "-" + Makh + "-" + Ngay + "-" + Tongtien;
+    }
 }

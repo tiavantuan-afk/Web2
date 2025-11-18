@@ -109,7 +109,7 @@ public class List_KHACHHANG {
             khMoi.nhap();
 
             if (!OneIDKH(khMoi.getMaKH())) {
-                System.out.println("⚠️  Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
+                System.out.println(" Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
                 System.out.println("Vui long nhap lai ma khac:");
                 maTrung = true;
             } else {
@@ -122,7 +122,7 @@ public class List_KHACHHANG {
         dskh[dskh.length - 1] = khMoi;
 
         tuDongCapNhatFile();
-        System.out.println("✅ Da them khach hang moi thanh cong!");
+        System.out.println("Da them khach hang moi thanh cong!");
     }
 
     // SỬA: Sửa khách hàng giống MonAn
