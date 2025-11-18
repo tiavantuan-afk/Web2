@@ -15,7 +15,6 @@ public class List_KHACHHANG {
         dskh = new KHACHHANG[n];
     }
 
-    // Getter/Setter giống MonAn
     public KHACHHANG[] getDskh() {
         return dskh;
     }
@@ -25,7 +24,7 @@ public class List_KHACHHANG {
     }
 
     public int getN() {
-        return dskh.length; // SỬA: Dùng length thay vì biến n
+        return dskh.length;
     }
 
     // Tự động lưu file giống MonAn
