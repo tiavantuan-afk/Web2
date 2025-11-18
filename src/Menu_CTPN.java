@@ -13,13 +13,14 @@ public class Menu_CTPN {
         int chon = -1;
         do {
             System.out.println("\nMENU CTPN");
-            System.out.println("1. Nhập danh sách");
-            System.out.println("2. Xuất danh sách");
-            System.out.println("3. Thêm theo mã");
-            System.out.println("4. Tìm theo mã");
-            System.out.println("5. Sửa theo mã");
-            System.out.println("6. Xoá theo mã");
-            System.out.println("7. Thong ke theo ngay nhap chi tiet phieu nhap hang");
+            System.out.println("1. Nhap danh sach");
+            System.out.println("2. Xuat danh sach");
+            System.out.println("3. Them theo ma");
+            System.out.println("4. Tim theo ma");
+            System.out.println("5. Sua theo ma");
+            System.out.println("6. Xoa theo ma");
+            System.out.println("7. Thong ke theo ngay ");
+            System.out.println("8. Quay ve Menu chinh");
             System.out.println("0. Thoát");
             System.out.print("Chọn: ");
 
@@ -48,11 +49,16 @@ public class Menu_CTPN {
                 case 7:
                     list.thongketheongay();
                     break;
+                case 8:
+                    System.out.print("Quay lai menu chinh");
+                    Menu_Main mainMenu = new Menu_Main();
+                    mainMenu.menuChinh();
+                    return;
                 case 0:
-                    System.out.println("Thoát");
+                    System.out.println("Thoat");
                     break;
                 default:
-                    System.out.println("Không hợp lệ");
+                    System.out.println("Khong hop le");
                     break;
             }
 

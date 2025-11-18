@@ -13,17 +13,18 @@ public class Menu_ncc {
     public void menu() {
         int chon = -1;
         do {
-            System.out.println("\n1.Nhập danh sách nhà cung cấp");
-            System.out.println("2.Xuất danh sách nhà cung cấp");
-            System.out.println("3.Tìm kiếm nhà cung cấp theo mã");
-            System.out.println("4.Thêm nhà cung cấp theo mã");
-            System.out.println("5.Thêm nhà cung cấp theo địa chỉ");
-            System.out.println("6.Xoá nhà cung cấp theo mã");
-            System.out.println("7.Xoá nhà cung cấp theo số điện thoại");
-            System.out.println("8.Sửa nhà cung cấp theo mã");
+            System.out.println("\n1.Nhap danh sach nha cung cap");
+            System.out.println("2.Xuat danh sach nha cung cap");
+            System.out.println("3.Tim kiem nha cung cap theo ma");
+            System.out.println("4.Them nha cung cap theo ma");
+            System.out.println("5.Them nha cung cap theo đia chi");
+            System.out.println("6.Xoa nha cung cap theo ma");
+            System.out.println("7.Xoa nha cung cap theo so đien thoai");
+            System.out.println("8.Sua nha cung cap theo ma");
             System.out.println("9.Thong ke nha cung cap theo ho");
-            System.out.println("0.Thoát");
-            System.out.print("Chọn chức năng: ");
+            System.out.println("10.Quay lai Menu chinh");
+            System.out.println("0.Thoat");
+            System.out.print("Chon chuc nang: ");
             chon = sc.nextInt();
             sc.nextLine();
             switch(chon){
@@ -54,6 +55,10 @@ public class Menu_ncc {
                 case 9:
                     list.thongketheohoncc();
                     break;
+                case 10:
+                    System.out.print("Quay ve menu chinh");
+                    Menu_Main menuMain = new Menu_Main();
+                    menuMain.menuChinh();
                 case 0:
                     System.out.println("Thoát");
                     return;

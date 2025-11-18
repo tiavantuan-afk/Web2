@@ -19,7 +19,8 @@ public class Menu_PN {
             System.out.println("4. Tim theo ma");
             System.out.println("5. Sua theo ma");
             System.out.println("6. Xoa theo ma");
-            System.out.println("7. Thong ke theo ngay nhap hang");
+            System.out.println("7. Thong ke theo ngay");
+            System.out.println("8. Quay ve Menu chinh");
             System.out.println("0 Thoat");
             System.out.print("Chon: ");
 
@@ -29,7 +30,7 @@ public class Menu_PN {
             switch (chon) {
                 case 1: 
                     list.nhap();
-                    break;
+                    break;                   
                 case 2: 
                     list.xuat(); 
                     break;
@@ -48,8 +49,13 @@ public class Menu_PN {
                 case 7:
                     list.thongketheongay();
                     break;
+                case 8:
+                    System.out.print("Quay lai Menu chinh");
+                    Menu_Main mainMenu = new Menu_Main();
+                    mainMenu.menuChinh();
+                    return;
                 case 0:
-                    System.out.println("Thoát");
+                    System.out.println("Thoat");
                     return;
                 default:
                     System.out.println("Lua chon khong hop le, vui long chon lai");
