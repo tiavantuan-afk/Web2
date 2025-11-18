@@ -29,31 +29,24 @@ public class Menu_PN {
             switch (chon) {
                 case 1: 
                     list.nhap();
-                    list.ghiFile(fileName);
                     break;
                 case 2: 
-                    list.xuat();
-                    list.ghiFile(fileName); 
+                    list.xuat(); 
                     break;
                 case 3: 
-                    list.themtheoma();
-                    list.ghiFile(fileName); 
+                    list.themtheoma(); 
                     break;
                 case 4: 
-                    list.timTheoMa();
-                    list.ghiFile(fileName); 
+                    list.timTheoMa(); 
                     break;
                 case 5: 
-                    list.suatheoma();
-                    list.ghiFile(fileName); 
+                    list.suatheoma(); 
                     break;
                 case 6: 
-                    list.xoatheoma();
-                    list.ghiFile(fileName); 
+                    list.xoatheoma(); 
                     break;
                 case 7:
                     list.thongketheongay();
-                    list.ghiFile(fileName);
                     break;
                 case 0:
                     System.out.println("Thoát");
