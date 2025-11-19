@@ -64,10 +64,6 @@ public class List_KHACHHANG {
         }
 
         System.out.println("So luong khach hang: " + dskh.length);
-        System.out.println("-------------------------------------------------------");
-        System.out.printf("%-10s | %-15s | %-10s | %-15s\n", "Ma KH", "Ho", "Ten", "SDT");
-        System.out.println("-------------------------------------------------------");
-
         for (int i = 0; i < dskh.length; i++) {
             if (dskh[i] != null) {
                 dskh[i].xuat();
@@ -103,19 +99,12 @@ public class List_KHACHHANG {
     public void themkhachhang() {
         System.out.println("\n---- THEM KHACH HANG MOI ----");
         KHACHHANG khMoi = new KHACHHANG();
-
-        boolean maTrung;
-        do {
-            khMoi.nhap();
-
-            if (!OneIDKH(khMoi.getMaKH())) {
+        khMoi.nhap();
+        
+        if (!OneIDKH(khMoi.getMaKH())) {
                 System.out.println(" Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
-                System.out.println("Vui long nhap lai ma khac:");
-                maTrung = true;
-            } else {
-                maTrung = false;
+
             }
-        } while (maTrung);
 
         // Add vào mảng giống MonAn
         dskh = Arrays.copyOf(dskh, dskh.length + 1);
