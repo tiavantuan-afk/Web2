@@ -22,7 +22,6 @@ public class List_MonAn implements dataB {
         ds = new MonAn[n];
     }
 
-    // getset
     public MonAn[] getDs() {
         return ds;
     }
@@ -32,7 +31,7 @@ public class List_MonAn implements dataB {
     }
 
     public int getN() {
-        return ds.length;
+        return n;
     }
 
     public void setN(int n) {
@@ -122,45 +121,25 @@ public class List_MonAn implements dataB {
         return false;
     }
 
-    public void them() {
-        
-        MonAn MonAnL = null;
-        String temp;
-        int temT;
-        do {
-            temT = 1;
-            System.out.println("Nhap thong tin mon an can them: ");
-            System.out.println("T. THUC AN");
-            System.out.println("U NUOC UONG");
-            temp = sc.nextLine();
-            if (temp.toUpperCase().contains("T")) {
-                MonAnL = new ThucAn();
-            } else if (temp.toUpperCase().contains("U")) {
-                MonAnL = new NuocUong();
-            } else {
-                temT = 0;
-            }
-        } while (temT != 1);
-        
-
-        boolean maTrung;
-        do {
-            MonAnL.nhap();
-
-            if (!OneIDFood(MonAnL.getMaSP())) {
-                System.out.println("Ma san pham: " + MonAnL.getMaSP() + "Da ton tai");
-                System.out.println("Vui long nhap lai ma khac ");
-                maTrung = true;
-            } else {
-                maTrung = false;
-            }
-        } while (maTrung);
-        ds = Arrays.copyOf(ds, ds.length + 1);
-        ds[ds.length - 1] = MonAnL;
-
-        //Tự động lưu file
-        tuDongCapNhatFile();
-        System.out.println("Da them mon an thanh cong ");
+    public void themloaisp(int loai) {
+        if (loai == 1) {
+            ThucAn ta = new ThucAn();
+            ta.nhap();
+            ds = Arrays.copyOf(ds, ds.length + 1);
+            ds[ds.length - 1] = ta;
+            n++;
+        } else if (loai == 2) {
+            NuocUong nu = new NuocUong();
+            nu.nhap();
+            ds = Arrays.copyOf(ds, ds.length + 1);
+            ds[ds.length - 1] = nu;
+            n++;
+        } else {
+            System.out.println("Loai san pham khong hop le!");
+            // Tự động lưu file
+            tuDongCapNhatFile();
+            System.out.println("Da them mon an thanh cong ");
+        }
     }
 
     public void sua() {
@@ -233,9 +212,9 @@ public class List_MonAn implements dataB {
 
                 case 3:
                     System.out.println("Nhap gia ban moi: ");
-                    double giaMoi = sc.nextDouble();
+                    double donGiamoi = sc.nextDouble();
                     sc.nextLine();
-                    ds[v].giaBan = giaMoi;
+                    ds[v].donGia = donGiamoi;
                     System.out.println("Da cap nhat gia ban");
                     break;
 
@@ -333,7 +312,6 @@ public class List_MonAn implements dataB {
             System.out.println("Danh sach empty");
             return;
         }
-
         boolean found = false;
         for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null && ds[i].getMaSP() != null &&
@@ -341,7 +319,6 @@ public class List_MonAn implements dataB {
                 System.out.println("San pham can xoa: ");
                 ds[i].xuat();
                 System.out.println();
-
                 // Dich chuyen ob
                 for (int j = i; j < ds.length - 1; j++) {
                     ds[j] = ds[j + 1];
@@ -377,29 +354,26 @@ public class List_MonAn implements dataB {
         }
     }
 
-    public void timKiemTen() {
-        if (ds.length == 0) {
-            System.out.println("Danh sach empty");
-            return;
-        }
-
-        System.out.print("Nhap ten san pham can tim ");
-        String tenSP = sc.nextLine();
-
-        boolean found = false;
-        for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].tenSP != null &&
-                    ds[i].tenSP.equalsIgnoreCase(tenSP)) {
-                if (!found) {
-                    System.out.println("Ket qua tim kiem: ");
-                    found = true;
-                }
-                ds[i].xuat();
+    public MonAn[] timKiemTheoTen(String tenSP) {
+        int d = 0;
+        boolean timthay = false;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getTenSP().equalsIgnoreCase(tenSP)) {
+                d++;
+                timthay = true;
             }
         }
-        if (!found) {
-            System.out.println("Khong tim thay san pham co ten: " + tenSP);
+        MonAn[] kq = new MonAn[d];
+        int d1 = 0;
+        for (int i = 0; i < n; i++) {
+            if (ds[i].getTenSP().equalsIgnoreCase(tenSP)) {
+                kq[d1] = ds[i];
+                d1++;
+            }
         }
+        if (!timthay)
+            System.out.println("khong tim thay");
+        return kq;
     }
 
     // Thống kê danh sách món ăn
@@ -427,7 +401,7 @@ public class List_MonAn implements dataB {
 
         for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null) {
-                tongGiaTri += ds[i].getGiaBan();
+                tongGiaTri += ds[i].getdonGia();
                 if (ds[i] instanceof ThucAn) {
                     soThucAn++;
                     ThucAn ta = (ThucAn) ds[i];

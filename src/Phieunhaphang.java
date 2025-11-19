@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
+
 public class Phieunhaphang {
     Scanner sc = new Scanner(System.in);
     public String maPNH;
@@ -8,15 +9,15 @@ public class Phieunhaphang {
     public String maNcc;
     public double tongtien;
 
-    Phieunhaphang(){
+    Phieunhaphang() {
         maPNH = "";
         maNV = "";
         ngay = "";
         maNcc = "";
         tongtien = 0;
     }
-    
-    Phieunhaphang(String maPNH, String maNV, String ngay, String maNcc, double tongtien){
+
+    Phieunhaphang(String maPNH, String maNV, String ngay, String maNcc, double tongtien) {
         this.maPNH = maPNH;
         this.maNV = maNV;
         this.ngay = ngay;
@@ -24,7 +25,7 @@ public class Phieunhaphang {
         this.tongtien = tongtien;
     }
 
-    Phieunhaphang(Phieunhaphang t){
+    Phieunhaphang(Phieunhaphang t) {
         maPNH = t.maPNH;
         maNV = t.maNV;
         ngay = t.ngay;
@@ -33,8 +34,20 @@ public class Phieunhaphang {
     }
 
     @Override
-    public String toString(){
-        return String.join("-", maPNH, maNV, ngay, maNcc, String.valueOf(tongtien)); 
+    public String toString() {
+        return String.join("-", maPNH, maNV, ngay, maNcc, String.valueOf(tongtien));
+    }
+
+    public void nhap(String maPNH, double tongtien) {
+        this.maPNH = maPNH;
+        System.out.println("Mã nhân viên: ");
+        maNV = sc.nextLine();
+        System.out.println("Ngày nhập hàng: ");
+        ngay = sc.nextLine();
+        System.out.println("Nhà cung cấp: ");
+        maNcc = sc.nextLine();
+        this.tongtien = tongtien;
+
     }
 
     public void xuat() {
@@ -49,48 +62,43 @@ public class Phieunhaphang {
         System.out.println("╚══════════════════════════════════════════════╝");
     }
 
-    public String getmaPNH(){
+    public String getmaPNH() {
         return maPNH;
     }
-    public void setmaPNH(String maPNH){
+
+    public void setmaPNH(String maPNH) {
         this.maPNH = maPNH;
     }
-    public String getmaNV(){
+
+    public String getmaNV() {
         return maNV;
     }
-    public void setmaNV(String maNV){
+
+    public void setmaNV(String maNV) {
         this.maNV = maNV;
     }
-    public String getngay(){
+
+    public String getngay() {
         return ngay;
     }
-    public void setngay(String ngay){
+
+    public void setngay(String ngay) {
         this.ngay = ngay;
     }
-    public String getmaNcc(){
+
+    public String getmaNcc() {
         return maNcc;
     }
-    public void setmaNcc(String maNcc){
+
+    public void setmaNcc(String maNcc) {
         this.maNcc = maNcc;
     }
-    
-    public void nhap(){
-        System.out.println("Mã phiếu nhập hàng: ");
-        maPNH = sc.nextLine();
-        System.out.println("Mã nhân viên: ");
-        maNV = sc.nextLine();
-        System.out.println("Ngày nhập hàng: ");
-        ngay = sc.nextLine();
-        System.out.println("Nhà cung cấp: ");
-        maNcc = sc.nextLine();
-        System.out.println("Số mặt hàng: ");
-        int n = Integer.parseInt(sc.nextLine());
-        for(int i = 0;i<n;i++){
-            System.out.println("Chi tiết hàng "+(i+1));
-            Chitietphieunhap ct = new Chitietphieunhap();
-            ct.nhap(true);
-            Danhsachchitiet.add(ct);
-        }
+
+    public Double gettongtien() {
+        return tongtien;
     }
-    
+
+    public void settongtien(String tongtien) {
+    }
+
 }

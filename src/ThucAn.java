@@ -11,16 +11,16 @@ public class ThucAn extends MonAn {
         super();
     }
 
-    public ThucAn(String maSP, String tenSP, double giaBan, int soLuong, boolean coThit, boolean coTinhBot,
+    public ThucAn(String maSP, String tenSP, double donGia, int soLuong, boolean coThit, boolean coTinhBot,
             boolean coBotNgot) {
-        super(maSP, tenSP, giaBan, soLuong);
+        super(maSP, tenSP, donGia, soLuong);
         this.coThit = coThit;
         this.coTinhBot = coTinhBot;
         this.coBotNgot = coBotNgot;
     }
 
     public ThucAn(ThucAn t) {
-        super(t.getMaSP(), t.getTenSP(), t.getGiaBan(), t.getSoLuong());
+        super(t.getMaSP(), t.getTenSP(), t.getdonGia(), t.getSoLuong());
         this.coThit = t.coThit;
         this.coTinhBot = t.coTinhBot;
         this.coBotNgot = t.coBotNgot;
@@ -49,7 +49,7 @@ public class ThucAn extends MonAn {
         return String.join("-", getLoai(),
                 maSP,
                 tenSP,
-                String.valueOf(giaBan),
+                String.valueOf(donGia),
                 String.valueOf(soLuong),
                 String.valueOf(coThit),
                 String.valueOf(coTinhBot),
@@ -94,7 +94,7 @@ public class ThucAn extends MonAn {
     // System.out.println("== Thức ăn ==");
     // System.out.println("Mã SP" + getMaSP());
     // System.out.println("Tên SP" + getTenSP());
-    // System.out.println("Giá Bán" + getGiaBan());
+    // System.out.println("Giá Bán" + getdonGia());
     // System.out.println("Số Lượng" + getSoLuong());
     // System.out.println("Có thịt" + (coThit ? "Có" : "Không"));
     // System.out.println("Có tinh bột" + (coTinhBot ? "Có" : "Không"));
@@ -102,7 +102,7 @@ public class ThucAn extends MonAn {
 
     // @Override
     // public double tinhGiaSauKhuyenMai() {
-    // return getGiaBan() * 0.9;// Giảm 10%
+    // return getdonGia() * 0.9;// Giảm 10%
     // }
 
     // @Override

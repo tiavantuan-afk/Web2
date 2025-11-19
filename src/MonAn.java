@@ -5,25 +5,32 @@ public abstract class MonAn {
     // Thuộc tính
     public String maSP;
     public String tenSP;
-    public double giaBan;
+    public double donGia;
     public int soLuong;
 
     java.util.Scanner sc = new Scanner(System.in);
+
     public abstract String getLoai();
 
+    public MonAn() {
+        maSP = "";
+        tenSP = "";
+        donGia = 0;
+        soLuong = 0;
+    }
 
     // Có tham số
-    public MonAn(String maSP, String tenSP, double giaBan, int soLuong) {
+    public MonAn(String maSP, String tenSP, double donGia, int soLuong) {
         this.maSP = maSP;
         this.tenSP = tenSP;
-        this.giaBan = giaBan;
+        this.donGia = donGia;
         this.soLuong = soLuong;
     }
 
     public MonAn(MonAn t) {
         this.maSP = t.maSP;
         this.tenSP = t.tenSP;
-        this.giaBan = t.giaBan;
+        this.donGia = t.donGia;
         this.soLuong = t.soLuong;
     }
 
@@ -34,7 +41,7 @@ public abstract class MonAn {
         System.out.print("Nhap ten SP: ");
         tenSP = sc.nextLine();
         System.out.print("Nhap gia ban SP: ");
-        giaBan = sc.nextDouble();
+        donGia = sc.nextDouble();
         sc.nextLine();
         System.out.print("Nhập so luong: ");
         soLuong = sc.nextInt();
@@ -44,7 +51,7 @@ public abstract class MonAn {
     public void xuat() {
         System.out.printf(
                 "%-10s | %-20s | %-10.0f | %-10d ",
-                maSP, tenSP, giaBan, soLuong);
+                maSP, tenSP, donGia, soLuong);
 
     }
 
@@ -65,12 +72,12 @@ public abstract class MonAn {
         this.tenSP = tenSP;
     }
 
-    public double getGiaBan() {
-        return giaBan;
+    public double getdonGia() {
+        return donGia;
     }
 
-    public void setGiaBan(double giaBan) {
-        this.giaBan = giaBan;
+    public void setdonGia(double donGia) {
+        this.donGia = donGia;
     }
 
     public int getSoLuong() {

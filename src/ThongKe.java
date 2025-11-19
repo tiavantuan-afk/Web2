@@ -99,7 +99,7 @@ public class ThongKe {
         MonAn[] dsMA = dsMonAn.getDs();
         for (int i = 0; i < dsMA.length; i++) {
             if (dsMA[i] != null) {
-                tongGiaTriMonAn += dsMA[i].giaBan * dsMA[i].soLuong;
+                tongGiaTriMonAn += dsMA[i].donGia * dsMA[i].soLuong;
             }
         }
 
@@ -147,7 +147,7 @@ public class ThongKe {
                 MonAn[] ds = dsMonAn.getDs();
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
-                        tongGiaTri += ds[j].giaBan * ds[j].soLuong;
+                        tongGiaTri += ds[j].donGia * ds[j].soLuong;
                     }
                 }
             } else if (i == 1) { // Nhân viên
@@ -169,7 +169,7 @@ public class ThongKe {
                 COMBO[] ds = dsCOMBO.getDs();
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
-                        tongGiaTri += ds[j].getGiaBan();
+                        tongGiaTri += ds[j].getdonGia();
                     }
                 }
             } else if (i == 4) { // NGUYÊN LIỆU
@@ -239,12 +239,12 @@ public class ThongKe {
             if (ds[i] != null) {
                 if (ds[i] instanceof ThucAn) {
                     soThucAn++;
-                    tongGiaThucAn += ds[i].giaBan;
-                    doanhThuThucAn += ds[i].giaBan * ds[i].soLuong;
+                    tongGiaThucAn += ds[i].donGia;
+                    doanhThuThucAn += ds[i].donGia * ds[i].soLuong;
                 } else if (ds[i] instanceof NuocUong) {
                     soNuocUong++;
-                    tongGiaNuocUong += ds[i].giaBan;
-                    doanhThuNuocUong += ds[i].giaBan * ds[i].soLuong;
+                    tongGiaNuocUong += ds[i].donGia;
+                    doanhThuNuocUong += ds[i].donGia * ds[i].soLuong;
                 }
             }
         }

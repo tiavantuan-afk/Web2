@@ -44,12 +44,26 @@ public class Menu_MonAn {
                     quanLy.xuat();
                     break;
                 case 3:
-                    quanLy.them();
+                    int loai;
+                    do {
+                        System.out.println("Chon loai thuc an: ");
+                        System.out.println("1.Thuc An");
+                        System.out.println("2.Nuoc Uong");
+                        System.out.print("Loai: ");
+                        loai = sc.nextInt();
+                        sc.nextLine();
+                        if (loai != 1 && loai != 2) {
+                            System.out.println("Vui long chi chon 1 hay 2.");
+                        }
+
+                    } while (loai != 1 && loai != 2);
+                    quanLy.themloaisp(loai);
                     quanLy.ghiFile(fileName);
                     break;
                 case 4:
                     quanLy.docFile(fileName);
                     quanLy.sua();
+                    quanLy.ghiFile(fileName);
                     break;
                 case 5:
                     System.out.print("Nhap ma san pham can xoa: ");
@@ -63,7 +77,9 @@ public class Menu_MonAn {
                     quanLy.timKiemMa(maCanTim);
                     break;
                 case 7:
-                    quanLy.timKiemTen();
+                    System.out.print("Nhap ten can tim: ");
+                    String tenCanTim = sc.nextLine().trim();
+                    MonAn[] kq = quanLy.timKiemTheoTen(tenCanTim);
                     break;
                 case 8:
                     quanLy.thongKe();

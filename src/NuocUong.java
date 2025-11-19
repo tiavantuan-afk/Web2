@@ -12,9 +12,9 @@ public class NuocUong extends MonAn {
         super();
     }
 
-    public NuocUong(String maSP, String tenSP, double giaBan, int soLuong, boolean coGas, boolean loaiChai,
+    public NuocUong(String maSP, String tenSP, double donGia, int soLuong, boolean coGas, boolean loaiChai,
             boolean coDa, boolean loaiLon) {
-        super(maSP, tenSP, giaBan, soLuong);
+        super(maSP, tenSP, donGia, soLuong);
         this.coGas = coGas;
         this.loaiChai = loaiChai;
         this.coDa = coDa;
@@ -22,7 +22,7 @@ public class NuocUong extends MonAn {
     }
 
     public NuocUong(NuocUong t) {
-        super(t.getMaSP(), t.getTenSP(), t.getGiaBan(), t.getSoLuong());
+        super(t.getMaSP(), t.getTenSP(), t.getdonGia(), t.getSoLuong());
         this.coDa = t.coDa;
         this.coGas = t.coGas;
         this.loaiChai = t.loaiChai;
@@ -61,7 +61,7 @@ public class NuocUong extends MonAn {
         return String.join("-", getLoai(),
                 maSP,
                 tenSP,
-                String.valueOf(giaBan),
+                String.valueOf(donGia),
                 String.valueOf(soLuong),
                 String.valueOf(coGas),
                 String.valueOf(loaiChai),
@@ -115,7 +115,7 @@ public class NuocUong extends MonAn {
     // System.out.println("== Drinks ==");
     // System.out.println("Ma SP" + getMaSP());
     // System.out.println("Ten SP" + getTenSP());
-    // System.out.println("Gia Ban" + getGiaBan());
+    // System.out.println("Gia Ban" + getdonGia());
     // System.out.println("So Luong" + getSoLuong());
     // System.out.println("Co Gas" + (coGas ? "Co" : "Khong"));
     // System.out.println("Co Da" + (coDa ? "Co" : "Khong"));
@@ -125,7 +125,7 @@ public class NuocUong extends MonAn {
 
     // @Override
     // public double tinhGiaSauKhuyenMai() {
-    // double gia = getGiaBan();
+    // double gia = getdonGia();
     // if (coDa)
     // gia += 2000;
     // if (coGas)
