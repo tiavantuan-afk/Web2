@@ -1,4 +1,7 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public abstract class MonAn {
@@ -12,6 +15,7 @@ public abstract class MonAn {
 
     public abstract String getLoai();
 
+    // Ko tham so
     public MonAn() {
         maSP = "";
         tenSP = "";
@@ -27,6 +31,7 @@ public abstract class MonAn {
         this.soLuong = soLuong;
     }
 
+    // Sao chép
     public MonAn(MonAn t) {
         this.maSP = t.maSP;
         this.tenSP = t.tenSP;
@@ -34,7 +39,6 @@ public abstract class MonAn {
         this.soLuong = t.soLuong;
     }
 
-    // Nhập xuất
     public void nhap() {
         System.out.print("Nhap ma SP: ");
         maSP = sc.nextLine();
@@ -88,11 +92,10 @@ public abstract class MonAn {
         this.soLuong = soLuong;
     }
 
-    // Đa hình
-    // public abstract void hienThiThongTin();
-
-    // public abstract double tinhGiaSauKhuyenMai();
-
-    // public abstract String getLoaiSanPham();
-
+    public void ghiFile() throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("List_MonAn.txt", true))) {
+            bw.write(maSP + "," + tenSP + "," + getdonGia() + "," + soLuong);
+            bw.newLine();
+        }
+    }
 }

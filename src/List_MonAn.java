@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 // import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -101,8 +102,8 @@ public class List_MonAn implements dataB {
         if (maSP == null)
             return true;
         for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].maSP != null &&
-                    ds[i].maSP.equalsIgnoreCase(maSP)) {
+            if (ds[i] != null && ds[i].getMaSP() != null &&
+                    ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 return false;
             }
         }
@@ -113,12 +114,17 @@ public class List_MonAn implements dataB {
         if (maSP == null)
             return false;
         for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].maSP != null &&
-                    ds[i].maSP.equalsIgnoreCase(maSP)) {
+            if (ds[i] != null && ds[i].getMaSP() != null &&
+                    ds[i].getMaSP().equalsIgnoreCase(maSP)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void themsp(MonAn sp) {
+        ds = Arrays.copyOf(ds, ds.length + 1);
+        ds[ds.length - 1] = sp;
     }
 
     public void themloaisp(int loai) {
@@ -136,10 +142,10 @@ public class List_MonAn implements dataB {
             n++;
         } else {
             System.out.println("Loai san pham khong hop le!");
-            // Tự động lưu file
-            tuDongCapNhatFile();
-            System.out.println("Da them mon an thanh cong ");
+
         }
+        tuDongCapNhatFile();
+        System.out.println("Da them mon an thanh cong ");
     }
 
     public void sua() {
@@ -447,19 +453,6 @@ public class List_MonAn implements dataB {
 
     }
 
-    public void ghiFile(String fileName) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
-            for (int i = 0; i < ds.length; i++) {
-                if (ds[i] != null) {
-                    writer.println(ds[i].toString());
-                }
-            }
-            System.out.println("Ghi file thanh cong!" + ds.length + " mon ");
-        } catch (IOException e) {
-            System.out.println("Loi ghi file: " + e.getMessage());
-        }
-    }
-
     public void docFile(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             // Reset mảng trước khi đọc
@@ -502,99 +495,28 @@ public class List_MonAn implements dataB {
             System.out.println("Loi doc file: " + e.getMessage());
         }
     }
+
+    public void ghiFile(String fileName) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+            for (int i = 0; i < n; i++) {
+                MonAn sp = ds[i];
+                if (sp instanceof ThucAn) {
+                    ThucAn ta = (ThucAn) sp;
+                    bw.write(ta.getMaSP() + "," + ta.getTenSP() + "," +
+                            ta.getdonGia() + "," + ta.getSoLuong());
+                } else if (sp instanceof NuocUong) {
+                    NuocUong nu = (NuocUong) sp;
+                    bw.write(nu.getMaSP() + "," + nu.getTenSP() + "," +
+                            nu.getdonGia() + "," + nu.getSoLuong() + "," +
+                            nu.isCoGas() + "," + nu.isCoDa() + "," +
+                            nu.isLoaiChai() + "," + nu.isLoaiLon());
+                }
+
+                bw.newLine();
+            }
+            System.out.println(">> Ghi file thành công ra: " + fileName);
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file: " + e.getMessage());
+        }
+    }
 }
-// public void ghiFileALL() {
-// try (BufferedWriter bw = new BufferedWriter(new
-// FileWriter("src/data/List_MonAn.txt"))) {
-// for (int i = 0; i < ds.length; i++) {
-// if (ds[i] != null) {
-// bw.write(ds[i].toString());
-// bw.newLine();
-// }
-// }
-// System.out.println("Ghi thanh cong");
-// } catch (IOException e) {
-// System.out.println("Loi ghi file ");
-// }
-// }
-
-// public void ghiFileONE() {
-// if (ds.length > 0) {
-// try (BufferedWriter bw = new BufferedWriter(new
-// FileWriter("src/data/List_MonAn.txt"))) {
-// bw.write(ds[ds.length - 1].toString());
-// bw.newLine();
-// System.out.println("Ghi thanh cong ");
-// } catch (IOException e) {
-// System.out.println("Loi ghi file ");
-// }
-// } else {
-// System.out.println("Khong co file nao de ghi ");
-// }
-// }
-// }
-
-// public void xoa() {
-// if (ds.length == 0) {
-// System.out.println("Khong co trong danh sach");
-// return;
-// }
-// System.out.println("Nhap san pham can xoa ");
-// String maSP = sc.nextLine();
-
-// int v = -1;
-// for (int i = 0; i < ds.length; i++) {
-// {
-// if (ds[i] != null && ds[i].maSP != null && ds[i].maSP.equalsIgnoreCase(maSP))
-// {
-// v = i;
-// break;
-// }
-// }
-// if (v == -1) {
-// System.out.println("Khong tim thay san pham" + maSP);
-// return;
-// }
-// System.out.println("Tim thay san pham: ");
-// ds[v].xuat();
-// }
-// public void docFile() {
-// try (BufferedReader br = new BufferedReader(new
-// FileReader("src/data/List_MonAn.txt"))) {
-// String line;
-// MonAn x;
-// while ((line = br.readLine()) != null) {
-// String[] t = line.split("-");
-// if (t.length >= 8) {
-// String type = t[0].toUpperCase();
-
-// if (type.contains("T")) {
-// x = new ThucAn(t[1], t[2], Double.parseDouble(t[4]), Integer.parseInt(t[3]),
-// Boolean.parseBoolean(t[5]), Boolean.parseBoolean(t[6]),
-// Boolean.parseBoolean(t[7]));
-
-// } else if (type.contains("N")) {
-// x = new NuocUong(t[1], t[2], Double.parseDouble(t[4]),
-// Integer.parseInt(t[3]),
-// Boolean.parseBoolean(t[6]), Boolean.parseBoolean(t[8]),
-// Boolean.parseBoolean(t[5]), Boolean.parseBoolean(t[7]));
-
-// } else {
-// continue;
-// }
-
-// // Add vao mang
-// if (x != null) {
-// ds = Arrays.copyOf(ds, ds.length + 1);
-// ds[ds.length - 1] = x;
-// System.out.println("Doc: " + x.maSP + " - " + x.tenSP);
-// }
-// }
-// }
-// System.out.println("Doc file thanh cong ");
-// System.out.println("So mon an da doc: " + ds.length);
-
-// } catch (IOException e) {
-// System.out.println("Loi khong doc duoc file " + e.getMessage());
-// }
-// }

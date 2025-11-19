@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ThongKe {
     private Scanner sc = new Scanner(System.in);
     private List_MonAn dsMonAn;
-    private List_NhanVien dsNhanVien; 
+    private List_NhanVien dsNhanVien;
     private List_TonKho dsTonKho;
     private List_KHO dsKHO;
     private List_Nguyenlieu dsNguyenLieu;
@@ -74,26 +74,26 @@ public class ThongKe {
     }
 
     private void thongKeChi() {
-        DecimalFormat df = new DecimalFormat(/*pattern:*/ "#,###");
+        DecimalFormat df = new DecimalFormat(/* pattern: */ "#,###");
         System.out.println("\n===== THONG KE CHI TIET =====");
-        System.out.printf(/*format:*/ "%-15s | ", "Loai");
-        
-        String[] categories = {"Mon An", "Nhan Vien", "Ton Kho"};
+        System.out.printf(/* format: */ "%-15s | ", "Loai");
+
+        String[] categories = { "Mon An", "Nhan Vien", "Ton Kho" };
         for (int i = 0; i < categories.length; i++) {
-            System.out.printf(/*format:*/ "%-15s |", categories[i]);
+            System.out.printf(/* format: */ "%-15s |", categories[i]);
         }
-        System.out.println("\n" + 
-            "x: \"\\n---------------------------------------------------------------\"");
+        System.out.println("\n" +
+                "x: \"\\n---------------------------------------------------------------\"");
         System.out.printf("%-15s |", "Tong So");
 
         // Tổng số từng loại
-        double[] tongSo = {dsMonAn.getN(), dsNhanVien.getN(), dsTonKho.getN()};
+        double[] tongSo = { dsMonAn.getN(), dsNhanVien.getN(), dsTonKho.getN() };
         for (int i = 0; i < tongSo.length; i++) {
-            System.out.printf(/*format:*/ "%-15.0f |", tongSo[i]);
+            System.out.printf(/* format: */ "%-15.0f |", tongSo[i]);
         }
 
-        System.out.printf(/*format:*/ "\n%-15s |", "Tong Gia Tri");
-        
+        System.out.printf(/* format: */ "\n%-15s |", "Tong Gia Tri");
+
         // Tính tổng giá trị
         double tongGiaTriMonAn = 0;
         MonAn[] dsMA = dsMonAn.getDs();
@@ -119,13 +119,13 @@ public class ThongKe {
             }
         }
 
-        double[] giaTris = {tongGiaTriMonAn, tongLuongNV, tongGiaTriTK};
+        double[] giaTris = { tongGiaTriMonAn, tongLuongNV, tongGiaTriTK };
         for (int i = 0; i < giaTris.length; i++) {
-            System.out.printf(/*format:*/ "%-15s |", df.format(giaTris[i]));
+            System.out.printf(/* format: */ "%-15s |", df.format(giaTris[i]));
         }
 
-        System.out.println("\n" + 
-            "x: \"\\n---------------------------------------------------------------\"");
+        System.out.println("\n" +
+                "x: \"\\n---------------------------------------------------------------\"");
     }
 
     private void thongKeQuy() {
@@ -167,15 +167,9 @@ public class ThongKe {
                 }
             } else if (i == 3) { // COMBO
                 COMBO[] ds = dsCOMBO.getDs();
-<<<<<<< HEAD
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
                         tongGiaTri += ds[j].getdonGia();
-=======
-                for (int j = 0; j < ds.length; j++){
-                    if (ds[j] != null){
-                        tongGiaTri += ds[j].getGiaBan();
->>>>>>> 0797e6d0855402ca03d9d521d0518b4b8d84c668
                     }
                 }
             } else if (i == 4) { //NGUYÊN LIỆU 
@@ -224,23 +218,23 @@ public class ThongKe {
     }
 
     private void thongKeDoanhThu() {
-        DecimalFormat df = new DecimalFormat(/*pattern:*/ "#,###");
-        
+        DecimalFormat df = new DecimalFormat(/* pattern: */ "#,###");
+
         System.out.println("\n===== THONG KE DOANH THU =====");
-        
+
         // Header
-        System.out.printf("%-15s | %-15s | %-15s | %-15s%n", 
-                         "Loai SP", "So Luong", "Gia Ban TB", "Doanh Thu");
+        System.out.printf("%-15s | %-15s | %-15s | %-15s%n",
+                "Loai SP", "So Luong", "Gia Ban TB", "Doanh Thu");
         System.out.println("----------------------------------------------------------------");
-        
+
         // Thống kê ThucAn
         int soThucAn = 0;
         double tongGiaThucAn = 0, doanhThuThucAn = 0;
-        
-        // Thống kê NuocUong  
+
+        // Thống kê NuocUong
         int soNuocUong = 0;
         double tongGiaNuocUong = 0, doanhThuNuocUong = 0;
-        
+
         MonAn[] ds = dsMonAn.getDs();
         for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null) {
@@ -255,29 +249,29 @@ public class ThongKe {
                 }
             }
         }
-        
+
         // Hiển thị kết quả
         double giaTBThucAn = soThucAn > 0 ? tongGiaThucAn / soThucAn : 0;
         double giaTBNuocUong = soNuocUong > 0 ? tongGiaNuocUong / soNuocUong : 0;
-        
-        System.out.printf("%-15s | %-15d | %-15s | %-15s%n", 
-                         "Thuc An", soThucAn, df.format(giaTBThucAn), df.format(doanhThuThucAn));
-        System.out.printf("%-15s | %-15d | %-15s | %-15s%n", 
-                         "Nuoc Uong", soNuocUong, df.format(giaTBNuocUong), df.format(doanhThuNuocUong));
-        
+
+        System.out.printf("%-15s | %-15d | %-15s | %-15s%n",
+                "Thuc An", soThucAn, df.format(giaTBThucAn), df.format(doanhThuThucAn));
+        System.out.printf("%-15s | %-15d | %-15s | %-15s%n",
+                "Nuoc Uong", soNuocUong, df.format(giaTBNuocUong), df.format(doanhThuNuocUong));
+
         System.out.println("----------------------------------------------------------------");
-        System.out.printf("%-15s | %-15d | %-15s | %-15s%n", 
-                         "TONG CONG", (soThucAn + soNuocUong), 
-                         df.format((tongGiaThucAn + tongGiaNuocUong) / (soThucAn + soNuocUong)), 
-                         df.format(doanhThuThucAn + doanhThuNuocUong));
-        
+        System.out.printf("%-15s | %-15d | %-15s | %-15s%n",
+                "TONG CONG", (soThucAn + soNuocUong),
+                df.format((tongGiaThucAn + tongGiaNuocUong) / (soThucAn + soNuocUong)),
+                df.format(doanhThuThucAn + doanhThuNuocUong));
+
         // Phân tích thêm
         System.out.println("\n===== PHAN TICH =====");
         double tongDoanhThu = doanhThuThucAn + doanhThuNuocUong;
         if (tongDoanhThu > 0) {
-            System.out.printf("- Ty trong Thuc An: %.1f%%\n", (doanhThuThucAn/tongDoanhThu)*100);
-            System.out.printf("- Ty trong Nuoc Uong: %.1f%%\n", (doanhThuNuocUong/tongDoanhThu)*100);
-            
+            System.out.printf("- Ty trong Thuc An: %.1f%%\n", (doanhThuThucAn / tongDoanhThu) * 100);
+            System.out.printf("- Ty trong Nuoc Uong: %.1f%%\n", (doanhThuNuocUong / tongDoanhThu) * 100);
+
             if (doanhThuThucAn > doanhThuNuocUong) {
                 System.out.println("- Thuc An la san pham chinh 🍛");
             } else {
