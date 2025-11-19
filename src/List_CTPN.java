@@ -111,86 +111,106 @@ public class List_CTPN {
         }
     }
 
-    // Thêm theo mã
-    public void themtheoma() {
-        System.out.print("Mã cần thêm: ");
-        String macanthem = sc.nextLine();
-
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getmaNH().equalsIgnoreCase(macanthem)) {
-                System.out.println("Mã chi tiết phiếu nhập " + macanthem + " đã tồn tại trong danh sách");
-                return;
+    // Tìm theo mã
+    public void timtheoma(String macantim) {
+          boolean tim = false;
+          for(int i = 0;i < ds.length; i++){
+            if (ds[i] != null && ds[i].getmaNH() != null && ds[i].getmaNH().equalsIgnoreCase(macantim)){
+            ds[i].toString();
+            tim = true;
+            break;  
             }
-        }
-
-        if (n >= 100) {
-            System.out.println("Danh sách chi tiết phiếu nhập đã đầy");
-            return;
-        }
-
-        System.out.println("Nhập thông tin chi tiết phiếu nhập mới có mã " + macanthem);
-        ds[n] = new Chitietphieunhap();
-        ds[n].nhap(true);
-        ds[n].setmaNH(macanthem);
-        n++;
-        System.out.println("Đã thêm chi tiết phiếu nhập có mã " + macanthem);
+         }
+        if (!tim)
+            System.out.println("Khong tim thay!!! ");
     }
 
-    // Tìm theo mã
-    public void timTheoMa() {
-        System.out.print("Nhap ma can tim: ");
-        String ma = sc.nextLine();
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getmaNH().equalsIgnoreCase(ma)) {
-                System.out.println("Tim thay: " + ds[i]);
-                return;
+    // Thêm theo mã
+    public void themTheoMa(){
+        boolean them = false;
+            for(int i = 0;i<ds.length;i++){
+                if(ds[i] == null){
+                    Chitietphieunhap p = new Chitietphieunhap();
+                    System.out.print("Nhap ma phieu nhap: ");
+                    p.setmaNH(sc.nextLine());
+                    ds[i] = p;
+                    them = true;
+                    break;
+                }
             }
-        }
-        System.out.println("Khong tim thay!");
+        if(them)
+        System.out.println("Them thanh cong");
+        else
+        System.out.println("Danh sach da day, khong the them");
     }
 
     // Xoá theo mã
-    public void xoatheoma() {
-        System.out.print("Mã cần xoá: ");
-        String macanxoa = sc.nextLine();
-        boolean daxoa = false;
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getmaNH().equalsIgnoreCase(macanxoa)) {
-                for (int j = i; j < n - 1; j++) {
-                    ds[j] = ds[j + 1];
+    public void xoatheoma(String macanxoa) {
+           boolean xoa = false;
+           for(int i =0;i<ds.length;i++){
+            if(ds[i] != null && ds[i].getmaNH() != null &&  ds[i].getmaNH().equalsIgnoreCase(macanxoa)){
+                ds[i].toString();
+                for (int j = i;j < ds.length -1;j++){
+                    ds[j] = ds[j+1];
                 }
-                ds[n - 1] = null;
-                n--;
-                daxoa = true;
-                System.out.println("Đã xoá chi tiết phiếu nhập có mã " + macanxoa);
-                break;
+                ds = Arrays.copyOf(ds,ds.length-1);
+                System.out.print("Xoa thanh cong");
+                xoa = true;
+                return;
             }
-        }
-
-        if (!daxoa) {
+           }
+        if (!xoa) {
             System.out.println("Không tìm thấy chi tiết phiếu nhập có mã " + macanxoa);
         }
     }
 
     // Sửa theo mã
-    public void suatheoma() {
-        System.out.print("Mã cần sửa: ");
-        String macansua = sc.nextLine();
-        boolean dasua = false;
-
-        for (int i = 0; i < n; i++) {
-            if (ds[i].getmaNH().equalsIgnoreCase(macansua)) {
-                System.out.println("Tìm thấy chi tiết phiếu nhập: " + ds[i]);
-                System.out.println("Nhập thông tin mới cho chi tiết phiếu nhập (mã giữ nguyên): ");
-                ds[i].nhap(true);
-                ds[i].setmaNH(macansua);
-                System.out.println("Đã sửa thông tin cho chi tiết phiếu nhập có mã " + macansua);
-                dasua = true;
-                break;
-            }
-        }
-        if (!dasua) {
-            System.out.println("Không tìm thấy chi tiết phiếu nhập có mã " + macansua);
+    public void suatheoma(String macansua) {
+        boolean sua = false;
+        for (int i = 0; i < ds.length;i++){ 
+            if (ds[i] != null && ds[i].getmaNH() != null && ds[i].getmaNH().equalsIgnoreCase(macansua)) {
+                int chon;
+                do{
+                    System.out.print("1.Sua ma");
+                    System.out.print("2.Sua san pham");
+                    System.out.print("3.Sua ngay");
+                    System.out.print("4.Sua so luong");
+                    System.out.print("5.Sua don gia");
+                    System.out.print("0.Hoan thanh sua");
+                    chon = sc.nextInt();
+                    sc.nextLine();
+                    switch(chon){
+                        case 1:
+                            String mamoi = sc.nextLine();
+                            ds[i].setmaNH(mamoi);
+                            break;
+                        case 2:
+                            String sanphammoi = sc.nextLine();
+                            ds[i].setmaSP(sanphammoi);
+                            break;
+                        case 3:
+                            String ngaymoi = sc.nextLine();
+                            ds[i].setngay(ngaymoi);
+                            break;
+                        case 4:
+                            int soluongmoi = sc.nextInt();
+                            ds[i].setsoluong(soluongmoi);
+                            break;
+                        case 5:
+                            double dongiamoi = Double.parseDouble(sc.nextLine());
+                            ds[i].setdongia(dongiamoi);
+                            break;
+                        case 0:
+                            System.out.println("Hoan thanh sua");
+                            break;
+                        default:
+                            System.out.println("Khong hop le");
+                            break;
+                    }
+                }        
+                while (chon != 0); 
+                    System.out.println("Da sua hoan tat");
+                }
         }
     }
 }

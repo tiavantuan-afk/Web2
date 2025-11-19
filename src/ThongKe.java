@@ -10,6 +10,10 @@ public class ThongKe {
     private List_Nguyenlieu dsNguyenLieu;
     private List_COMBO dsCOMBO;
 
+    private List_CTPN dsCTPN;
+    private List_PN dsPN;
+    private List_NCC dsNCC;
+
     public ThongKe() {
         dsMonAn = new List_MonAn();
         dsNhanVien = new List_NhanVien();
@@ -17,8 +21,6 @@ public class ThongKe {
         dsKHO = new List_KHO();
         dsNguyenLieu = new List_Nguyenlieu();
         dsCOMBO = new List_COMBO();
-
-        
         // Đọc dữ liệu từ file
         dsMonAn.docFile("src/data/List_MonAn.txt");
         dsNhanVien.docFile("src/data/List_NV.txt");
@@ -26,6 +28,9 @@ public class ThongKe {
         dsKHO.docFile("src/data/List_KHO.txt");
         dsNguyenLieu.docFile("src/data/List_Nguyenlieu.txt");
         dsCOMBO.docFile("src/data/List_COMBO.txt");
+        dsCTPN.docFile("src/data/List_CTPN.txt");
+        dsPN.docFile("src/data/List_PN.txt");
+        dsNCC.docFile("src/data/List_NCC.txt");
     }
 
     public void menu() {
@@ -128,7 +133,11 @@ public class ThongKe {
         System.out.printf(/*format:*/ "%-11s | %-10s | %-10s | %-10s |%n", "Quy 1", "Quy 2", "Quy 3", "Quy 4");
 
         // Giả lập dữ liệu theo quý
-        String[] boPhan = {"Mon An", "Nhan Vien", "Ton Kho", "COMBO", "Nguyen lieu", "Kho"};
+<<<<<<< HEAD
+        String[] boPhan = {"Mon An", "Nhan Vien", "Ton Kho"};
+=======
+        String[] boPhan = { "Mon An", "Nhan Vien", "Ton Kho", "COMBO", "Nguyen lieu", "Kho" };
+>>>>>>> d741d7f688d9c6add2528b84a118b258fbcabea4
         for (int i = 0; i < boPhan.length; i++) {
             double[] quy = new double[4];
             
@@ -148,14 +157,20 @@ public class ThongKe {
                         tongGiaTri += ds[j].getLuongCoBan() * 3; // 3 tháng/quý
                     }
                 }
-            } else if(i==2) { // Tồn kho
+<<<<<<< HEAD
+            } else { // Tồn kho
+=======
+            } else if (i == 2) { // Tồn kho
+>>>>>>> d741d7f688d9c6add2528b84a118b258fbcabea4
                 TonKho[] ds = dsTonKho.getDs();
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
                         tongGiaTri += ds[j].getSoLuongTon() * ds[j].getGiaNhap();
                     }
                 }
-            } else if (i==3) { //COMBO
+<<<<<<< HEAD
+=======
+            } else if (i == 3) { // COMBO
                 COMBO[] ds = dsCOMBO.getDs();
                 for (int j = 0; j < ds.length; j++){
                     if (ds[j] != null){
@@ -177,6 +192,7 @@ public class ThongKe {
                         tongGiaTri += ds[j].soLuong * ds[j].donGia;
                     }
                 }
+>>>>>>> d741d7f688d9c6add2528b84a118b258fbcabea4
             }
             
 
