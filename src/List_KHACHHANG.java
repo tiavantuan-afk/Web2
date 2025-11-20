@@ -113,9 +113,6 @@ public class List_KHACHHANG {
         System.out.println("\n---- THEM KHACH HANG MOI ----");
         KHACHHANG khMoi = new KHACHHANG();
         khMoi.nhap();
-        
-        if (!OneIDKH(khMoi.getMaKH())) {
-                System.out.println(" Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
 
             } 
 
@@ -295,6 +292,7 @@ public class List_KHACHHANG {
             System.out.println("Khong tim thay khach hang co ten: " + tenCanTim);
         }
     }
+
     public void thongKeKhachHangTheoHo() {
         if (dskh.length == 0) {
             System.out.println("Danh sach khach hang rong!");
@@ -303,13 +301,13 @@ public class List_KHACHHANG {
 
         System.out.print("Nhap ho khach hang can thong ke: ");
         String hoCanThongKe = sc.nextLine().trim();
-        
+
         int count = 0;
         System.out.println("\n--- DANH SACH KHACH HANG HO: " + hoCanThongKe.toUpperCase() + " ---");
 
         for (int i = 0; i < dskh.length; i++) {
             if (dskh[i] != null && dskh[i].getHo().equalsIgnoreCase(hoCanThongKe)) {
-                dskh[i].xuat(); 
+                dskh[i].xuat();
                 count++;
             }
         }
@@ -318,8 +316,8 @@ public class List_KHACHHANG {
         System.out.println("=> Tong so khach hang ho " + hoCanThongKe + ": " + count);
     }
 
-    public void ghiFile(String filename) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+    public void ghiFile() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("src/data/List_KHACHHANG.txt"))) {
             for (int i = 0; i < dskh.length; i++) {
                 if (dskh[i] != null) {
                     writer.println(dskh[i].toString());
@@ -331,8 +329,8 @@ public class List_KHACHHANG {
         }
     }
 
-    public void docfile(String filename) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+    public void docFile() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/data/List_KHACHHANG.txt"))) {
             dskh = new KHACHHANG[0];
 
             String line;
@@ -344,9 +342,9 @@ public class List_KHACHHANG {
                 String[] t = line.split("-");
                 if (t.length >= 4) {
                     KHACHHANG x = new KHACHHANG();
-                    x.setMakh(t[0]);    
-                    x.setHo(t[1]);      
-                    x.setTen(t[2]);     
+                    x.setMakh(t[0]);
+                    x.setHo(t[1]);
+                    x.setTen(t[2]);
                     x.setSDT(t[3]);
                     dskh = Arrays.copyOf(dskh, dskh.length + 1);
                     dskh[dskh.length - 1] = x;
