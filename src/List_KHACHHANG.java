@@ -105,7 +105,7 @@ public class List_KHACHHANG {
         dskh = Arrays.copyOf(dskh, dskh.length + 1);
         dskh[dskh.length - 1] = khMoi;
         tuDongCapNhatFile();
-        System.out.println("Da them khach hang moi thanh cong")
+        System.out.println("Da them khach hang moi thanh cong");
     }
 
     // SỬA: Thêm khách hàng giống MonAn
@@ -359,4 +359,13 @@ public class List_KHACHHANG {
             System.out.println("Loi doc file: " + e.getMessage());
         }
     }
+    public String getTenKhachHang(String maKHCantim) {
+    for (int i = 0; i < dskh.length; i++) {
+        if (dskh[i] != null && dskh[i].getMaKH() != null && dskh[i].getMaKH().equalsIgnoreCase(maKHCantim)) {
+            return dskh[i].getHo() + " " + dskh[i].getTen(); 
+            // Hoặc nếu chỉ có 1 biến HoTen: return dskh[i].getHoTen();
+        }
+    }
+    return "khong tim tha"; // Nếu không tìm thấy
+}
 }

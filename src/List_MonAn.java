@@ -519,4 +519,12 @@ public class List_MonAn implements dataB {
             System.out.println("Lỗi ghi file: " + e.getMessage());
         }
     }
+    public double getDonGia(String maCanTim) {
+    for (int i = 0; i < ds.length; i++) {
+        if (ds[i] != null && ds[i].getMaSP() != null && ds[i].getMaSP().equalsIgnoreCase(maCanTim)) {
+            return ds[i].getdonGia();
+        }
+    }
+    return 0;
+}
 }

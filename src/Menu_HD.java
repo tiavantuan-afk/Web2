@@ -45,7 +45,9 @@ public class Menu_HD {
                     quanly.suahoadon();
                     break;
                 case 5:
-                    quanly.themhoadon();
+                    System.out.print("Nhap ma hoa don can them: ");
+                    String hoadoncanthem = sc.nextLine();
+                    quanly.themhoadon(hoadoncanthem);
                     break;
                 case 6:
                     System.out.print("Nhap ma hoa don can xoa: ");
