@@ -94,6 +94,19 @@ public class List_KHACHHANG {
         }
         return false;
     }
+    public void themkhachhang(KHACHHANG khMoi){
+        if (khMoi == null){
+            return;
+        }
+        if (!OneIDKH(khMoi.getMaKH())) {
+            System.out.println(" Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
+            return;
+        }
+        dskh = Arrays.copyOf(dskh, dskh.length + 1);
+        dskh[dskh.length - 1] = khMoi;
+        tuDongCapNhatFile();
+        System.out.println("Da them khach hang moi thanh cong")
+    }
 
     // SỬA: Thêm khách hàng giống MonAn
     public void themkhachhang() {
@@ -104,7 +117,7 @@ public class List_KHACHHANG {
         if (!OneIDKH(khMoi.getMaKH())) {
                 System.out.println(" Ma khach hang '" + khMoi.getMaKH() + "' da ton tai!");
 
-            }
+            } 
 
         // Add vào mảng giống MonAn
         dskh = Arrays.copyOf(dskh, dskh.length + 1);
