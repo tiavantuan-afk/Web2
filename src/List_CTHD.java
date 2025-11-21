@@ -44,13 +44,7 @@ class List_CTHD {
         }
     }
 
-<<<<<<< HEAD
-    public void nhap() {
-        List_MonAn menu = new List_MonAn();
-        menu.docFile("src/data/List_MonAn.txt");
-=======
     public void nhap(String Mahd, String Masp, double DG) {
->>>>>>> 0e936039b76769d38993ecef2d9ba2c5893aad6d
         System.out.print("Nhap n: ");
         int n = sc.nextInt();
         sc.nextLine();
@@ -58,21 +52,7 @@ class List_CTHD {
         for (int i = 0; i < dscthd.length; i++) {
             System.out.println("Nhap chi tiet hoa don thu: " + (i + 1));
             dscthd[i] = new CHITIETHOADON();
-<<<<<<< HEAD
-            System.out.print("Nhap ma hoa don: ");
-            String maHD = sc.nextLine(); 
-            System.out.print("Nhap Ma San Pham: ");
-            String maSP = sc.nextLine(); 
-            System.out.print("Nhap ma khach hang: ");
-            String maKH = sc.nextLine();
-            double donGia = menu.getDonGia(maSP); 
-            if (donGia == 0) {
-            System.out.println("canh bao: Ma san pham khong ton tai trong thuc don!");
-            }
-            dscthd[i].nhap(maHD, maSP, maKH, donGia);
-=======
             dscthd[i].nhap(Mahd, Masp, DG);
->>>>>>> 0e936039b76769d38993ecef2d9ba2c5893aad6d
         }
         tuDongCapNhatFile();
         System.out.println("Da nhap xong " + dscthd.length);

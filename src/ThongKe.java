@@ -111,7 +111,7 @@ public class ThongKe {
         }
 
         double tongGiaTriTK = 0;
-        Cook[] dsTK = dsCook.getDs();
+        cook[] dsTK = dsCook.getds();
         for (int i = 0; i < dsTK.length; i++) {
             if (dsTK[i] != null) {
                 tongGiaTriTK += dsTK[i].getSoLuongTon() * dsTK[i].getGiaNhap();
@@ -155,9 +155,9 @@ public class ThongKe {
                         tongGiaTri += ds[j].getLuongCoBan() * 3; // 3 tháng/quý
                     }
                 }
-            } else { // Tồn kho
+            // } else { // Tồn kho
             } else if (i == 2) { // Tồn kho
-                Cook[] ds = dsCook.getDs();
+                cook[] ds = dsCook.getds();
                 for (int j = 0; j < ds.length; j++) {
                     if (ds[j] != null) {
                         tongGiaTri += ds[j].getSoLuongTon() * ds[j].getGiaNhap();
