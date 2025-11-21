@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class COMBO {
+    Scanner sc = new Scanner(System.in);
     public String maSP;
     public String tenSP;
     public double giaBan;
@@ -36,9 +37,8 @@ public class COMBO {
         }
     }
 
-    // Nhập 
+    // Nhập
     public void nhap() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma combo: ");
         this.maSP = sc.nextLine();
 
@@ -51,12 +51,12 @@ public class COMBO {
         System.out.print("Nhap so luong: ");
         this.soLuong = Integer.parseInt(sc.nextLine());
         System.out.print("Nhap gia niem yet: ");
-        this.giaNiemYet = Double.parseDouble(sc.nextLine()); 
+        this.giaNiemYet = Double.parseDouble(sc.nextLine());
     }
-    
-    // loại 
-    public String getLoai() { 
-        return "C"; 
+
+    // loại
+    public String getLoai() {
+        return "C";
     }
 
     // Xuất
@@ -70,42 +70,48 @@ public class COMBO {
 
     @Override
     public String toString() {
-        return "COMBO [maSP=" + maSP + ", tenSP=" + tenSP + ", giaBan=" + giaBan + ", soLuong=" + soLuong + ", giaNiemYet=" + giaNiemYet + "]"; 
+        return "COMBO [maSP=" + maSP + ", tenSP=" + tenSP + ", giaBan=" + giaBan + ", soLuong=" + soLuong
+                + ", giaNiemYet=" + giaNiemYet + "]";
     }
 
     // Get/Set
-    public String getMaSP() { 
-        return maSP; 
-    }
-    public void setMaSP(String maSP) { 
-        this.maSP = maSP; 
+    public String getMaSP() {
+        return maSP;
     }
 
-    public String getTenSP() { 
-        return tenSP; 
-    }
-    public void setTenSP(String tenSP) { 
-        this.tenSP = tenSP; 
+    public void setMaSP(String maSP) {
+        this.maSP = maSP;
     }
 
-    public double getGiaBan() { 
-        return giaBan; 
-    }
-    public void setGiaBan(double giaBan) { 
-        this.giaBan = giaBan; 
+    public String getTenSP() {
+        return tenSP;
     }
 
-    public int getSoLuong() { 
-        return soLuong; 
-    }
-    public void setSoLuong(int soLuong) { 
-        this.soLuong = soLuong; 
+    public void setTenSP(String tenSP) {
+        this.tenSP = tenSP;
     }
 
-    public double getGiaNiemYet() { 
-        return giaNiemYet; 
+    public double getGiaBan() {
+        return giaBan;
     }
-    public void setGiaNiemYet(double giaNiemYet) { 
-        this.giaNiemYet = giaNiemYet; 
+
+    public void setGiaBan(double giaBan) {
+        this.giaBan = giaBan;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public double getGiaNiemYet() {
+        return giaNiemYet;
+    }
+
+    public void setGiaNiemYet(double giaNiemYet) {
+        this.giaNiemYet = giaNiemYet;
     }
 }

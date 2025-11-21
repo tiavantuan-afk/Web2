@@ -16,12 +16,16 @@ public class List_MonAn implements dataB {
     public List_MonAn() {
         n = 0;
         ds = new MonAn[0];
-        docFile("src/data/List_MonAn.txt");
     }
 
     public List_MonAn(int n) {
         this.n = n;
         ds = new MonAn[n];
+    }
+
+    List_MonAn(List_MonAn x) {
+        this.n = ds.length;
+        this.ds = Arrays.copyOf(ds, ds.length);
     }
 
     public MonAn[] getDs() {
@@ -157,22 +161,26 @@ public class List_MonAn implements dataB {
         System.out.println("Da them mon an thanh cong ");
     }
 
-    public void themloaisp(int loai) {
-        if (loai == 1) {
-            ThucAn ta = new ThucAn();
-            ta.nhap();
-            ds = Arrays.copyOf(ds, ds.length + 1);
-            ds[ds.length - 1] = ta;
-            n++;
-        } else if (loai == 2) {
-            NuocUong nu = new NuocUong();
-            nu.nhap();
-            ds = Arrays.copyOf(ds, ds.length + 1);
-            ds[ds.length - 1] = nu;
-            n++;
-        } else {
-            System.out.println("Loai san pham khong hop le!");
-
+    public void themloaisp() {
+        ds = Arrays.copyOf(ds, ds.length + 1);
+        for (int i = 0; i < ds.length; i++) {
+            String temp;
+            int temT;
+            do {
+                temT = 1;
+                System.out.println("\nNhap mon an so " + (i + 1) + " :");
+                System.out.println("T. THUC AN");
+                System.out.println("U. NUOC UONG");
+                temp = sc.nextLine();
+                if (temp.toUpperCase().contains("T")) {
+                    ds[i] = new ThucAn();
+                } else if (temp.toUpperCase().contains("U")) {
+                    ds[i] = new NuocUong();
+                } else {
+                    temT = 0;
+                }
+            } while (temT != 1);
+            ds[i].nhap();
         }
         tuDongCapNhatFile();
         System.out.println("Da them mon an thanh cong ");
@@ -355,11 +363,9 @@ public class List_MonAn implements dataB {
                 System.out.println("San pham can xoa: ");
                 ds[i].xuat();
                 System.out.println();
-                // Dich chuyen ob
                 for (int j = i; j < ds.length - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
-                // Giam kich thuoc cua Array
                 ds = Arrays.copyOf(ds, ds.length - 1);
                 System.out.println("Da xoa thanh cong ");
                 found = true;

@@ -30,21 +30,7 @@ public class Menu_MonAn extends Menu_Main {
                     DSMA.xuat();
                     break;
                 case 3:
-                    int loai;
-                    do {
-                        System.out.println("Chon loai thuc an: ");
-                        System.out.println("1.Thuc An");
-                        System.out.println("2.Nuoc Uong");
-                        System.out.print("Loai: ");
-                        loai = sc.nextInt();
-                        sc.nextLine();
-                        if (loai != 1 && loai != 2) {
-                            System.out.println("Vui long chi chon 1 hay 2.");
-                        }
-
-                    } while (loai != 1 && loai != 2);
-                    DSMA.themloaisp(loai);
-                    DSMA.ghiFile(name);
+                    DSMA.themloaisp();
                     break;
                 case 4:
                     DSMA.docFile(name);

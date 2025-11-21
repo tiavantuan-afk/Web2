@@ -82,6 +82,7 @@ public class Menu_Main {
                 case 7:
                     QL = new Menu_Cook();
                     ChiaSeDuLieu(QL);
+                    QL.menu();
                     break;
                 case 8:
                     QL = new Menu_COMBO();
@@ -102,13 +103,16 @@ public class Menu_Main {
                     QL = new Menu_ncc();
                     ChiaSeDuLieu(QL);
                     QL.menu();
-
+                    break;
                 case 12:
                     QL = new Menu_Nguyenlieu();
                     ChiaSeDuLieu(QL);
                     QL.menu();
+                    break;
                 case 13:
-                    // QL = new Menu();
+                    QL = new ThongKe();
+                    ChiaSeDuLieu(QL);
+                    QL.menu();
                     break;
                 case 0:
                     System.out.println("Cam on ban da su dung chuong trinh!");
@@ -123,7 +127,7 @@ public class Menu_Main {
 
     private void docdulieuFile() {
         try {
-
+            DSCOOK.fileReader();
             DSNCC.docFile();
             DSPN.docFile();
             DSCTPN.docFile("src/data/List_CTPN.txt");
@@ -141,6 +145,7 @@ public class Menu_Main {
     }
 
     private void ChiaSeDuLieu(Menu_Main qlcon) {
+        qlcon.DSCOOK = this.DSCOOK;
         qlcon.DSPN = this.DSPN;
         qlcon.DSCTPN = this.DSCTPN;
         qlcon.DSHD = this.DSHD;

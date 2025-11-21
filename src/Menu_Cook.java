@@ -2,18 +2,19 @@ import java.util.*;
 
 public class Menu_Cook extends Menu_Main {
     private Scanner sc = new Scanner(System.in);
-    String name;
 
     @Override
     public void menu() {
         int chon;
+        int n;
         do {
             System.out.println("\n=== QUAN LY NAU AN ===");
-            System.out.println("1. Xem danh cong thuc nau an");
-            System.out.println("2. them");
-            System.out.println("3. Xoa phieu nhap");
-            System.out.println("4. Sua phieu nhap");
-            System.out.println("5. Tim kiem");
+            System.out.println("1. Cook");
+            System.out.println("2. xuat");
+            System.out.println("3. Them");
+            System.out.println("4. Xoa");
+            System.out.println("5. Sua");
+            System.out.println("6. Tim");
             System.out.println("0. Thoat");
             chon = Integer.parseInt(sc.nextLine());
 
@@ -23,22 +24,22 @@ public class Menu_Cook extends Menu_Main {
                     do {
                         System.out.print("Nhap ma cong thuc: ");
                         id = sc.nextLine();
-                        if (!DSCOOK.OneID(id)) {
-                            System.out.println("Ma cong thuc da ton tai! Vui long nhap lai.");
+                        if (!DSCOOK.TonTai(id)) {
+                            System.out.println("Ma cong thuc khong ton tai! Vui long nhap lai.");
                         }
-                    } while (!DSCOOK.OneID(id));
+                    } while (!DSCOOK.TonTai(id));
                     DSMA.CapNhatSoLuong(DSCOOK.getIDSP(id), 1);
-                    DSMA.ghiFile(name);
+                    DSMA.ghiFile("src/data/List_MonAn.txt");
                     String[] idnl = DSCOOK.getCNL(id);
-                    for (int i = 0; i < n; i++) {
+                    for (int i = 0; i < idnl.length; i++) {
                         DSNL.GiamSoLuong(idnl[i], 1);
                     }
                     DSNL.ghiFile();
-                case 1:
-                    DSCOOK.xuat();
                     break;
                 case 2:
-                    String id;
+                    DSCOOK.xuat();
+                    break;
+                case 3:
                     do {
                         System.out.print("Nhap ma cong thuc: ");
                         id = sc.nextLine();
@@ -55,37 +56,38 @@ public class Menu_Cook extends Menu_Main {
                         }
                     } while (!DSMA.TonTai(id));
                     System.out.println("nhap so luong nguyen: ");
-                    int n = sc.nextInt();
+                    n = sc.nextInt();
                     sc.nextLine();
-                    String[] idnl = new String[n];
+                    String[] idnlt = new String[n];
                     for (int i = 0; i < n; i++) {
                         do {
                             System.out.println("nhap nguyen lieu thu " + (i + 1) + ":");
-                            idnl[i] = sc.nextLine();
-                            if (!DSNL.TonTai(idnl)) {
+                            idnlt[i] = sc.nextLine();
+                            if (!DSNL.TonTai(idnlt[i])) {
                                 System.out.println("ma nguyen lieu nay khong ton tai");
                             }
-                        } while (!DSNL.TonTai(idnl));
+                        } while (!DSNL.TonTai(idnlt[i]));
                     }
-                    DSCOOK.them(id, idsp, idnl);
-                    DSCOOK.fileWriterALL();
-                    break;
-                case 3:
-                    System.out.println("nhap chi tiet phieu nhap");
-                    String ID_nhap = sc.nextLine();
-                    DSPN.xoa(ID_nhap);
-                    DSPN.ghiFile();
-                    DSCOOK.xoaALL(ID_nhap);
+                    DSCOOK.them(id, idsp, idnlt);
                     DSCOOK.fileWriterALL();
                     break;
                 case 4:
-                    System.out.print("Nhap ma phieu can sua: ");
-                    DSPN.sua(sc.nextLine());
-                    DSPN.fileWriterALL();
+                    System.out.print("Nhập mã công thức cần xóa: ");
+                    String idXoa = sc.nextLine();
+                    DSCOOK.xoaALL(idXoa);
+                    DSCOOK.fileWriterALL();
+                    System.out.println("Đã xóa công thức " + idXoa);
                     break;
                 case 5:
-                    System.out.print("Nhap ma phieu can tim: ");
-                    DSPN.timkiem(sc.nextLine());
+                    System.out.print("Nhập mã công thức cần sửa: ");
+                    String idSua = sc.nextLine();
+                    DSCOOK.sua(idSua);
+                    DSCOOK.fileWriterALL();
+                    break;
+                case 6:
+                    System.out.print("Nhập mã công thức cần tìm: ");
+                    String idct = sc.nextLine();
+                    DSCOOK.timkiemTheoCongThuc(idct).xuat();
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh quan ly phieu nhap.");

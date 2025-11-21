@@ -50,8 +50,6 @@ public class Menu_KHO extends Menu_Main {
 					DSK.timkiemtheoma(maCanTim);
 					break;
 				case 8:
-					System.out.print("Nhap ten hang can tim: ");
-					String tenCanTim = sc.nextLine();
 					DSK.timkiemtheoten();
 					break;
 				case 9:

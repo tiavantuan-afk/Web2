@@ -1,4 +1,7 @@
+
 public class Menu_CTHD extends Menu_Main {
+    String name;
+
     @Override
     public void menu() {
         int chon = -1;
@@ -27,27 +30,27 @@ public class Menu_CTHD extends Menu_Main {
                     DSCTHD.suachitietmahd();
                     break;
                 case 4:
-                    String Mahd;
+                    String maHD;
                     do {
                         System.out.print("Nhap ma hoa don: ");
-                        Mahd = sc.nextLine();
-                        if (!DSHD.TonTai(Mahd)) {
+                        maHD = sc.nextLine();
+                        if (!DSHD.TonTai(maHD)) {
                             System.out.println("Ma hoa don khong ton tai! Vui long nhap lai.");
                         }
-                    } while (!DSHD.TonTai(Mahd));
-                    String Masp;
+                    } while (!DSHD.TonTai(maHD));
+                    String maSP;
                     do {
                         System.out.print("Nhap ma mon an: ");
-                        Masp = sc.nextLine();
-                        if (!DSMA.TonTai(Masp)) {
+                        maSP = sc.nextLine();
+                        if (!DSMA.TonTai(maSP)) {
                             System.out.println("Ma mon an khong ton tai! Vui long nhap lai.");
                         }
-                    } while (!DSMA.TonTai(Masp));
-                    DSCTHD.them(Mahd, Masp, DSMA.getdonGia(Masp));
-                    DSHD.capnhattongtien(Mahd, DSCTHD.Tinhtongtien(Mahd));
-                    DSMA.GiamSoLuong(Masp, DSCTHD.Soluongmon(Mahd, Masp));
+                    } while (!DSMA.TonTai(maSP));
+                    DSCTHD.them(maHD, maSP, DSMA.getdonGia(maSP));
+                    DSHD.capnhattongtien(maHD, DSCTHD.Tinhtongtien(maSP));
+                    DSMA.GiamSoLuong(maSP, DSCTHD.Soluongmon(maHD, maSP));
                     DSHD.ghiFile();
-                    DSMA.ghiFile();
+                    DSMA.ghiFile("src/data/List_MonAn.txt");
                     break;
                 case 5:
                     System.out.print("Nhap ma hoa don can xoa: ");
@@ -57,6 +60,7 @@ public class Menu_CTHD extends Menu_Main {
                 case 6:
                     DSCTHD.thongKeTongBanCuaSanPham();
                     break;
+
                 case 0:
                     System.out.println("Xong");
                     break;

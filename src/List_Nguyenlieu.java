@@ -8,40 +8,70 @@ import java.io.IOException;
 import java.util.Arrays;
 
 class List_Nguyenlieu {
-	Scanner sc = new Scanner(System.in);
+	private Nguyenlieu[] ds;
 	private int n;
-	private Nguyenlieu[] ds = new Nguyenlieu[100];
+	private Scanner sc = new Scanner(System.in);
 
-	public void nhap() {
-		System.out.print("Nhap n nguyen lieu: ");
-		n = sc.nextInt();
+	public List_Nguyenlieu() {
+		n = 0;
+		ds = new Nguyenlieu[0];
+	}
+
+	public void nhap(String maNL) {
+		System.out.print("Nhap so nguyen nguyen lieu: ");
 		sc.nextLine();
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < ds.length; i++) {
 			System.out.println("Nhap nguyen lieu thu: " + (i + 1));
 			ds[i] = new Nguyenlieu();
-			ds[i].nhap();
+			ds[i].nhap(maNL);
 		}
 	}
 
 	public void xuat() {
 		System.out.println("Danh sach nguyen lieu: ");
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < ds.length; i++) {
 			if (ds[i] != null)
 				ds[i].xuat();
 		}
 	}
 
 	// thêm một nguyen lieu
-	public void them() {
-		if (n >= ds.length) {
-			ds = java.util.Arrays.copyOf(ds, ds.length + 10);
-		}
+	public void them(Nguyenlieu nl) {
+		ds = Arrays.copyOf(ds, ds.length + 1);
+		ds[ds.length - 1] = nl;
+	}
 
-		Nguyenlieu nguyen = new Nguyenlieu();
-		nguyen.nhap();
-		ds[n] = nguyen;
-		n++;
-		System.out.println("Da them nguyen lieu thanh cong.");
+	public void them(String maNL) {
+		ds = Arrays.copyOf(ds, ds.length + 1);
+		Nguyenlieu x = new Nguyenlieu();
+		x.nhap(maNL);
+		ds[ds.length - 1] = x;
+		ghiFile();
+
+	}
+
+	public boolean TonTai(String maNL) {
+		if (maNL == null)
+			return false;
+		for (int i = 0; i < ds.length; i++) {
+			if (ds[i] != null && ds[i].getmaNL() != null &&
+					ds[i].getmaNL().equalsIgnoreCase(maNL)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean ONEID(String maNL) {
+		if (maNL == null)
+			return false;
+		for (int i = 0; i < ds.length; i++) {
+			if (ds[i] != null && ds[i].getmaNL() != null &&
+					ds[i].getmaNL().equalsIgnoreCase(maNL)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	// sửa nguyen lieu theo mã
@@ -253,7 +283,7 @@ class List_Nguyenlieu {
 
 	// Doc ghi file
 	public void docFile() {
-		try (BufferedReader br = new BufferedReader(new FileReader("data/List_Nguyenlieu.txt"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("src/data/List_Nguyenlieu.txt"))) {
 			String line;
 			ds = new Nguyenlieu[0];
 			n = 0;
@@ -296,9 +326,18 @@ class List_Nguyenlieu {
 		}
 	}
 
+	public Double getdonGia(String maNL) {
+		for (int i = 0; i < ds.length; i++) {
+			if (ds[i].getmaNL().equalsIgnoreCase(maNL)) {
+				return ds[i].getdongia();
+			}
+		}
+		return 0.0;
+	}
+
 	// ghi file
 	public void ghiFile() {
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/List_Nguyenlieu.txt"))) {
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/List_Nguyenlieu.txt"))) {
 			for (int i = 0; i < n; i++) {
 				if (ds[i] != null) {
 					bw.write(ds[i].maNL + "-" + ds[i].tenNL + "-" + ds[i].dongia + "-" + ds[i].SL + "\n");

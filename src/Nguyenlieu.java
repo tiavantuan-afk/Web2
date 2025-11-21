@@ -34,10 +34,8 @@ public class Nguyenlieu {
         }
     }
 
-    public void nhap() {
-
-        System.out.print("Ma nguyen lieu: ");
-        maNL = sc.nextLine();
+    public void nhap(String maNL) {
+        this.maNL = maNL;
 
         System.out.print("Ten nguyen lieu: ");
         tenNL = sc.nextLine();
@@ -63,6 +61,7 @@ public class Nguyenlieu {
     public void xuat() {
         System.out.println("Ma nguyen lieu: " + maNL);
         System.out.println("Ten nguyen lieu: " + tenNL);
+        System.out.println("So luong: " + SL);
         System.out.println("Don gia: " + dongia);
     }
 

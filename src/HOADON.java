@@ -49,7 +49,7 @@ public class HOADON {
     }
 
     public void xuat() {
-        System.out.printf("%-15s %-15s %-15s %-15s %-15d\n",
+        System.out.printf("%-15s %-15s %-15s %-15s %-15f%n",
                 Mahd, Manv, Makh, Ngay, Tongtien);
     }
 

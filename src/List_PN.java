@@ -9,15 +9,20 @@ import java.io.PrintWriter;
 
 public class List_PN {
     Scanner sc = new Scanner(System.in);
+    private Phieunhaphang[] ds;
     private int n;
-    private Phieunhaphang[] ds = new Phieunhaphang[100];
+
+    public List_PN() {
+        n = 0;
+        ds = new Phieunhaphang[0];
+    }
 
     public void nhap(String maPNH, double tongtien) {
         System.out.print("So luong phieu nhap hang: ");
         n = sc.nextInt();
         sc.nextLine();
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ds.length; i++) {
             System.out.println("Phieu nhap hang thu " + (i + 1) + ":");
             ds[i] = new Phieunhaphang();
             ds[i].nhap(maPNH, 0);
@@ -26,7 +31,7 @@ public class List_PN {
 
     public void xuat() {
         System.out.println("DANH SACH PHIEU NHAP HANG");
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ds.length; i++) {
             System.out.println(ds[i]);
         }
     }
@@ -47,6 +52,7 @@ public class List_PN {
                     x.setmaSP(t[1]);
                     x.setngay(t[2]);
                     x.setmaNcc((t[3]));
+                    x.settongtien(Double.parseDouble(t[4]));
                     ds = Arrays.copyOf(ds, ds.length + 1);
                     ds[ds.length - 1] = x;
                     System.out.println(
@@ -62,7 +68,7 @@ public class List_PN {
 
     public void ghiFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("src/data/List_PN.txt"))) {
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < ds.length; i++) {
                 if (ds[i] != null) {
                     writer.println(ds[i].toString());
                 }
@@ -76,12 +82,12 @@ public class List_PN {
     public boolean ONEID(String mapn) {
         if (mapn == null)
             return false;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null && ds[i].getmaPNH() != null && ds[i].getmaPNH().equalsIgnoreCase(mapn)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public boolean TonTai(String maSP) {
@@ -104,17 +110,12 @@ public class List_PN {
         }
     }
 
-    public void them(String maPNH) {
-        System.out.println("Them nha cung cap");
-        Phieunhaphang pnmoi = new Phieunhaphang();
-        System.out.println("Nhap ma: ");
-
-        pnmoi.nhap(maPNH, 0);
-        if (!ONEID(pnmoi.getmaPNH())) {
-            System.out.print("Ma nha cung cap" + pnmoi.getmaPNH() + "da ton tai");
-        }
+    public void them(String maPN) {
         ds = Arrays.copyOf(ds, ds.length + 1);
-        ds[ds.length - 1] = pnmoi;
+        Phieunhaphang temp = new Phieunhaphang();
+        temp.nhap(maPN, 0);
+        ds[ds.length - 1] = temp;
+        ghiFile();
     }
 
     public void thempn(Phieunhaphang x) {
@@ -163,7 +164,7 @@ public class List_PN {
         String macansua = sc.nextLine().trim();
 
         int v = -1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ds.length; i++) {
             if (ds[i] != null && ds[i].getmaPNH().equalsIgnoreCase(macansua)) {
                 v = i;
                 break;
@@ -257,7 +258,7 @@ public class List_PN {
         String[] ngaydadem = new String[100];
         int[] soLuong = new int[100];
         int dem = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < ds.length; i++) {
             String ho = ds[i].getngay();
             int index = -1;
             for (int j = 0; j < dem; j++) {

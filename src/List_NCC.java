@@ -16,8 +16,8 @@ public class List_NCC {
         System.out.print("Số lượng nhà cung cấp: ");
         n = sc.nextInt();
         sc.nextLine();
-        for(int i = 0;i < dsncc.length;i++){
-            System.out.print("Nhà cung cấp thứ " + (i+1) + "\n");
+        for (int i = 0; i < dsncc.length; i++) {
+            System.out.print("Nhà cung cấp thứ " + (i + 1) + "\n");
             dsncc[i] = new Nhacungcap();
             dsncc[i].nhap();
         }
@@ -26,7 +26,7 @@ public class List_NCC {
 
     public void xuat() {
         System.out.println("Danh sách nhà cung cấp");
-        for(int i = 0;i < dsncc.length; i++){
+        for (int i = 0; i < dsncc.length; i++) {
             dsncc[i].xuat();
         }
     }
@@ -41,7 +41,8 @@ public class List_NCC {
         }
         return false;
     }
-    public void timtheoma(String macantim){
+
+    public void timtheoma(String macantim) {
         boolean tim = false;
         for (int i = 0; i < dsncc.length; i++) {
             if (dsncc[i] != null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macantim)) {
@@ -86,30 +87,31 @@ public class List_NCC {
         dsncc = Arrays.copyOf(dsncc, dsncc.length + 1);
         dsncc[dsncc.length - 1] = nccmoi;
     }
-    public void xoatheoma(String macanxoa){
+
+    public void xoatheoma(String macanxoa) {
         boolean xoa = false;
-           for(int i =0;i<dsncc.length;i++){
-            if(dsncc[i] != null && dsncc[i].getmaNCC() != null &&  dsncc[i].getmaNCC().equalsIgnoreCase(macanxoa)){
+        for (int i = 0; i < dsncc.length; i++) {
+            if (dsncc[i] != null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macanxoa)) {
                 dsncc[i].xuat();
-                for (int j = i;j < dsncc.length -1;j++){
-                    dsncc[j] = dsncc[j+1];
+                for (int j = i; j < dsncc.length - 1; j++) {
+                    dsncc[j] = dsncc[j + 1];
                 }
-                dsncc = Arrays.copyOf(dsncc,dsncc.length-1);
+                dsncc = Arrays.copyOf(dsncc, dsncc.length - 1);
                 System.out.print("Xoa thanh cong");
                 xoa = true;
                 return;
             }
-           }
+        }
         if (!xoa) {
             System.out.println("Khong tim thay nha cung cap co ma " + macanxoa);
         }
     }
-    public void suatheoma(String macansua){
-        boolean sua = false;
-        for(int i = 0;i<dsncc.length;i++){
-            if(dsncc[i] !=null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macansua)){
+
+    public void suatheoma(String macansua) {
+        for (int i = 0; i < dsncc.length; i++) {
+            if (dsncc[i] != null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macansua)) {
                 int chon;
-                do { 
+                do {
                     System.out.println("1.Sua ma");
                     System.out.println("2.Sua ho");
                     System.out.println("3.Sua ten");
@@ -118,7 +120,7 @@ public class List_NCC {
                     System.out.println("0. Thoat");
                     chon = sc.nextInt();
                     sc.nextLine();
-                    switch(chon){
+                    switch (chon) {
                         case 1:
                             String mamoi = sc.nextLine();
                             dsncc[i].setmaNCC(mamoi);

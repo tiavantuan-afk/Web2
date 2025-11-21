@@ -3,7 +3,7 @@ public class Menu_PN extends Menu_Main {
     public void menu() {
         int chon = -1;
         do {
-            System.out.println("\nMENU CTPN");
+            System.out.println("\nMENU PN");
             System.out.println("1. Xuat danh sach");
             System.out.println("2. Them theo ma");
             System.out.println("3. Tim theo ma");
@@ -36,15 +36,33 @@ public class Menu_PN extends Menu_Main {
                     sc.nextLine();
                     for (int i = 0; i < n; i++) {
                         String maSP;
+                        boolean temp = true;
                         do {
-                            System.out.print("Nhap ma sp: ");
+                            System.out.print("Nhap ma mon an: ");
                             maSP = sc.nextLine();
-                            if (!DSPN.TonTai(maSP)) {
-                                System.out.println("Khong ton tai san pham nay: ");
+                            temp = true;
+                            if (!DSNL.TonTai(maSP) && maSP.contains("NL")) {
+                                System.out.println("Ma mon an khong ton tai! Vui long nhap lai.");
+                                temp = false;
+                            } else if (!DSMA.TonTai(maSP) && maSP.contains("NU")) {
+                                System.out.println("Ma mon an khong ton tai! Vui long nhap lai.");
+                                temp = false;
                             }
-                        } while (!DSPN.TonTai(maSP));
-
+                        } while (!temp);
+                        if (maSP.contains("NL")) {
+                            DSCTPN.them(maPNH, maSP, DSNL.getdonGia(maSP));
+                            DSNL.CapNhatSoLuong(maSP, DSCTPN.Soluongmon(maPNH, maSP));
+                            DSNL.ghiFile();
+                        } else if (maSP.contains("NU")) {
+                            DSCTPN.them(maPNH, maSP, DSMA.getdonGia(maSP));
+                            DSMA.CapNhatSoLuong(maSP, DSCTPN.Soluongmon(maPNH, maSP));
+                            DSMA.ghiFile("src/data/List_MonAn.txt");
+                        }
+                        DSCTPN.ghiFile();
                     }
+                    DSPN.capnhattongtien(maPNH, DSCTPN.Tinhtongtien(maPNH));
+                    DSPN.ghiFile();
+                    break;
                 case 3:
                     System.out.print("Nhập mã phiếu nhập cần tìm: ");
                     String maTim = sc.nextLine();

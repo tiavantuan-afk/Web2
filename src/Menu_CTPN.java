@@ -25,25 +25,38 @@ public class Menu_CTPN extends Menu_Main {
                 case 2:
                     String maPNH;
                     do {
-                        System.out.print("Nhap ma hoa don: ");
+                        System.out.print("Nhap ma  phieu nhap: ");
                         maPNH = sc.nextLine();
-                        if (!DSMA.TonTai(maPNH)) {
-                            System.out.println("Ma hoa don khong ton tai! Vui long nhap lai.");
+                        if (!DSNL.TonTai(maPNH)) {
+                            System.out.println("Ma phieunhap khong ton tai! Vui long nhap lai.");
                         }
-                    } while (!DSMA.TonTai(maPNH));
+                    } while (!DSNL.TonTai(maPNH));
                     String maSP;
+                    boolean temp = true;
                     do {
                         System.out.print("Nhap ma mon an: ");
                         maSP = sc.nextLine();
-                        if (!DSMA.TonTai(maSP)) {
+                        temp = true;
+                        if (!DSNL.TonTai(maSP) && maSP.contains("NL")) {
                             System.out.println("Ma mon an khong ton tai! Vui long nhap lai.");
+                            temp = false;
+                        } else if (!DSMA.TonTai(maSP) && maSP.contains("NU")) {
+                            System.out.println("Ma mon an khong ton tai! Vui long nhap lai.");
+                            temp = false;
                         }
-                    } while (!DSMA.TonTai(maSP));
-                    DSCTPN.them(maPNH, maSP, DSMA.getdonGia(maSP), 0.0);
+                    } while (!temp);
+                    if (maSP.contains("NL")) {
+                        DSCTPN.them(maPNH, maSP, DSNL.getdonGia(maSP));
+                        DSNL.CapNhatSoLuong(maSP, DSCTPN.Soluongmon(maPNH, maSP));
+                        DSNL.ghiFile();
+                    } else if (maSP.contains("NU")) {
+                        DSCTPN.them(maPNH, maSP, DSMA.getdonGia(maSP));
+                        DSMA.CapNhatSoLuong(maSP, DSCTPN.Soluongmon(maPNH, maSP));
+                        DSMA.ghiFile("src/data/List_MonAn.txt");
+                    }
+                    DSCTPN.ghiFile();
                     DSPN.capnhattongtien(maPNH, DSCTPN.Tinhtongtien(maPNH));
-                    DSMA.CapNhatSoLuong(maSP, DSCTPN.Soluongmon(maPNH, maSP));
                     DSPN.ghiFile();
-                    DSMA.ghiFile(name);
                     break;
                 case 3:
                     timkiemVaHienThiKetQua();
@@ -58,7 +71,8 @@ public class Menu_CTPN extends Menu_Main {
                     DSCTPN.ghiFile();
                     break;
                 case 6:
-                    DSCTPN.thongketheongay();
+                    DSCTPN.thongkeThanhTien();
+                    ;
                     break;
 
                 case 0:

@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,19 +39,16 @@ public class List_Cook {
     }
 
     public void xuat() {
-        System.out.println("so luong cong thuc: " + ds.length);
+        System.out.println("===== DANH SÁCH CÔNG THỨC =====");
         for (int i = 0; i < ds.length; i++) {
-            ds[i].Xuat();
+            if (ds[i] != null) {
+                ds[i].Xuat();
+            }
         }
+        System.out.println("Tổng số công thức: " + ds.length);
     }
 
     public void fileReader() {
-        File f = new File("\"src/data/List_Cook.txt\"");
-        if (!f.exists()) {
-            System.out.println("File chưa tồn tại!");
-            return;
-        }
-
         try (BufferedReader br = new BufferedReader(new FileReader("src/data/List_Cook.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -60,17 +56,17 @@ public class List_Cook {
                 if (t.length >= 3) {
                     String[] temp = t[2].split("/");
                     cook a = new cook(t[0].trim(), t[1].trim(), temp);
-                    them(a);
+                    this.them(a);
                 }
             }
-            System.out.println("Doc file thanh cong (" + n + " NXB).");
+            System.out.println("Doc file thanh cong (" + ds.length + " CT).");
         } catch (IOException e) {
             System.out.println("Loi doc file: " + e.getMessage());
         }
     }
 
     public void fileWriterALL() {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/List_Cook.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/List_Cook.txt"))) {
             for (int i = 0; i < n; i++) {
                 bw.write(ds[i].toString());
                 bw.newLine();
@@ -96,19 +92,19 @@ public class List_Cook {
     public boolean TonTai(String ID_CT) {
         for (int i = 0; i < ds.length; i++) {
             if (ds[i].ID_CT.equalsIgnoreCase(ID_CT)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean OneID(String ID_CT) {
         for (int i = 0; i < ds.length; i++) {
             if (ds[i].ID_CT.equalsIgnoreCase(ID_CT)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public cook timkiemIDCT(String id) {
@@ -145,6 +141,20 @@ public class List_Cook {
             }
         }
         return null;
+    }
+
+    public void xoaALL(String ID_CT) {
+        int count = 0;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i].getID_CT().equalsIgnoreCase(ID_CT)) {
+                count++;
+                for (int j = i; j < ds.length - 1; j++) {
+                    ds[i] = ds[i + 1];
+                }
+            }
+            ds = Arrays.copyOf(ds, ds.length - count);
+            System.out.println("Da xoa chi tiet co ma sach " + ID_CT);
+        }
     }
 
     public void sua(String id) {
@@ -193,4 +203,15 @@ public class List_Cook {
             }
         }
     }
+
+    public List_Cook timkiemTheoCongThuc(String idct) {
+        List_Cook kq = new List_Cook();
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i].ID_CT != null && ds[i].ID_CT.equalsIgnoreCase(idct)) {
+                kq.them(ds[i]);
+            }
+        }
+        return kq;
+    }
+
 }

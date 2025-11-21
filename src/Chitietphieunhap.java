@@ -1,65 +1,70 @@
 import java.util.Scanner;
 
 public class Chitietphieunhap {
-    private Scanner sc = new Scanner(System.in);
-    private String maNH;
-    private String maSP;
-    private String ngay;
-    private int soluong;
-    private double dongia;
+    public Scanner sc = new Scanner(System.in);
+    public String maPNH;
+    public String maSP;
+
+    public int soluong;
+    public double dongia;
+    public double thanhtien;
 
     public Chitietphieunhap() {
-        maNH = "";
+        maPNH = "";
         maSP = "";
-        ngay = "";
         soluong = 0;
         dongia = 0;
+        thanhtien = 0.0;
     }
 
-    public Chitietphieunhap(String maNH, String maSP, String ngay, int soluong, double dongia) {
-        this.maNH = maNH;
+    public Chitietphieunhap(String maPNH, String maSP, String ngay, int soluong, double dongia, double thanhtien) {
+        this.maPNH = maPNH;
         this.maSP = maSP;
-        this.ngay = ngay;
         this.soluong = soluong;
         this.dongia = dongia;
+        this.thanhtien = thanhtien;
     }
 
     public Chitietphieunhap(Chitietphieunhap ct) {
-        this.maNH = ct.maNH;
+        this.maPNH = ct.maPNH;
         this.maSP = ct.maSP;
-        this.ngay = ct.ngay;
         this.soluong = ct.soluong;
         this.dongia = ct.dongia;
+        this.thanhtien = ct.thanhtien;
     }
 
-    // Nhập thông tin chi tiết phiếu nhập
-    // nhapMa = true nếu muốn nhập mã, false nếu giữ mã hiện có
-    public void nhap() {
-        System.out.print("Mã chi tiết nhập hàng: ");
-        maNH = sc.nextLine();
-        System.out.print("Mã chi tiết sản phẩm: ");
-        maSP = sc.nextLine();
-        System.out.print("Ngày nhập chi tiết sản phẩm: ");
-        ngay = sc.nextLine();
+    public void nhap(String maPNH, String maSP, double dongia) {
+        this.maPNH = maPNH;
+        this.maSP = maSP;
         System.out.print("Số lượng: ");
         soluong = Integer.parseInt(sc.nextLine());
-        System.out.print("Đơn giá: ");
-        dongia = Double.parseDouble(sc.nextLine());
+        this.dongia = dongia;
+        thanhtien = soluong * dongia;
     }
-    public void xuat(){
-        System.out.printf("%-8s %-15s %-10s %-20s %-10s\n", maNH, maSP, ngay,soluong,dongia );
+
+    public void xuat() {
+        System.out.println("\n╔══════════════════════════════════════════════╗");
+        System.out.println("║               THONG TIN PHIEU NHAP           ║");
+        System.out.println("╠══════════════════════════════════════════════╣");
+        System.out.printf("║ %-17s: %-25s ║%n", "Ma phieu nhap hang", maPNH);
+        System.out.printf("║ %-17s: %-25s ║%n", "Ma nhan vien", maSP);
+        System.out.printf("║ %-17s: %-25s ║%n", "So luong", soluong);
+        System.out.printf("║ %-17s: %-25.0f ║%n", "Ma nha cung cap", dongia);
+        System.out.printf("║ %-17s: %-25s ║%n", "Tong tien", thanhtien);
+        System.out.println("╚══════════════════════════════════════════════╝");
     }
+
+    public String toString() {
+        return maPNH + "-" + maSP + "-" + soluong + "-" + dongia + "-" + thanhtien;
+    }
+
     // Các getter và setter
-    public String getmaNH() {
-        return maNH;
+    public String getmaPNH() {
+        return maPNH;
     }
 
     public String getmaSP() {
         return maSP;
-    }
-
-    public String getngay() {
-        return ngay;
     }
 
     public int getsoluong() {
@@ -70,16 +75,16 @@ public class Chitietphieunhap {
         return dongia;
     }
 
-    public void setmaNH(String maNH) {
-        this.maNH = maNH;
+    public void setThanhtien(double x) {
+        this.thanhtien = x;
+    }
+
+    public void setmaPNH(String maPNH) {
+        this.maPNH = maPNH;
     }
 
     public void setmaSP(String maSP) {
         this.maSP = maSP;
-    }
-
-    public void setngay(String ngay) {
-        this.ngay = ngay;
     }
 
     public void setsoluong(int soluong) {
@@ -95,16 +100,4 @@ public class Chitietphieunhap {
         return soluong * dongia;
     }
 
-    // Chuẩn hóa xuất ra màn hình
-    @Override
-    public String toString() {
-        return maNH + " | Sản phẩm: " + maSP + " | Số lượng: " + soluong +
-                " | Ngày nhập: " + ngay + " | Đơn giá: " + dongia +
-                " | Thành tiền: " + thanhTien();
-    }
-
-    // Xuất ra file dễ đọc và đọc lại được
-    public String toFileString() {
-        return maNH + "-" + maSP + "-" + ngay + "-" + soluong + "-" + dongia;
-    }
 }

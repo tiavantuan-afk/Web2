@@ -105,7 +105,7 @@ class List_COMBO {
             case 1:
                 System.out.print("Nhap ma combo moi: ");
                 String maMoi = sc.nextLine();
-                ds[v].setMaSP(maSua);
+                ds[v].setMaSP(maMoi);
                 System.out.println("Da sua ma combo.");
                 break;
             case 2:
