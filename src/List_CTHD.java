@@ -44,9 +44,7 @@ class List_CTHD {
         }
     }
 
-    public void nhap() {
-        List_MonAn menu = new List_MonAn();
-        menu.docFile("src/data/List_MonAn.txt");
+    public void nhap(String Mahd, String Masp, double DG) {
         System.out.print("Nhap n: ");
         int n = sc.nextInt();
         sc.nextLine();

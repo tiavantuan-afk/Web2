@@ -77,13 +77,28 @@ public class ThongKe extends Menu_Main {
             }
         }
 
+<<<<<<< HEAD
         double[] giaTris = { tongGiaTriMonAn, tongLuongNV };
         for (int i = 0; i < giaTris.length; i++) {
             System.out.printf(/* format: */ "%-15s |", df.format(giaTris[i]));
         }
+=======
+        double tongGiaTriTK = 0;
+        cook[] dsTK = dsCook.getds();
+        for (int i = 0; i < dsTK.length; i++) {
+            if (dsTK[i] != null) {
+                tongGiaTriTK += dsTK[i].getSoLuongTon() * dsTK[i].getGiaNhap();
+            }
+        }
 
-        System.out.println("\n" +
-                "x: \"\\n---------------------------------------------------------------\"");
+    //     double[] giaTris = { tongGiaTriMonAn, tongLuongNV, tongGiaTriTK };
+    //     for (int i = 0; i < giaTris.length; i++) {
+    //         System.out.printf(/* format: */ "%-15s |", df.format(giaTris[i]));
+    //     }
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
+
+    //     System.out.println("\n" +
+    //             "x: \"\\n---------------------------------------------------------------\"");
     }
 
     private void thongKeQuy() {
@@ -94,7 +109,11 @@ public class ThongKe extends Menu_Main {
         System.out.printf(/* format: */ "%-11s | %-10s | %-10s | %-10s |%n", "Quy 1", "Quy 2", "Quy 3", "Quy 4");
 
         // Giả lập dữ liệu theo quý
+<<<<<<< HEAD
         String[] boPhan = { "Mon An", "Nhan Vien", "COMBO", "Nguyen lieu", "Kho" };
+=======
+        String[] boPhan = { "Mon An", "Nhan Vien", "Ton Kho", "COMBO", "Nguyen lieu", "Kho" };
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
         for (int i = 0; i < boPhan.length; i++) {
             double[] quy = new double[4];
 
@@ -114,11 +133,27 @@ public class ThongKe extends Menu_Main {
                         tongGiaTri += ds[j].getLuongCoBan() * 3; // 3 tháng/quý
                     }
                 }
+<<<<<<< HEAD
             } else if (i == 3) { // COMBO
                 COMBO[] dsCombo = DSC.getDs();
                 for (int j = 0; j < dsCombo.length; j++) {
                     if (dsCombo[j] != null) {
                         tongGiaTri += dsCombo[j].getGiaBan();
+=======
+            // } else { // Tồn kho
+            } else if (i == 2) { // Tồn kho
+                cook[] ds = dsCook.getds();
+                for (int j = 0; j < ds.length; j++) {
+                    if (ds[j] != null) {
+                        tongGiaTri += ds[j].getSoLuongTon() * ds[j].getGiaNhap();
+                    }
+                }
+            } else if (i == 3) { // COMBO
+                COMBO[] ds = dsCOMBO.getDs();
+                for (int j = 0; j < ds.length; j++) {
+                    if (ds[j] != null) {
+                        tongGiaTri += ds[j].getGiaNiemYet();
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
                     }
                 }
             } else if (i == 4) { // NGUYÊN LIỆU

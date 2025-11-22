@@ -42,7 +42,22 @@ public class List_NCC {
         return false;
     }
 
+<<<<<<< HEAD
     public void timtheoma(String macantim) {
+=======
+    public boolean OneDCNCC(String dcncc) {
+        if (dcncc == null)
+            return false;
+        for (int i = 0; i < dsncc.length; i++) {
+            if (dsncc[i] != null && dsncc[i].getdiachi() != null && dsncc[i].getdiachi().equalsIgnoreCase(dcncc)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void timtheoma(String macantim){
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
         boolean tim = false;
         for (int i = 0; i < dsncc.length; i++) {
             if (dsncc[i] != null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macantim)) {
@@ -88,7 +103,22 @@ public class List_NCC {
         dsncc[dsncc.length - 1] = nccmoi;
     }
 
+<<<<<<< HEAD
     public void xoatheoma(String macanxoa) {
+=======
+    public void themtheodiachi() {
+        System.out.println("Them nha cung cap");
+        Nhacungcap nccmoi = new Nhacungcap();
+        nccmoi.nhap();
+        if (!OneDCNCC(nccmoi.getdiachi())) {
+            System.out.print("Ma nha cung cap" + nccmoi.getdiachi() + "da ton tai");
+        }
+        dsncc = Arrays.copyOf(dsncc, dsncc.length + 1);
+        dsncc[dsncc.length - 1] = nccmoi;
+    }
+
+    public void xoatheoma(String macanxoa){
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
         boolean xoa = false;
         for (int i = 0; i < dsncc.length; i++) {
             if (dsncc[i] != null && dsncc[i].getmaNCC() != null && dsncc[i].getmaNCC().equalsIgnoreCase(macanxoa)) {

@@ -24,15 +24,22 @@ public class Menu_ncc extends Menu_Main {
                     DSNCC.xuat();
                     break;
                 case 3:
+<<<<<<< HEAD
                     System.out.print("Nhập mã cần tìm: ");
                     String maTim = sc.nextLine();
                     DSNCC.timtheoma(maTim);
+=======
+                    System.out.println("Tim nha cung cung cap theo ma: ");
+                    String macantim = sc.nextLine();
+                    DSNCC.timtheoma(macantim);
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
                     break;
                 case 4:
                     DSNCC.themtheoma();
                     DSNCC.ghiFile();
                     break;
                 case 5:
+<<<<<<< HEAD
                     System.out.print("Nhập mã cần xóa: ");
                     String maXoa = sc.nextLine();
                     DSNCC.xoatheoma(maXoa);
@@ -43,10 +50,26 @@ public class Menu_ncc extends Menu_Main {
                     String maSua = sc.nextLine();
                     DSNCC.suatheoma(maSua);
                     DSNCC.ghiFile();
+=======
+                    DSNCC.themtheodiachi();
+                    break;
+                case 6:
+                    System.out.println("Xoa nha cung cap theo ma: ");
+                    String macanxoa = sc.nextLine();
+                    DSNCC.xoatheoma(macanxoa);
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
                     break;
                 case 7:
                     DSNCC.thongketheohoncc();
                     break;
+<<<<<<< HEAD
+=======
+                case 8:
+                    System.out.print("Quay ve menu chinh");
+                    Menu_Main menuMain = new Menu_Main();
+                    menuMain.menu();
+
+>>>>>>> 4e619dfeb487896c40d396abaa9afe81f0b8c005
                 case 0:
                     System.out.println("Thoát");
                     return;
