@@ -114,6 +114,11 @@ public class List_NhanVien {
         System.out.println("Da them nhan vien moi ");
     }
 
+    public void them(NhanVien x) {
+        ds = Arrays.copyOf(ds, ds.length + 1);
+        ds[ds.length - 1] = x;
+    }
+
     public NhanVien[] getArray() {
         return ds;
     }
@@ -135,24 +140,26 @@ public class List_NhanVien {
         }
     }
 
-    public void timNVHo() {
-        if (ds.length == 0) {
-            System.out.println("Empty");
-            return;
-        }
-        boolean found = false;
-        System.out.println("Nhap ma can tim: ");
+    public NhanVien[] timKiemHo(String hoNV) {
+        int d = 0;
         for (int i = 0; i < ds.length; i++) {
-            if (ds[i] != null && ds[i].hoNV != null) {
-                System.out.println("Da tim thay san pham");
-                ds[i].xuat();
-                System.out.println();
-                found = true;
+            if (ds[i] != null && ds[i].hoNV.equalsIgnoreCase(hoNV)) {
+                d++;
             }
         }
-        if (!found) {
-            System.out.println("None");
+        if (d == 0) {
+            System.out.println("Không tìm thấy nhân viên có họ: " + hoNV);
+            return new NhanVien[0];
         }
+        NhanVien[] kq = new NhanVien[d];
+        int d1 = 0;
+        for (int i = 0; i < ds.length; i++) {
+            if (ds[i] != null && ds[i].hoNV.equalsIgnoreCase(hoNV)) {
+                kq[d1] = ds[i];
+                d1++;
+            }
+        }
+        return kq;
     }
 
     public void xoaMaNV(String maNV) {
@@ -166,7 +173,6 @@ public class List_NhanVien {
                 for (int j = i; j < ds.length - 1; j++) {
                     ds[j] = ds[j + 1];
                 }
-
                 ds = Arrays.copyOf(ds, ds.length - 1);
                 System.out.println("Da xoa ma thanh cong ");
                 found = true;
@@ -380,4 +386,5 @@ public class List_NhanVien {
             System.out.println("Loi parse du lieu: " + e.getMessage());
         }
     }
+
 }

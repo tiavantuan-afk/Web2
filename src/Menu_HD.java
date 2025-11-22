@@ -65,6 +65,7 @@ public class Menu_HD extends Menu_Main {
                 case 6:
                     DSHD.thongKeDoanhThu();
                     break;
+
                 case 0:
                     System.out.println("Xong");
                     break;

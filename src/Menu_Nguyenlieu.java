@@ -52,8 +52,6 @@ public class Menu_Nguyenlieu extends Menu_Main {
 					String maCanTim = sc.nextLine();
 					DSNL.timkiemtheoma(maCanTim);
 				case 7:
-					System.out.print("Nhap ten can tim: ");
-					String tenCanTim = sc.nextLine();
 					DSNL.timkiemtheoten();
 					break;
 				case 9:

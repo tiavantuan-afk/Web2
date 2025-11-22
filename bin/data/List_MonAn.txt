@@ -11,5 +11,5 @@ T-MA006-Hu Tieu-32000.0-10-true-false-true
 N-NU005-Red Bull-20000.0-10-false-true-true-false
 T-MA007-Chao Ga-22000.0-12-true-true-false
 N-NU006-Trà Đào-17000.0-16-true-false-false-true
-T-MA008-Banh Canh-25000.0-1-true-true-true
-N-NU007-Sua Tuoi-12000.0-30-false-false-false-true
+T-MA008-Banh Canh-25000.0-0-true-true-true
+N-NU007-Sua Tuoi-12000.0-0-false-false-false-true

@@ -191,7 +191,6 @@ public class List_MonAn implements dataB {
             System.out.println("Danh sach empty");
             return;
         }
-
         System.out.print("Nhap ma san pham can sua: ");
         String maSP = sc.nextLine();
 

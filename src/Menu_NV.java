@@ -34,7 +34,6 @@ public class Menu_NV extends Menu_Main {
                     DSNV.them();
                     DSNV.ghiFile();
                     break;
-
                 case 4:
                     DSNV.suaNV();
                     DSNV.ghiFile();
@@ -46,19 +45,20 @@ public class Menu_NV extends Menu_Main {
                     DSNV.ghiFile();
                     break;
                 case 6:
-
                     System.out.print("Nhap ma nhan vien can tim: ");
                     String maCanTim = sc.nextLine();
                     DSNV.timNVMa(maCanTim);
                     DSNV.ghiFile();
                     break;
-                case 7:
-                    DSNV.timNVHo();
-                    break;
+                // case 7:
+                // System.out.print("Nhap ho nhan vien can tim: ");
+                // String hoCanTim = sc.nextLine();
+                // DSNV.timKiemHo(hoCanTim);
+                // DSNV.ghiFile();
+                // break;
                 case 8:
                     DSNV.ThongKeLuongCoBan();
                     break;
-
                 case 0:
                     System.out.println("Cam on, hen gap lai ");
                     break;
