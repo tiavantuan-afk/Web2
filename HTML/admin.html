@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý</title>
+  <link rel="stylesheet" href="../CSS/admin.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Quản Lý</h2>
+      <nav>
+        <ul>
+          <li><a href="#users">Người dùng</a></li>
+          <li><a href="#categories">Loại sản phẩm</a></li>
+          <li><a href="#products">Danh mục sản phẩm</a></li>
+          <li><a href="#import">Nhập sản phẩm</a></li>
+          <li><a href="#price">Giá bán</a></li>
+          <li><a href="#orders">Đơn hàng</a></li>
+          <li><a href="#stock">Tồn kho</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <!-- Người dùng -->
+      <section id="users" class="module">
+        <h2>Quản lý khách hàng</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Họ tên</th>
+              <th>Email</th>
+              <th>Điện thoại</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>Mở</td>
+              <td>
+                <button class="btn edit-btn">Reset</button>
+                <button class="btn save-btn">Mở</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>Khóa</td>
+              <td>
+                <button class="btn edit-btn">Reset</button>
+                <button class="btn save-btn">Mở</button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>Khóa</td>
+              <td>
+                <button class="btn edit-btn">Reset</button>
+                <button class="btn save-btn">Mở</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Loại sản phẩm -->
+      <section id="categories" class="module">
+        <h2>Quản lý loại sản phẩm</h2>
+        <form class="form">
+          <input type="text" placeholder="Tên loại sản phẩm">
+          <textarea placeholder="Mô tả"></textarea>
+          <button type="submit">Thêm / Sửa</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên loại</th>
+              <th>Mô tả</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <label for="edit-1" class="btn edit-btn">Sửa</label>
+                <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-1" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            
+            <tr>
+              <td>2</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <label for="edit-2" class="btn edit-btn">Sửa</label>
+
+                <button class="btn delete-btn">Xóa</button>
+                <div class="modal">
+                <div class="modal-content">
+                <h3>Chỉnh sửa loại sản phẩm</h3>
+                <form>
+                <label>Tên loại sản phẩm</label>
+                <input type="text" value="--">
+                <label>Mô tả</label>
+                <textarea>--</textarea>
+                <div class="modal-actions">
+                <button type="submit" class="btn save-btn">Lưu</button>
+                <label for="edit-2" class="btn cancel-btn">Hủy</label>
+                </div>
+                </form>
+                </div>
+            </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-3" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-3" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-4" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-4" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-5" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-5" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-6" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-6" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>--</td>
+              <td>--</td>
+             <td>
+  <!-- Nút sửa -->
+  <label for="edit-7" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-7" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-8" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-8" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>--</td>
+              <td>--</td>
+             <td>
+  <!-- Nút sửa -->
+  <label for="edit-9" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-9" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+  <!-- Nút sửa -->
+  <label for="edit-10" class="btn edit-btn">Sửa</label>
+
+  <!-- Nút xóa -->
+  <button class="btn delete-btn">Xóa</button>
+
+  <!-- Modal popup -->
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Chỉnh sửa loại sản phẩm</h3>
+      <form>
+        <label>Tên loại sản phẩm</label>
+        <input type="text" value="--">
+
+        <label>Mô tả</label>
+        <textarea>--</textarea>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn save-btn">Lưu</button>
+          <label for="edit-10" class="btn cancel-btn">Hủy</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Danh mục sản phẩm -->
+      <section id="products" class="module">
+        <h2>Danh mục sản phẩm</h2>
+        <form class="form">
+          <input type="text" placeholder="Mã sản phẩm">
+          <input type="text" placeholder="Tên sản phẩm">
+          <input type="text" placeholder="Loại sản phẩm">
+          <input type="file">
+          <textarea placeholder="Mô tả"></textarea>
+          <button type="submit">Thêm / Sửa</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <table>
+  <thead>
+    <tr>
+      <th>Mã</th>
+      <th>Tên</th>
+      <th>Loại</th>
+      <th>Mô tả</th>
+      <th>Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Dòng 1 -->
+    <tr>
+      <td>SP01</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-1" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+</td>
+      </tr>
+
+    <!-- Dòng 2 -->
+    <tr>
+      <td>SP02</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-2" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 3 -->
+    <tr>
+      <td>SP03</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+       <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 4 -->
+    <tr>
+      <td>SP04</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 5 -->
+    <tr>
+      <td>SP05</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 6 -->
+    <tr>
+      <td>SP06</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 7 -->
+    <tr>
+      <td>SP07</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 8 -->
+    <tr>
+      <td>SP08</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+       <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 9 -->
+    <tr>
+      <td>SP09</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+        <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-toggle" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-toggle" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-toggle" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+      </td>
+    </tr>
+
+    <!-- Dòng 10 -->
+    <tr>
+      <td>SP10</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+      <td>
+       <!-- Checkbox ẩn để điều khiển modal -->
+<input type="checkbox" id="edit-10" class="dm-modal-toggle" />
+
+<!-- Nút sửa -->
+<label for="edit-10" class="edit-btn">Sửa</label>
+
+<!-- Modal -->
+<div class="dm-modal">
+  <div class="dm-modal-content">
+    <h3>Sửa thông tin</h3>
+    <div class="dm-modal-row">
+      <label>Tên:</label>
+      <input type="text" placeholder="Nhập tên" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Loại:</label>
+      <input type="Loại" placeholder="Nhập loại" value="--">
+    </div>
+    <div class="dm-modal-row">
+      <label>Mô tả:</label>
+      <textarea placeholder="Nhập mô tả"></textarea>
+    </div>
+    <div class="dm-actions">
+      <label for="edit-10" class="btn-cancel">Hủy</label>
+      <button class="btn-save">Lưu</button>
+    </div>
+  </div>
+</div>
+
+    </tr>
+  </tbody>
+</table>
+
+      </section>
+
+      <!-- Nhập sản phẩm -->
+      <section id="import" class="module">
+        <h2>Nhập sản phẩm</h2>
+        <form class="form">
+          <input type="date">
+          <input type="text" placeholder="Mã sản phẩm">
+          <input type="number" placeholder="Số lượng">
+          <input type="number" placeholder="Giá nhập">
+          <button type="submit">Thêm phiếu nhập</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Mã phiếu</th>
+              <th>Ngày nhập</th>
+              <th>Mã SP</th>
+              <th>Số lượng</th>
+              <th>Giá nhập</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PN01</td>
+              <td>--</td>
+              <td>SP01</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN02</td>
+              <td>--</td>
+              <td>SP02</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN03</td>
+              <td>--</td>
+              <td>SP03</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+            </td>
+            </tr>
+            <tr>
+              <td>PN04</td>
+              <td>--</td>
+              <td>SP04</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN05</td>
+              <td>--</td>
+              <td>SP05</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN06</td>
+              <td>--</td>
+              <td>SP06</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN07</td>
+              <td>--</td>
+              <td>SP07</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN08</td>
+              <td>--</td>
+              <td>SP08</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN09</td>
+              <td>--</td>
+              <td>SP09</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+            <tr>
+              <td>PN10</td>
+              <td>--</td>
+              <td>SP10</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Sửa</button>
+                <button class="btn save-btn">Hoàn tất</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Giá bán -->
+      <section id="price" class="module">
+        <h2>Quản lý giá bán</h2>
+        <form class="form">
+          <input type="text" placeholder="Loại sản phẩm">
+          <input type="number" placeholder="% lợi nhuận">
+          <button type="submit">Cập nhật</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Loại</th>
+              <th>Giá vốn</th>
+              <th>% Lợi nhuận</th>
+              <th>Giá bán</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Đơn hàng -->
+      <section id="orders" class="module">
+        <h2>Đơn đặt hàng</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Mã đơn</th>
+              <th>Khách hàng</th>
+              <th>Ngày đặt</th>
+              <th>Tổng tiền</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DH01</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Cập nhật</button>
+              </td>
+            </tr>
+            <tr>
+              <td>DH02</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Cập nhật</button>
+              </td>
+            </tr>
+            <tr>
+              <td>DH03</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <button class="btn edit-btn">Cập nhật</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Tồn kho -->
+      <section id="stock" class="module">
+        <h2>Tồn kho sản phẩm</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Mã SP</th>
+              <th>Tên SP</th>
+              <th>Loại</th>
+              <th>Nhập</th>
+              <th>Xuất</th>
+              <th>Tồn</th>
+              <th>Cảnh báo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SP01</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP02</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP03</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP04</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP05</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP06</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP07</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP08</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP09</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>SP10</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
