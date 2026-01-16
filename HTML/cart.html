@@ -57,33 +57,37 @@
         </div>
       </div>
     </div>
-    <section class="dssp">
-      <header>
-        <h4>Danh sách sản phẩm</h4>
-      </header>
-      <main>
-        <section class="sanpham" id="sanpham "></section>
-      </main>
-    </section>
+    <div class="container">
+      <section class="dssp">
+        <header>
+          <h2>Danh sách sản phẩm <small id="count">(0)</small></h2>
+        </header>
+        <main>
+          <section class="sanpham" id="sanpham "></section>
+        </main>
+      </section>
+      <!-- Ô thanh toán -->
+      <aside class="thanhtoan">
+        <h2>
+          Giỏ hàng
+          <small id="count" style="color: var(--muted); font-weight: 600"
+            >(0)</small
+          >
+        </h2>
+        <div class="thanhtoan-list" id="thanhtoan-list"></div>
+        <div class="totals">
+          <div><span>Tạm tính</span><span id="subtotal">0₫</span></div>
+          <div><span>Phí vận chuyển</span><span id="shipping">0₫</span></div>
+          <div style="font-weight: 700">
+            <span>Tổng</span><span id="total">0₫</span>
+          </div>
+        </div>
+        <div class="checkout">
+          <button class="btn" id="checkout">Mua hàng</button>
+          <button class="btn ghost" id="clear">Xóa giỏ</button>
+        </div>
+      </aside>
+    </div>
   </body>
   <script src="web.js"></script>
 </html>
-<!-- Ô thanh toán -->
-<!-- <aside class = "thanhtoan">
-                        <h2>Giỏ hàng
-                        <small id="count" style="color: var(--muted); font-weight: 600"
-                            >(0)</small>
-                        </h2>
-                        <div class="thanhtoan-list" id="thanhtoan-list"></div>
-                        <div class="totals">
-                        <div><span>Tạm tính</span><span id="subtotal">0₫</span></div>
-                        <div><span>Phí vận chuyển</span><span id="shipping">0₫</span></div>
-                        <div style="font-weight: 700">
-                            <span>Tổng</span><span id="total">0₫</span>
-                        </div>
-                        </div>
-                        <div class="checkout">
-                        <button class="btn" id="checkout">Mua hàng</button>
-                        <button class="btn ghost" id="clear">Xóa giỏ</button>
-                        </div>
-                    </aside> -->
