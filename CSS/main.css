@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
 }
 
 .main-header {
@@ -83,18 +83,42 @@ body {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 5px 10px;
+    border-radius: 25px;
+    padding: 8px 15px;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.search-box:hover {
+    border-color: #bbb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box:focus-within {
+    border-color: #999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     background-color: white;
 }
 
 .search-box input {
     border: none;
     outline: none;
-    padding: 5px;
-    width: 150px;
+    padding: 5px 8px;
+    flex: 1;
     font-size: 13px;
-    background-color: #f5f5f5;
+    background-color: transparent;
+    color: #333;
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.search-box input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.search-box input:focus {
+    background-color: transparent;
 }
 
 .search-box button {
@@ -102,6 +126,14 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    color: #999;
+    transition: color 0.3s;
+    padding: 0 5px;
+    flex-shrink: 0;
+}
+
+.search-box button:hover {
+    color: #333;
 }
 
 .icon {
@@ -188,4 +220,32 @@ body {
 
 .dot.active {
     background-color: #fff;
+}
+
+.banner-section {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    position: relative;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 5;
 }

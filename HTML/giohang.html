@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán đơn hàng</title>
+  <link rel="stylesheet" href="../CSS/giohang.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Thanh toán</h1>
+
+  <div class="layout">
+
+    <div class="left">
+      <h2>Địa chỉ giao hàng</h2>
+      
+       <label>Địa chỉ có sẵn</label>
+      <select id="saved-address" onchange="fillAddress()">
+        <option value="">-- Chọn địa chỉ có sẵn --</option>
+        <option value="Nguyễn Văn A|0987654321|123 Lê Lợi|Phường 5|Quận 3|TP. Hồ Chí Minh">
+          Nguyễn Văn A - 123 Lê Lợi, Phường 5, Quận 3, TP.HCM
+        </option>
+        <option value="Trần Thị B|0912345678|56 Nguyễn Huệ|Phường Bến Nghé|Quận 1|TP. Hồ Chí Minh">
+          Trần Thị B - 56 Nguyễn Huệ, P. Bến Nghé, Q1, TP.HCM
+        </option>
+      </select>
+      <br><br>
+      <label>Họ và tên</label>
+      <input type="text" placeholder="Nhập họ tên người nhận" required>
+
+      <label>Số điện thoại</label>
+      <input type="text" placeholder="Nhập số điện thoại" required>
+
+      <label>Địa chỉ</label>
+      <input type="text" placeholder="Số nhà, tên đường" required>
+
+      <label>Phường/Xã</label>
+      <input type="text" placeholder="Phường/Xã" required>
+
+      <label>Quận/Huyện</label>
+      <input type="text" placeholder="Quận/Huyện" required>
+
+      <label>Tỉnh/Thành phố</label>
+      <input type="text" placeholder="Tỉnh/Thành phồ" required>
+    </div>
+
+    <div class="right">
+
+      <div class="cart-box">
+        <h2>Đơn hàng của bạn</h2>
+        <table>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>SL</th>
+            <th>Giá</th>
+          </tr>
+          <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2"><strong>Tổng tiền</strong></td>
+            <td><strong>--</strong></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="payment-box">
+        <h2>Phương thức thanh toán</h2>
+
+        <label><input type="radio" name="payment" checked> Thanh toán khi nhận hàng (COD)</label>
+        <label><input type="radio" name="payment"> Chuyển khoản ngân hàng</label>
+        <label><input type="radio" name="payment"> Thanh toán Online</label>
+      </div>
+
+      <a href="thanhtoan.html" class="btn-order">Xác nhận đặt hàng</a>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
