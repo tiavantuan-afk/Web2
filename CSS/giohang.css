@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.container {
+  background: #fff;
+  width: 900px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Bố cục 2 cột */
+.layout {
+  display: flex;
+  gap: 25px;
+}
+
+/* Cột trái */
+.left {
+  width: 55%;
+}
+
+.left input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Cột phải */
+.right {
+  width: 45%;
+}
+
+.cart-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-box table th,
+.cart-box table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Thanh toán */
+.payment-box label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Nút đặt hàng */
+.btn-order {
+  width: 100%;
+  padding: 12px;
+  background: #ff4b2b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background: #e63e1e;
+}
+
+/* ----- ĐỊA CHỈ CÓ SẴN ----- */
+#saved-address {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+
+  font-size: 15px;
+  color: #333;
+
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#saved-address:hover {
+  border-color: #888;
+}
+
+#saved-address:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+/* Label phía trên */
+.left label {
+  font-weight: 600;
+  margin: 8px 0 4px;
+  display: block;
+}
+.success-box {
+  width: 500px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.success-box h1 {
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.btn-back:hover {
+  background: #444;
+}
+.btn-order {
+  display: inline-block;
+  text-align: center;
+  padding: 12px 20px;
+  background: #ec0c0c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background: #ec0c0c;
+}
