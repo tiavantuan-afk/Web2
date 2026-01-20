@@ -11,13 +11,15 @@ body {
 }
 /* section class giohang */
 .giohang {
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   gap: 5px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 /* div class giohang3bk */
@@ -80,9 +82,19 @@ body {
   padding: 0 20px;
   align-items: flex-start;
 }
+
 .dssp {
   flex: 1;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
+.selectall {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  align-items: center;
+}
+
 header {
   grid-column: 1/-1;
   margin-top: 10px;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
@@ -58,16 +58,21 @@
       </div>
     </div>
     <div class="container">
-      <section class="dssp">
+      <div class="dssp">
         <header>
           <h2>Danh sách sản phẩm <small id="count">(0)</small></h2>
         </header>
+        <div class="selectall">
+          <input type="checkbox" id="select-all">
+            <label for="select-all"><h3>Chọn tất cả</label>
+          </input>
+        </div>
         <main>
           <section class="sanpham" id="sanpham "></section>
         </main>
-      </section>
+      </div>
       <!-- Ô thanh toán -->
-      <aside class="thanhtoan">
+      <!-- <aside class="thanhtoan">
         <h2>
           Giỏ hàng
           <small id="count" style="color: var(--muted); font-weight: 600"
@@ -86,7 +91,7 @@
           <button class="btn" id="checkout">Mua hàng</button>
           <button class="btn ghost" id="clear">Xóa giỏ</button>
         </div>
-      </aside>
+      </aside> -->
     </div>
   </body>
   <script src="web.js"></script>
