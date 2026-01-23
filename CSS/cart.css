@@ -88,11 +88,30 @@ body {
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
+/* Ô chọn tất cả */
 .selectall {
   display: flex;
   align-items: center;
   margin-left: 40px;
   align-items: center;
+}
+
+.selectall input[type="checkbox"] {
+  margin-right: 25px;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.text-h3 {
+  font-size: 1.17em;
+  color: black;
+  cursor: pointer;
 }
 
 header {
